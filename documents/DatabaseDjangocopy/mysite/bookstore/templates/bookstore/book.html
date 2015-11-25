@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Database Bookstore</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+			    <div class="navbar-header">
+			    	<a class="navbar-brand" href="/bookstore/">
+		      		  Le Bookstore
+		     		</a>
+			    </div>
+			    <form class="navbar-form navbar-left">
+				  <div class="input-group">
+			  		<input type="text" class="form-control" placeholder="J.K Rowling, The Da Vinci Code...">
+				    <span class="input-group-btn">
+				        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+				    </span>
+				  </div>
+				</form>
+				<button type="button" class="btn btn-success navbar-btn navbar-right">Sign in</button>
+			</div>
+		</nav>
+		
+		<div class="row">
+			<div class = "col-md-4">
+				<img src="http://placehold.it/250x400" alt="..." class="img-thumbnail">
+			</div>
+			<div class = "col-md-6">
+				<h1>{{book.title}}</h1>
+				<h3>Author Name:</h3>
+				<h6>Publisher:</h6>
+				<h6>ISBN:</h6>
+			</div>
+			<div class = "col-md-2">
+				<h1>$36.99</h1>
+				<h5>Average Rating:</h5>
+				<div>
+					<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+					<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+				</div>
+				<hr>
+				<h5>Select Quantity:</h5>
+				<select class="form-control">
+				  <option>1</option>
+				  <option>2</option>
+				  <option>3</option>
+				  <option>4</option>
+				  <option>5</option>
+				</select>
+				<button class="btn btn-primary">Add to Cart</button>
+			</div>
+		</div>
+		<br>
+		<div class="well">
+
+				<div class="row">
+					<div class="col-lg-1">
+						<select class="form-control">
+							<option>5</option>
+							<option>10</option>
+							<option>15</option>
+							<option>20</option>
+							<option>All</option>
+						</select>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-md-12">
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star-empty"></span>
+						anonymous
+						<span class="pull-right">50 
+							<button type="button" class="btn btn-default btn-circle btn-sm">+0</button>
+							<button type="button" class="btn btn-warning btn-circle btn-sm">+1</button>
+							<button type="button" class="btn btn-danger btn-circle btn-sm">+2</button>
+						</span>
+
+						<p>this product was great in terms of quality. i would definitely buy another!</p>
+					</div>
+				</div> <!--row-->
+				<hr>
+				<div class="row">
+					<div class="col-md-12">
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star-empty"></span>
+						anonymous
+						<span class="pull-right">50 
+							<button type="button" class="btn btn-default btn-circle btn-sm">+0</button>
+							<button type="button" class="btn btn-warning btn-circle btn-sm">+1</button>
+							<button type="button" class="btn btn-danger btn-circle btn-sm">+2</button>
+						</span>
+						<p>i've alredy ordered another one!</p>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-md-12">
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star-empty"></span>
+						anonymous
+						<span class="pull-right">50 
+							<button type="button" class="btn btn-default btn-circle btn-sm">+0</button>
+							<button type="button" class="btn btn-warning btn-circle btn-sm">+1</button>
+							<button type="button" class="btn btn-danger btn-circle btn-sm">+2</button>
+						</span>
+						<p>i've seen some better than this, but not at this price. i definitely recommend this item.</p>
+					</div>
+				</div>
+				</br>
+				<div class="row">
+					<div class="col-md-12">
+						<a class="btn btn-success">leave a review</a>
+					</div>
+				</div>
+			</div><!--well-->
+	</div><!--container-->
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+</body>
+</html>

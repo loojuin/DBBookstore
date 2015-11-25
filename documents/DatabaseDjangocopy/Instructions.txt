@@ -1,0 +1,6 @@
+Instructions: 
+enter into mysite folder
+cmd: python manage.py runserver
+browser: http://127.0.0.1:8000/admin/login/?next=/admin/
+username: databasesutd
+password: databasesutd

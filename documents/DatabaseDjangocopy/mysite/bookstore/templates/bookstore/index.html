@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Database Bookstore</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+			    <div class="navbar-header">
+			    	<a class="navbar-brand" href="#">
+		      		  Le Bookstore
+		     		</a>
+			    </div>
+			    <form class="navbar-form navbar-left">
+				  <div class="input-group">
+			  		<input type="text" class="form-control" placeholder="J.K Rowling, The Da Vinci Code...">
+				    <span class="input-group-btn">
+				        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+				    </span>
+				  </div>
+				</form>
+				<button type="button" class="btn btn-success navbar-btn navbar-right">Sign in</button>
+			</div>
+		</nav>
+		
+		<div class="row">
+		{% for book in booklist %}
+		  <div class="col-sm-6 col-md-3">
+		    <div class="thumbnail">
+		      <img src="http://placehold.it/150x250" alt="...">
+		      <div class="caption">
+		        <a href="/bookstore/{{book.isbn}}"><h3>{{book.title}}</h3></a>
+		        <p>Here goes a description of the book limited to some short string length. The user will have to click more to view more...</p>
+		        <p><a href="#" class="btn btn-primary" role="button">Buy Now</a> 
+		        	<a href="/bookstore/{{book.isbn}}" class="btn btn-default" role="button">More Info</a></p>
+		      </div>
+		    </div>
+		  </div>
+		{% endfor %}
+		</div>
+	</div>
+</body>
+</html>
