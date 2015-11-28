@@ -1,27 +1,212 @@
 
 [
 {
-  "model": "bookstore.customer",
-  "pk": "john",
+  "model": "bookstore.Book",
+  "pk": "978-0451524935",
   "fields": {
-  	"pwd":"johnny123",
-  	"surname":"han",
-  	"given_name":"john",
-  	"credit_card":"9999999aa",
-  	"address":"8 sompah road",
-  	"phoneno":999999
+  	"title":"1984 (Signet Classics)",
+  	"desc":"Written in 1948, 1984 was George Orwell’s chilling prophecy about the future. And while 1984 has come and gone, Orwell’s narrative is timelier than ever. 1984 presents a startling and haunting vision of the world, so powerful that it is completely convincing from start to finish. No one can deny the power of this novel, its hold on the imaginations of multiple generations of readers, or the resiliency of its admonitions—a legacy that seems only to grow with the passage of time.",
+    "author":"George Orwell",
+    "frmt":"S",
+    "publisher":"Signet Classic",
+    "yr":1961,
+    "price": 8.25,
+    "copies" : 2
+
   }
 },
 {
-  "model": "bookstore.customer",
-  "pk": "betty",
+  "model": "bookstore.Book",
+  "pk": "978-0553380163",
   "fields": {
-  	"pwd":"betty123",
-  	"surname":"tan",
-  	"given_name":"betty",
-  	"credit_card":"1111aa",
-  	"address":"8 sompah road",
-  	"phoneno":11111
+    "title":"A Brief History of Time",
+    "desc":"A landmark volume in science writing by one of the great minds of our time, Stephen Hawking’s book explores such profound questions as: How did the universe begin—and what made its start possible? Does time always flow forward? Is the universe unending—or are there boundaries? Are there other dimensions in space? What will happen when it all ends? Told in language we all can understand, A Brief History of Time plunges into the exotic realms of black holes and quarks, of antimatter and “arrows of time,” of the big bang and a bigger God—where the possibilities are wondrous and unexpected. With exciting images and profound imagination, Stephen Hawking brings us closer to the ultimate secrets at the very heart of creation.",
+    "author":"Stephen Hawking",
+    "frmt":"S",
+    "publisher":"Bantam",
+    "yr":1998,
+    "price": 10.17,
+    "copies" : 2
+
+  }
+},
+{
+  "model": "bookstore.Book",
+  "pk": "978-0375725784",
+  "fields": {
+    "title":"A Heartbreaking Work of Staggering Genius ",
+    "desc":"The literary sensation of the year, a book that redefines both family and narrative for the twenty-first century. A Heartbreaking Work of Staggering Genius is the moving memoir of a college senior who, in the space of five weeks, loses both of his parents to cancer and inherits his eight-year-old brother. Here is an exhilarating debut that manages to be simultaneously hilarious and wildly inventive as well as a deeply heartfelt story of the love that holds a family together.",
+    "author":"Dave Eggers",
+    "frmt":"S",
+    "publisher":"Vintage",
+    "yr":2001,
+    "price": 10.36,
+    "copies" : 2
+
+  }
+},
+{
+  "model": "bookstore.Book",
+  "pk": "978-0312367558",
+  "fields": {
+    "title":"A Wrinkle in Time (A Wrinkle in Time Quintet) ",
+    "desc":"A Wrinkle in Time, winner of the Newbery Medal in 1963, is the story of the adventures in space and time of Meg, Charles Wallace, and Calvin O'Keefe (athlete, student, and one of the most popular boys in high school). They are in search of Meg's father, a scientist who disappeared while engaged in secret work for the government on the tesseract problem.",
+    "author":"Madeleine L'Engle",
+    "frmt":"S",
+    "publisher":"Square Fish",
+    "yr":2007,
+    "price": 6.63,
+    "copies" : 2
+  }
+},
+{
+  "model": "bookstore.Book",
+  "pk": "978-0679766742",
+  "fields": {
+    "title":"Selected Stories, 1968-1994",
+    "desc":"Spanning almost thirty years and settings that range from big cities to small towns and farmsteads of rural Canada, this magnificent collection brings together twenty-eight stories by a writer of unparalleled wit, generosity, and emotional power. In her Selected Stories, Alice Munro makes lives that seem small unfold until they are revealed to be as spacious as prairies and locates the moments of love and betrayal, desire and forgiveness, that change those lives forever. To read these stories--about a traveling salesman and his children on an impromptu journey; an abandoned woman choosing between seduction and solitude--is to succumb to the spell of a writer who enchants her readers utterly even as she restores them to their truest selves.",
+    "author":"Alice Munro",
+    "frmt":"S",
+    "publisher":"Vintage",
+    "yr":1997,
+    "price": 11.22,
+    "copies" : 2
+  }
+},
+{
+  "model": "bookstore.Book",
+  "pk": "978-0553213454",
+  "fields": {
+    "title":"Alice's Adventures in Wonderland & Through the Looking-Glass",
+    "desc":"In 1862 Charles Lutwidge Dodgson, a shy Oxford mathematician with a stammer, created a story about a little girl tumbling down a rabbit hole. Thus began the immortal adventures of Alice, perhaps the most popular heroine in English literature. Countless scholars have tried to define the charm of the Alice books–with those wonderfully eccentric characters the Queen of Hearts, Tweedledum, and Tweedledee, the Cheshire Cat, Mock Turtle, the Mad Hatter et al.–by proclaiming that they really comprise a satire on language, a political allegory, a parody of Victorian children’s literature, even a reflection of contemporary ecclesiastical history. Perhaps, as Dodgson might have said, Alice is no more than a dream, a fairy tale about the trials and tribulations of growing up–or down, or all turned round–as seen through the expert eyes of a child.",
+    "author":"Lewis Carroll",
+    "frmt":"H",
+    "publisher":"Bantam Classics",
+    "yr":1984,
+    "price": 12.59,
+    "copies" : 2
+  }
+},
+{
+  "model": "bookstore.Book",
+  "pk": "978-0385739863",
+  "fields": {
+    "title":"Are You There God? It's Me, Margaret.",
+    "desc":"Margaret Simon, almost twelve, likes long hair, tuna fish, the smell of rain, and things that are pink. She's just moved from New York City to Farbrook, New Jersey, and is anxious to fit in with her new friends -- Nancy, Gretchen, and Janie. When they form a secret club to talk about private subjects like boys, bras, and getting their first periods, Margaret is happy to belong. But none of them can believe Margaret doesn't have a religion, and that she isn't joining the Y or the Jewish Community Center. What they don't know is that Margaret has her own special relationship with God. She can talk to God about everything -- family, friends, even Philip Leroy, the best-looking boy in sixth grade.",
+    "author":"Judy Blume",
+    "frmt":"H",
+    "publisher":"Delacorte Books for Young Readers",
+    "yr":2010,
+    "price": 13.73,
+    "copies" : 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-1400033416",
+  "fields": {
+    "title": "Beloved",
+    "desc":"Staring unflinchingly into the abyss of slavery, this spellbinding novel transforms history into a story as powerful as Exodus and as intimate as a lullaby. Sethe, its protagonist, was born a slave and escaped to Ohio, but eighteen years later she is still not free. She has too many memories of Sweet Home, the beautiful farm where so many hideous things happened. And Sethe’s new home is haunted by the ghost of her baby, who died nameless and whose tombstone is engraved with a single word: Beloved. Filled with bitter poetry and suspense as taut as a rope, Beloved is a towering achievement.",
+    "author": "Toni Morrison",
+    "frmt": "S",
+    "publisher": "Vintage",
+    "yr": 2004,
+    "price": 9.21,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0810993136",
+  "fields": {
+    "title": "Diary of a Wimpy Kid, Book 1",
+    "desc":"Author/illustrator Jeff Kinney recalls the growing pains of school life and introduces a new kind of hero who epitomizes the challenges of being a kid. As Greg says in his diary, “Just don’t expect me to be all ‘Dear Diary’ this and ‘Dear Diary’ that.” Luckily for us, what Greg Heffley says he won’t do and what he actually does are two very different things.",
+    "author": "Jeff Kinney",
+    "frmt": "H",
+    "publisher": "Amulet Books",
+    "yr": 2007,
+    "price": 8.37,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0441013593",
+  "fields": {
+    "title": "Dune, 40th Anniversary Edition (Dune Chronicles, Book 1)",
+    "desc":"Here is the novel that will be forever considered a triumph of the imagination. Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, who would become the mysterious man known as Muad'Dib. He would avenge the traitorous plot against his noble family--and would bring to fruition humankind's most ancient and unattainable dream.",
+    "author": "Frank Herbert",
+    "frmt": "S",
+    "publisher": "Ace",
+    "yr": 2005,
+    "price": 11.34,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-1451673319",
+  "fields": {
+    "title": "Fahrenheit 451: A Novel",
+    "desc":"Guy Montag is a fireman. In his world, where television rules and literature is on the brink of extinction, firemen start fires rather than put them out. His job is to destroy the most illegal of commodities, the printed book, along with the houses in which they are hidden. Montag never questions the destruction and ruin his actions produce, returning each day to his bland life and wife, Mildred, who spends all day with her television “family.” But then he meets an eccentric young neighbor, Clarisse, who introduces him to a past where people didn’t live in fear and to a present where one sees the world through the ideas in books instead of the mindless chatter of television. When Mildred attempts suicide and Clarisse suddenly disappears, Montag begins to question everything he has ever known. He starts hiding books in his home, and when his pilfering is discovered, the fireman has to run for his life.",
+    "author": "Ray Bradbury",
+    "frmt": "S",
+    "publisher": "Simon & Schuster",
+    "yr": 2012,
+    "price": 7.68,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0393061314",
+  "fields": {
+    "title": "Guns, Germs, and Steel: The Fates of Human Societies",
+    "desc":"Winner of the Pulitzer Prize, Guns, Germs, and Steel is a brilliant work answering the question of why the peoples of certain continents succeeded in invading other continents and conquering or displacing their peoples. ",
+    "author": "Jared Diamond",
+    "frmt": "H",
+    "publisher": "W. W. Norton & Company",
+    "yr": 2005,
+    "price": 18.28,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0395927205",
+  "fields": {
+    "title": "Interpreter of Maladies",
+    "desc":"Navigating between the Indian traditions they've inherited and the baffling new world, the characters in Jhumpa Lahiri's elegant, touching stories seek love beyond the barriers of culture and generations. In 'A Temporary Matter', published in The New Yorker, a young Indian-American couple faces the heartbreak of a stillborn birth while their Boston neighborhood copes with a nightly blackout. In the title story, an interpreter guides an American family through the India of their ancestors and hears an astonishing confession. Lahiri writes with deft cultural insight reminiscent of Anita Desai and a nuanced depth that recalls Mavis Gallant. She is an important and powerful new voice.",
+    "author": "Jhumpa Lahiri",
+    "frmt": "S",
+    "publisher": "Mariner Books",
+    "yr": 1999,
+    "price": 8.60,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0679732761",
+  "fields": {
+    "title": "Invisible Man",
+    "desc":"The nameless narrator of the novel describes growing up in a black community in the South, attending a Negro college from which he is expelled, moving to New York and becoming the chief spokesman of the Harlem branch of 'the Brotherhood', and retreating amid violence and confusion to the basement lair of the Invisible Man he imagines himself to be. The book is a passionate and witty tour de force of style, strongly influenced by T.S. Eliot's The Waste Land, Joyce, and Dostoevsky.",
+    "author": "Ralph Ellison",
+    "frmt": "H",
+    "publisher": "Vintage International",
+    "yr": 1995,
+    "price": 9.13,
+    "copies": 2
   }
 }
+
+
+
+
+
+
+
+
 ]
+
+
