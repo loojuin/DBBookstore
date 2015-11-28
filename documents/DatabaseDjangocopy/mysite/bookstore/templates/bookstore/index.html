@@ -39,8 +39,8 @@
 		    	<br>
 			    <img src="http://placehold.it/150x250" alt="...">
 			    <div class="caption">
-			        <a href="/bookstore/{{book.isbn}}"><h3>{{book.title}}</h3></a>
-			        <p>Here goes a description of the book limited to some short string length. The user will have to click more to view more...</p>
+			        <a href="/bookstore/{{book.isbn}}"><h4>{{book.title|truncatechars:25}}</h4></a>
+			        <p>{{book.desc|truncatechars:200}}</p>
 			        <p><a href="#" class="btn btn-primary" role="button">Buy Now</a> 
 			        	<a href="/bookstore/{{book.isbn}}" class="btn btn-default" role="button">More Info</a></p>
 			    </div>
@@ -48,6 +48,44 @@
 		  </div>
 		{% endfor %}
 		</div>
+
+		<nav class="text-center">
+		  <ul class="pagination">
+			{% if booklist.has_previous %}
+		    <li>
+		      <a href="?page={{ booklist.previous_page_number }}" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+		    {% else %}
+		    <li class="disabled">
+		      <a href="#" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+		    {% endif %}
+		    {% for pagenum in pagerange %}
+		 		{% if pagenum == booklist.number %}
+					<li class="active"><a href="?page={{ pagenum }}">{{pagenum}}</a></li>
+				{% else %}
+		 			<li><a href="?page={{ pagenum }}">{{pagenum}}</a></li>
+		 		{% endif %}
+		    {% endfor %}
+		    {% if booklist.has_next %}
+		    <li>
+		      <a href="?page={{ booklist.next_page_number }}" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+		    {% else %}
+		    <li class="disabled">
+		      <a href="#" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+		    {% endif %}
+		  </ul>
+		</nav>
 	</div>
 </body>
 </html>

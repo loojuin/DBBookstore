@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import RequestContext, loader
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Book
 from .models import Customer
@@ -10,10 +11,21 @@ def index(request):
 # Create your views here.
 
 def all_books(request):
-	booklist = Book.objects.all()
+	books = Book.objects.all()
+	paginator = Paginator(books, 4)
+	pagerange = paginator.page_range
+	page = request.GET.get('page')
+	try:
+		booklist = paginator.page(page)
+	except PageNotAnInteger:
+		booklist = paginator.page(1)
+	except EmptyPage:
+		booklist = paginator.page(paginator.num_pages)
+
 	template = loader.get_template('bookstore/index.html')
 	context = RequestContext(request, {
 		'booklist': booklist,
+		'pagerange': pagerange,
 		})
 	return HttpResponse(template.render(context))
 
