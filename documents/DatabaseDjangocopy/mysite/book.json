@@ -1,40 +1,6 @@
 [
 {
   "model": "bookstore.book",
-  "pk": "12221133225555",
-  "fields": {
-    "title": "Freakonomics",
-    "desc": null,
-    "img": null,
-    "author": null,
-    "frmt": null,
-    "publisher": null,
-    "yr": null,
-    "sbj": null,
-    "keywords": null,
-    "price": null,
-    "copies": 0
-  }
-},
-{
-  "model": "bookstore.book",
-  "pk": "12224445521151",
-  "fields": {
-    "title": "Da Vinci Code",
-    "desc": null,
-    "img": null,
-    "author": null,
-    "frmt": null,
-    "publisher": null,
-    "yr": null,
-    "sbj": null,
-    "keywords": null,
-    "price": null,
-    "copies": 0
-  }
-},
-{
-  "model": "bookstore.book",
   "pk": "1245-2252-4442",
   "fields": {
     "title": "Palindrome",
@@ -52,36 +18,19 @@
 },
 {
   "model": "bookstore.book",
-  "pk": "1552-1225-4456",
+  "pk": "978-0143120285",
   "fields": {
-    "title": "Harry Potter ",
-    "desc": null,
+    "title": "On the Road",
+    "desc": "Jack Kerouac's groundbreaking novel\u2014soon to be a major motion picture with a star-studded cast.In what is sure to be one of the major cinematic events of 2012, Jack Kerouac's legendary Beat classic, On the Road, will finally hit the big screen. Directed by Walter Salles (The Motorcycle Diaries; Paris, Je T'Aime) and with a cast of some of Hollywood's biggest stars, including Kristen Stewart (The Twilight Saga), Sam Riley, Garrett Hedlund, Kirsten Dunst, Amy Adams (Julie & Julia, The Fighter), Tom Sturridge, and Viggo Mortensen (the Lord of the Rings trilogy, The Road), the film will attract new fans who will be inspired by Kerouac's revolutionary masterwork.",
     "img": null,
-    "author": null,
-    "frmt": null,
-    "publisher": null,
-    "yr": null,
+    "author": "Jack Kerouac",
+    "frmt": "S",
+    "publisher": "Penguin Books",
+    "yr": 2012,
     "sbj": null,
     "keywords": null,
-    "price": null,
-    "copies": 0
-  }
-},
-{
-  "model": "bookstore.book",
-  "pk": "2441-2444-2411",
-  "fields": {
-    "title": "Lord of the Rings",
-    "desc": null,
-    "img": null,
-    "author": null,
-    "frmt": null,
-    "publisher": null,
-    "yr": null,
-    "sbj": null,
-    "keywords": null,
-    "price": null,
-    "copies": 0
+    "price": 11.63,
+    "copies": 2
   }
 },
 {
@@ -115,6 +64,23 @@
     "sbj": null,
     "keywords": null,
     "price": 6.63,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0312421274",
+  "fields": {
+    "title": "The Corrections",
+    "desc": "After almost fifty years as a wife and mother, Enid Lambert is ready to have some fun. Unfortunately, her husband, Alfred, is losing his sanity to Parkinson's disease, and their children have long since flown the family nest to the catastrophes of their own lives. The oldest, Gary, a once-stable portfolio manager and family man, is trying to convince his wife and himself, despite clear signs to the contrary, that he is not clinically depressed. The middle child, Chip, has lost his seemingly secure academic job and is failing spectacularly at his new line of work. And Denise, the youngest, has escaped a disastrous marriage only to pour her youth and beauty down the drain of an affair with a married man-or so her mother fears. Desperate for some pleasure to look forward to, Enid has set her heart on an elusive goal: bringing her family together for one last Christmas at home.",
+    "img": null,
+    "author": "Jonathan Franzen",
+    "frmt": "S",
+    "publisher": "Picador",
+    "yr": 2002,
+    "sbj": null,
+    "keywords": null,
+    "price": 9.32,
     "copies": 2
   }
 },
@@ -154,6 +120,40 @@
 },
 {
   "model": "bookstore.book",
+  "pk": "978-0375714573",
+  "fields": {
+    "title": "Persepolis: The Story of a Childhood ",
+    "desc": "Wise, funny, and heartbreaking, Persepolis is Marjane Satrapi\u2019s memoir of growing up in Iran during the Islamic Revolution. In powerful black-and-white comic strip images, Satrapi tells the story of her life in Tehran from ages six to fourteen, years that saw the overthrow of the Shah\u2019s regime, the triumph of the Islamic Revolution, and the devastating effects of war with Iraq. The intelligent and outspoken only child of committed Marxists and the great-granddaughter of one of Iran\u2019s last emperors, Marjane bears witness to a childhood uniquely entwined with the history of her country.",
+    "img": null,
+    "author": "Marjane Satrapi",
+    "frmt": "S",
+    "publisher": "Pantheon",
+    "yr": 2004,
+    "sbj": null,
+    "keywords": null,
+    "price": 10.53,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0375725609",
+  "fields": {
+    "title": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America",
+    "desc": "Erik Larson\u2014author of #1 bestseller In the Garden of Beasts\u2014intertwines the true tale of the 1893 World's Fair and the cunning serial killer who used the fair to lure his victims to their death. Combining meticulous research with nail-biting storytelling, Erik Larson has crafted a narrative with all the wonder of newly discovered history and the thrills of the best fiction.",
+    "img": null,
+    "author": "Erik Larson",
+    "frmt": "S",
+    "publisher": "Vintage",
+    "yr": 2004,
+    "sbj": null,
+    "keywords": null,
+    "price": 9.04,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
   "pk": "978-0375725784",
   "fields": {
     "title": "A Heartbreaking Work of Staggering Genius ",
@@ -166,6 +166,40 @@
     "sbj": null,
     "keywords": null,
     "price": 10.36,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0385333849",
+  "fields": {
+    "title": "Slaughterhouse-Five",
+    "desc": "Slaughterhouse-Five, an American classic, is one of the world\u2019s great antiwar books. Centering on the infamous firebombing of Dresden, Billy Pilgrim\u2019s odyssey through time reflects the mythic journey of our own fractured lives as we search for meaning in what we fear most.",
+    "img": null,
+    "author": "Kurt Vonnegut",
+    "frmt": "S",
+    "publisher": "Dial Press Trade Paperback",
+    "yr": 1999,
+    "sbj": null,
+    "keywords": null,
+    "price": 8.75,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0385490818",
+  "fields": {
+    "title": "The Handmaid's Tale",
+    "desc": "In the world of the near future, who will control women's bodies? Offred is a Handmaid in the Republic of Gilead. She may leave the home of the Commander and his wife once a day to walk to food markets whose signs are now pictures instead of words because women are no longer allowed to read. She must lie on her back once a month and pray that the Commander makes her pregnant, because in an age of declining births, Offred and the other Handmaids are only valued if their ovaries are viable. Offred can remember the days before, when she lived and made love with her husband Luke; when she played with and protected her daughter; when she had a job, money of her own, and access to knowledge. But all of that is gone now....",
+    "img": null,
+    "author": "Margaret Atwood",
+    "frmt": "S",
+    "publisher": "Anchor",
+    "yr": 1998,
+    "sbj": null,
+    "keywords": null,
+    "price": 8.65,
     "copies": 2
   }
 },
@@ -341,6 +375,40 @@
 },
 {
   "model": "bookstore.book",
+  "pk": "978-0743270755",
+  "fields": {
+    "title": "Team of Rivals: The Political Genius of Abraham Lincoln",
+    "desc": "This brilliant multiple biography is centered on Lincoln's mastery of men and how it shaped the most significant presidency in the nation's history.",
+    "img": null,
+    "author": "Doris Kearns Goodwin",
+    "frmt": "S",
+    "publisher": "Simon & Schuster",
+    "yr": 2006,
+    "sbj": null,
+    "keywords": null,
+    "price": 12.85,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0743273565",
+  "fields": {
+    "title": "The Great Gatsby",
+    "desc": "The story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan, of lavish parties on Long Island at a time when The New York Times noted \u201cgin was the national drink and sex the national obsession,\u201d it is an exquisitely crafted tale of America in the 1920s.",
+    "img": null,
+    "author": "F. Scott Fitzgerald",
+    "frmt": "S",
+    "publisher": "Scribner",
+    "yr": 2004,
+    "sbj": null,
+    "keywords": null,
+    "price": 8.49,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
   "pk": "978-0810993136",
   "fields": {
     "title": "Diary of a Wimpy Kid, Book 1",
@@ -404,6 +472,23 @@
     "sbj": null,
     "keywords": null,
     "price": 7.68,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-1594483295",
+  "fields": {
+    "title": "The Brief Wondrous Life of Oscar Wao",
+    "desc": "Oscar is a sweet but disastrously overweight ghetto nerd who\u2014from the New Jersey home he shares with his old world mother and rebellious sister\u2014dreams of becoming the Dominican J.R.R. Tolkien and, most of all, finding love. But Oscar may never get what he wants. Blame the fuk\u00fa\u2014a curse that has haunted Oscar\u2019s family for generations, following them on their epic journey from Santo Domingo to the USA. Encapsulating Dominican-American history, The Brief Wondrous Life of Oscar Wao opens our eyes to an astonishing vision of the contemporary American experience and explores the endless human capacity to persevere\u2014and risk it all\u2014in the name of love.",
+    "img": null,
+    "author": "Junot D\u00edaz",
+    "frmt": "S",
+    "publisher": "Riverhead Books",
+    "yr": 2008,
+    "sbj": null,
+    "keywords": null,
+    "price": 9.07,
     "copies": 2
   }
 }
