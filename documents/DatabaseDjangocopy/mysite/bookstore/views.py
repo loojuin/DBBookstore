@@ -28,3 +28,8 @@ def login(request):
 	template = loader.get_template('bookstore/login.html')
 	context = None
 	return HttpResponse(template.render(context))
+
+def register(request):
+	template = loader.get_template('bookstore/register.html')
+	context = None
+	return HttpResponse(template.render(context))
