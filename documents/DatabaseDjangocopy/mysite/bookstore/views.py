@@ -26,31 +26,29 @@ def book(request, book_id):
 	return HttpResponse(template.render(context))
 
 def login(request):
-	template = loader.get_template('bookstore/login.html')
-	context = None
-	return HttpResponse(template.render(context))
+	    errors = []
+	    if 'pw' and 'userid' in request.GET:
+	        userid=request.GET['userid']
+	        pw = request.GET['pw']
+
+	        if not userid:
+	            errors.append('Enter a username.')
+
+	        elif not pw: 
+	            errors.append('Enter password.')
+
+	        elif len(pw) > 20:
+	            errors.append('Please enter at most 20 characters.')
+
+	        else:
+	            validuser = Customer.objects.filter(login_name=userid ,pwd=pw)
+	            user=Customer.objects.filter(login_name=userid)
+	            return render(request, 'bookstore/post_login.html', {'user':user,'validuser': validuser, 'query': userid})
+
+	    return render(request, 'bookstore/login.html', {'errors': errors})
 
 def register(request):
 	template = loader.get_template('bookstore/register.html')
 	context = None
 	return HttpResponse(template.render(context))
 
-def functionlog(request):
-    errors = []
-    if 'r' and 'q' in request.GET:
-        q=request.GET['q']
-        r = request.GET['r']
-        if not q:
-            errors.append('Enter a username.')
-        elif not r: 
-            errors.append('Enter password.')
-        elif len(r) > 20:
-            errors.append('Please enter at most 20 characters.')
-        else:
-
-            validuser = Customer.objects.filter(login_name=q ,pwd=r)
-            user=Customer.objects.filter(login_name=q)
-            return render(request, 'bookstore/login_results.html',
-                {'user':user,'validuser': validuser, 'query': q})
-    return render(request, 'bookstore/login_form.html',
-        {'errors': errors})
