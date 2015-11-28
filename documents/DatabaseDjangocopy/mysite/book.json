@@ -52,6 +52,23 @@
 },
 {
   "model": "bookstore.book",
+  "pk": "978-0307743657",
+  "fields": {
+    "title": "The Shining",
+    "desc": "Jack Torrance\u2019s new job at the Overlook Hotel is the perfect chance for a fresh start. As the off-season caretaker at the atmospheric old hotel, he\u2019ll have plenty of time to spend reconnecting with his family and working on his writing. But as the harsh winter weather sets in, the idyllic location feels ever more remote . . . and more sinister. And the only one to notice the strange and terrible forces gathering around the Overlook is Danny Torrance, a uniquely gifted five-year-old.",
+    "img": null,
+    "author": "Stephen King",
+    "frmt": "S",
+    "publisher": "Anchor",
+    "yr": 2012,
+    "sbj": null,
+    "keywords": null,
+    "price": 4.82,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
   "pk": "978-0312367558",
   "fields": {
     "title": "A Wrinkle in Time (A Wrinkle in Time Quintet) ",
@@ -98,6 +115,23 @@
     "sbj": null,
     "keywords": null,
     "price": 10.4,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0345418012",
+  "fields": {
+    "title": "The World According to Garp",
+    "desc": "This is the life and times of T. S. Garp, the bastard son of Jenny Fields, a feminist leader ahead of her time. This is the life and death of a famous mother and her almost-famous son; theirs is a world of sexual extremes, even of sexual assassinations. It is a novel rich with lunacy and sorrow, yet the dark, violent events of the story do not undermine a comedy both ribald and robust. In more than thirty languages, in more than forty countries\u2013with more than ten million copies in print\u2013this novel provides almost cheerful, even hilarious evidence of its famous last line: 'In the world according to Garp, we are all terminal cases.'",
+    "img": null,
+    "author": "John Irving",
+    "frmt": "S",
+    "publisher": "Ballantine Books",
+    "yr": 1997,
+    "sbj": null,
+    "keywords": null,
+    "price": 11.52,
     "copies": 2
   }
 },
@@ -239,6 +273,40 @@
 },
 {
   "model": "bookstore.book",
+  "pk": "978-0394720241",
+  "fields": {
+    "title": "The Power Broker: Robert Moses and the Fall of New York",
+    "desc": "One of the most acclaimed books of our time, winner of both the Pulitzer and the Francis Parkman prizes, The Power Broker tells the hidden story behind the shaping (and mis-shaping) of twentieth-century New York (city and state) and makes public what few have known: that Robert Moses was, for almost half a century, the single most powerful man of our time in New York, the shaper not only of the city's politics but of its physical structure and the problems of urban decline that plague us today.",
+    "img": null,
+    "author": "Robert A. Caro",
+    "frmt": "H",
+    "publisher": "Vintage",
+    "yr": 1975,
+    "sbj": null,
+    "keywords": null,
+    "price": 65.0,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0394757681",
+  "fields": {
+    "title": "The Long Goodbye",
+    "desc": "Marlowe befriends a down on his luck war veteran with the scars to prove it. Then he finds out that Terry Lennox has a very wealthy nymphomaniac wife, who he's divorced and re-married and who ends up dead. and now Lennox is on the lam and the cops and a crazy gangster are after Marlowe.",
+    "img": null,
+    "author": "Raymond Chandler",
+    "frmt": "S",
+    "publisher": "Vintage Crime/Black Lizard",
+    "yr": 1988,
+    "sbj": null,
+    "keywords": null,
+    "price": 11.32,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
   "pk": "978-0395927205",
   "fields": {
     "title": "Interpreter of Maladies",
@@ -268,6 +336,23 @@
     "sbj": null,
     "keywords": null,
     "price": 11.34,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0446310789",
+  "fields": {
+    "title": "To Kill a Mockingbird",
+    "desc": "Compassionate, dramatic, and deeply moving, To Kill A Mockingbird takes readers to the roots of human behavior - to innocence and experience, kindness and cruelty, love and hatred, humor and pathos. Now with over 18 million copies in print and translated into forty languages, this regional story by a young Alabama woman claims universal appeal. Harper Lee always considered her book to be a simple love story. Today it is regarded as a masterpiece of American literature.",
+    "img": null,
+    "author": "Harper Lee",
+    "frmt": "S",
+    "publisher": "Grand Central Publishing",
+    "yr": 1988,
+    "sbj": null,
+    "keywords": null,
+    "price": 5.15,
     "copies": 2
   }
 },
@@ -404,6 +489,40 @@
     "sbj": null,
     "keywords": null,
     "price": 8.49,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0743297332",
+  "fields": {
+    "title": "The Sun Also Rises",
+    "desc": "The quintessential novel of the Lost Generation, The Sun Also Rises is one of Ernest Hemingway's masterpieces and a classic example of his spare but powerful writing style. A poignant look at the disillusionment and angst of the post-World War I generation, the novel introduces two of Hemingway's most unforgettable characters: Jake Barnes and Lady Brett Ashley. The story follows the flamboyant Brett and the hapless Jake as they journey from the wild nightlife of 1920s Paris to the brutal bullfighting rings of Spain with a motley group of expatriates. It is an age of moral bankruptcy, spiritual dissolution, unrealized love, and vanishing illusions. First published in 1926, The Sun Also Rises helped to establish Hemingway as one of the greatest writers of the twentieth century.",
+    "img": null,
+    "author": "Ernest Hemingway",
+    "frmt": "S",
+    "publisher": "Scribner",
+    "yr": 2006,
+    "sbj": null,
+    "keywords": null,
+    "price": 11.32,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0786838653",
+  "fields": {
+    "title": "The Lightning Thief (Percy Jackson and the Olympians, Book 1)",
+    "desc": "In this stunning collectors' edition of The Lightning Thief, Percy Jackson's world is brought to life with eight full-color plates by the series jacket artist John Rocco. The edition comes in an elegant slipcase with a ribbon bookmark, rough edges, and cloth cover--a perfect keepsake for fans of this truly epic series. After getting expelled from yet another school for yet another clash with mythological monsters only he can see, twelve-year-old Percy Jackson is taken to Camp Half-Blood, where he finally learns the truth about his unique abilities: He is a demigod, half human, half immortal. Even more stunning: His father is the Greek god Poseidon, ruler of the sea, making Percy one of the most powerful demigods alive. There's little time to process this news. All too soon, a cryptic prophecy from the Oracle sends Percy on his first quest, a mission to the Underworld to prevent a war among the gods of Olympus.",
+    "img": null,
+    "author": "Rick Riordan",
+    "frmt": "H",
+    "publisher": "Disney-Hyperion",
+    "yr": 2006,
+    "sbj": null,
+    "keywords": null,
+    "price": 14.66,
     "copies": 2
   }
 },
