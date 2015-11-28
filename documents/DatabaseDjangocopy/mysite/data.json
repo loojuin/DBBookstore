@@ -100,7 +100,111 @@
     "price": 13.73,
     "copies" : 2
   }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-1400033416",
+  "fields": {
+    "title": "Beloved",
+    "desc":"Staring unflinchingly into the abyss of slavery, this spellbinding novel transforms history into a story as powerful as Exodus and as intimate as a lullaby. Sethe, its protagonist, was born a slave and escaped to Ohio, but eighteen years later she is still not free. She has too many memories of Sweet Home, the beautiful farm where so many hideous things happened. And Sethe’s new home is haunted by the ghost of her baby, who died nameless and whose tombstone is engraved with a single word: Beloved. Filled with bitter poetry and suspense as taut as a rope, Beloved is a towering achievement.",
+    "author": "Toni Morrison",
+    "frmt": "S",
+    "publisher": "Vintage",
+    "yr": 2004,
+    "price": 9.21,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0810993136",
+  "fields": {
+    "title": "Diary of a Wimpy Kid, Book 1",
+    "desc":"Author/illustrator Jeff Kinney recalls the growing pains of school life and introduces a new kind of hero who epitomizes the challenges of being a kid. As Greg says in his diary, “Just don’t expect me to be all ‘Dear Diary’ this and ‘Dear Diary’ that.” Luckily for us, what Greg Heffley says he won’t do and what he actually does are two very different things.",
+    "author": "Jeff Kinney",
+    "frmt": "H",
+    "publisher": "Amulet Books",
+    "yr": 2007,
+    "price": 8.37,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0441013593",
+  "fields": {
+    "title": "Dune, 40th Anniversary Edition (Dune Chronicles, Book 1)",
+    "desc":"Here is the novel that will be forever considered a triumph of the imagination. Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, who would become the mysterious man known as Muad'Dib. He would avenge the traitorous plot against his noble family--and would bring to fruition humankind's most ancient and unattainable dream.",
+    "author": "Frank Herbert",
+    "frmt": "S",
+    "publisher": "Ace",
+    "yr": 2005,
+    "price": 11.34,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-1451673319",
+  "fields": {
+    "title": "Fahrenheit 451: A Novel",
+    "desc":"Guy Montag is a fireman. In his world, where television rules and literature is on the brink of extinction, firemen start fires rather than put them out. His job is to destroy the most illegal of commodities, the printed book, along with the houses in which they are hidden. Montag never questions the destruction and ruin his actions produce, returning each day to his bland life and wife, Mildred, who spends all day with her television “family.” But then he meets an eccentric young neighbor, Clarisse, who introduces him to a past where people didn’t live in fear and to a present where one sees the world through the ideas in books instead of the mindless chatter of television. When Mildred attempts suicide and Clarisse suddenly disappears, Montag begins to question everything he has ever known. He starts hiding books in his home, and when his pilfering is discovered, the fireman has to run for his life.",
+    "author": "Ray Bradbury",
+    "frmt": "S",
+    "publisher": "Simon & Schuster",
+    "yr": 2012,
+    "price": 7.68,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0393061314",
+  "fields": {
+    "title": "Guns, Germs, and Steel: The Fates of Human Societies",
+    "desc":"Winner of the Pulitzer Prize, Guns, Germs, and Steel is a brilliant work answering the question of why the peoples of certain continents succeeded in invading other continents and conquering or displacing their peoples. ",
+    "author": "Jared Diamond",
+    "frmt": "H",
+    "publisher": "W. W. Norton & Company",
+    "yr": 2005,
+    "price": 18.28,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0395927205",
+  "fields": {
+    "title": "Interpreter of Maladies",
+    "desc":"Navigating between the Indian traditions they've inherited and the baffling new world, the characters in Jhumpa Lahiri's elegant, touching stories seek love beyond the barriers of culture and generations. In 'A Temporary Matter', published in The New Yorker, a young Indian-American couple faces the heartbreak of a stillborn birth while their Boston neighborhood copes with a nightly blackout. In the title story, an interpreter guides an American family through the India of their ancestors and hears an astonishing confession. Lahiri writes with deft cultural insight reminiscent of Anita Desai and a nuanced depth that recalls Mavis Gallant. She is an important and powerful new voice.",
+    "author": "Jhumpa Lahiri",
+    "frmt": "S",
+    "publisher": "Mariner Books",
+    "yr": 1999,
+    "price": 8.60,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0679732761",
+  "fields": {
+    "title": "Invisible Man",
+    "desc":"The nameless narrator of the novel describes growing up in a black community in the South, attending a Negro college from which he is expelled, moving to New York and becoming the chief spokesman of the Harlem branch of 'the Brotherhood', and retreating amid violence and confusion to the basement lair of the Invisible Man he imagines himself to be. The book is a passionate and witty tour de force of style, strongly influenced by T.S. Eliot's The Waste Land, Joyce, and Dostoevsky.",
+    "author": "Ralph Ellison",
+    "frmt": "H",
+    "publisher": "Vintage International",
+    "yr": 1995,
+    "price": 9.13,
+    "copies": 2
+  }
 }
+
+
+
+
+
+
 
 
 ]
