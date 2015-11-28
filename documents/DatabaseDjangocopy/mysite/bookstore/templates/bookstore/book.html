@@ -81,6 +81,8 @@
 						</select>
 					</div>
 				</div>
+
+				<!-- one user comment -->
 				<hr>
 				<div class="row">
 					<div class="col-md-12">
@@ -89,16 +91,18 @@
 						<span class="glyphicon glyphicon-star"></span>
 						<span class="glyphicon glyphicon-star"></span>
 						<span class="glyphicon glyphicon-star-empty"></span>
-						anonymous
-						<span class="pull-right">50 
+						{{comment.username}}
+						<span class="pull-right">{{comment.rating}}
 							<button type="button" class="btn btn-default btn-circle btn-sm">+0</button>
 							<button type="button" class="btn btn-warning btn-circle btn-sm">+1</button>
 							<button type="button" class="btn btn-danger btn-circle btn-sm">+2</button>
 						</span>
 
-						<p>this product was great in terms of quality. i would definitely buy another!</p>
+						<p>{{comment.text}}</p>
 					</div>
 				</div> <!--row-->
+				<!-- end of one user comment -->
+
 				<hr>
 				<div class="row">
 					<div class="col-md-12">
@@ -134,11 +138,40 @@
 					</div>
 				</div>
 				</br>
+
 				<div class="row">
 					<div class="col-md-12">
-						<a class="btn btn-success">leave a review</a>
+						<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Leave a comment</button>
+
+						  <!-- Modal -->
+						  <div class="modal fade" id="myModal" role="dialog">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal">&times;</button>
+						          <h4 class="modal-title">Leave a comment:</h4>
+						        </div>
+						        <div class="modal-body">
+								<form role="form" action="/bookstore/{{book.isbn}}/add_comment"method="post">
+									{% csrf_token %}
+								    <div class="form-group">
+								      <!--<label for="comment">Comment:</label>-->
+								
+								      <textarea class="form-control" rows="5" name="comment" id="comment"></textarea>
+									  <div class="modal-footer">
+								      <input type="submit" class="btn btn-default" value="publish">
+								      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								      </div>
+								    </div>
+								</form>
+						        </div>
+						      </div>
+						    </div>
+						  </div>
+						  <!--end of modal-->
 					</div>
 				</div>
+
 			</div><!--well-->
 	</div><!--container-->
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -30,12 +30,20 @@ def all_books(request):
 	return HttpResponse(template.render(context))
 
 def book(request, book_id):
+
 	book = Book.objects.get(isbn = book_id)
 	template = loader.get_template('bookstore/book.html')
 	context = RequestContext(request, {
-		'book' : book,
+		'book' : book 
 		})
 	return HttpResponse(template.render(context))
+
+def add_comment(request, book_id):
+	if request.method == "POST":
+		text = request.POST["comment"]
+
+		print text
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def login(request):
 	    errors = []
