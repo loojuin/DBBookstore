@@ -12,7 +12,7 @@ def index(request):
 
 def all_books(request):
 	books = Book.objects.all()
-	paginator = Paginator(books, 4)
+	paginator = Paginator(books, 8)
 	pagerange = paginator.page_range
 	page = request.GET.get('page')
 	try:
