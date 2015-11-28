@@ -101,7 +101,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+FIXTURE_DIRS = (
+   os.path.join(BASE_DIR,'Fixtures'),
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/

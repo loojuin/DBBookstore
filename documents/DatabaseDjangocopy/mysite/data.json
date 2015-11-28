@@ -1,0 +1,27 @@
+
+[
+{
+  "model": "bookstore.customer",
+  "pk": "john",
+  "fields": {
+  	"pwd":"johnny123",
+  	"surname":"han",
+  	"given_name":"john",
+  	"credit_card":"9999999aa",
+  	"address":"8 sompah road",
+  	"phoneno":999999
+  }
+},
+{
+  "model": "bookstore.customer",
+  "pk": "betty",
+  "fields": {
+  	"pwd":"betty123",
+  	"surname":"tan",
+  	"given_name":"betty",
+  	"credit_card":"1111aa",
+  	"address":"8 sompah road",
+  	"phoneno":11111
+  }
+}
+]

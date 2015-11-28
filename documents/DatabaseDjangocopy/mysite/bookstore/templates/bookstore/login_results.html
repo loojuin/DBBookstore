@@ -1,0 +1,11 @@
+
+{% if user %}
+	{% if validuser %}
+		<p>Welcome <strong>{{ query }}</strong>!</p>
+	    <p>Found {{ validuser|length }} Usermatch{{ Usermatches|pluralize }}.</p>
+	{% else %}
+		<p>Password Incorrect. Try again! </p>
+	{% endif %}
+{% else %}
+    <p>No user matched your username input. Please register an account! </p>
+{% endif %}

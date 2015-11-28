@@ -1,0 +1,87 @@
+[
+{
+  "model": "bookstore.book",
+  "pk": "12221133225555",
+  "fields": {
+    "title": "Freakonomics",
+    "desc": null,
+    "img": null,
+    "author": null,
+    "frmt": null,
+    "publisher": null,
+    "yr": null,
+    "sbj": null,
+    "keywords": null,
+    "price": null,
+    "copies": 0
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "12224445521151",
+  "fields": {
+    "title": "Da Vinci Code",
+    "desc": null,
+    "img": null,
+    "author": null,
+    "frmt": null,
+    "publisher": null,
+    "yr": null,
+    "sbj": null,
+    "keywords": null,
+    "price": null,
+    "copies": 0
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "1245-2252-4442",
+  "fields": {
+    "title": "Palindrome",
+    "desc": "Two different men. They live life in an opposite fashion and they meet in the middle. ",
+    "img": "http://placehold.it/250x400",
+    "author": "Aru",
+    "frmt": "H",
+    "publisher": "Penguin Books",
+    "yr": 2015,
+    "sbj": "Drama, Mystery",
+    "keywords": "Drama, Man, Woman",
+    "price": 50.0,
+    "copies": 6
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "1552-1225-4456",
+  "fields": {
+    "title": "Harry Potter ",
+    "desc": null,
+    "img": null,
+    "author": null,
+    "frmt": null,
+    "publisher": null,
+    "yr": null,
+    "sbj": null,
+    "keywords": null,
+    "price": null,
+    "copies": 0
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "2441-2444-2411",
+  "fields": {
+    "title": "Lord of the Rings",
+    "desc": null,
+    "img": null,
+    "author": null,
+    "frmt": null,
+    "publisher": null,
+    "yr": null,
+    "sbj": null,
+    "keywords": null,
+    "price": null,
+    "copies": 0
+  }
+}
+]
