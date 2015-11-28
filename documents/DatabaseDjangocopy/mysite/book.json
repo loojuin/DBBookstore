@@ -120,6 +120,23 @@
 },
 {
   "model": "bookstore.book",
+  "pk": "978-0316776967",
+  "fields": {
+    "title": "Me Talk Pretty One Day",
+    "desc": "A recent transplant to Paris, humorist David Sedaris, bestselling author of 'Naked', presents a collection of his strongest work yet, including the title story about his hilarious attempt to learn French.",
+    "img": null,
+    "author": "David Sedaris",
+    "frmt": "S",
+    "publisher": "Back Bay Books",
+    "yr": 2001,
+    "sbj": null,
+    "keywords": null,
+    "price": 10.4,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
   "pk": "978-0375714542",
   "fields": {
     "title": "Jimmy Corrigan: The Smartest Kid on Earth",
@@ -336,6 +353,23 @@
     "sbj": null,
     "keywords": null,
     "price": 8.37,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0812976533",
+  "fields": {
+    "title": "Midnight's Children",
+    "desc": "This novel is at once a fascinating family saga and an astonishing evocation of a vast land and its people\u2013a brilliant incarnation of the universal human comedy. Twenty-five years after its publication, Midnight\u2019 s Children stands apart as both an epochal work of fiction and a brilliant performance by one of the great literary voices of our time.",
+    "img": null,
+    "author": "Salman Rushdie",
+    "frmt": "S",
+    "publisher": "Random House Trade Paperbacks",
+    "yr": 2006,
+    "sbj": null,
+    "keywords": null,
+    "price": 9.04,
     "copies": 2
   }
 },

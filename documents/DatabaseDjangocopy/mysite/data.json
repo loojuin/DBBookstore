@@ -240,7 +240,36 @@
     "desc":"In their youth, Florentino Ariza and Fermina Daza fall passionately in love. When Fermina eventually chooses to marry a wealthy, well-born doctor, Florentino is devastated, but he is a romantic. As he rises in his business career he whiles away the years in 622 affairs--yet he reserves his heart for Fermina. Her husband dies at last, and Florentino purposefully attends the funeral. Fifty years, nine months, and four days after he first declared his love for Fermina, he will do so again.",
     "copies": 2
   }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0316776967",
+  "fields": {
+    "publisher": "Back Bay Books",
+    "title": "Me Talk Pretty One Day",
+    "yr": 2001,
+    "author": "David Sedaris",
+    "price": 10.40,
+    "frmt": "S",
+    "desc":"A recent transplant to Paris, humorist David Sedaris, bestselling author of 'Naked', presents a collection of his strongest work yet, including the title story about his hilarious attempt to learn French.",
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0812976533",
+  "fields": {
+    "publisher": "Random House Trade Paperbacks",
+    "title": "Midnight's Children",
+    "yr": 2006,
+    "author": "Salman Rushdie",
+    "price": 9.04,
+    "frmt": "S",
+    "desc":"This novel is at once a fascinating family saga and an astonishing evocation of a vast land and its people–a brilliant incarnation of the universal human comedy. Twenty-five years after its publication, Midnight’ s Children stands apart as both an epochal work of fiction and a brilliant performance by one of the great literary voices of our time.",
+    "copies": 2
+  }
 }
+
 
 
 
