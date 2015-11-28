@@ -8,10 +8,10 @@
 <body>
 	<div class="container">
 		
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
 			    <div class="navbar-header">
-			    	<a class="navbar-brand" href="#">
+			    	<a class="navbar-brand" href="/bookstore/">
 		      		  Le Bookstore
 		     		</a>
 			    </div>
@@ -23,21 +23,27 @@
 				    </span>
 				  </div>
 				</form>
-				<button type="button" class="btn btn-success navbar-btn navbar-right">Sign in</button>
+				<div class="navbar-right">
+					<a type="button" class="btn btn-success navbar-btn" href="/bookstore/register">Sign Up</a>
+					<a type="button" class="btn btn-default navbar-btn" href="/bookstore/login">Log In</a>
+				</div>
 			</div>
 		</nav>
-		
+		<br>
+		<br>
+		<br>
 		<div class="row">
 		{% for book in booklist %}
 		  <div class="col-sm-6 col-md-3">
 		    <div class="thumbnail">
-		      <img src="http://placehold.it/150x250" alt="...">
-		      <div class="caption">
-		        <a href="/bookstore/{{book.isbn}}"><h3>{{book.title}}</h3></a>
-		        <p>Here goes a description of the book limited to some short string length. The user will have to click more to view more...</p>
-		        <p><a href="#" class="btn btn-primary" role="button">Buy Now</a> 
-		        	<a href="/bookstore/{{book.isbn}}" class="btn btn-default" role="button">More Info</a></p>
-		      </div>
+		    	<br>
+			    <img src="http://placehold.it/150x250" alt="...">
+			    <div class="caption">
+			        <a href="/bookstore/{{book.isbn}}"><h3>{{book.title}}</h3></a>
+			        <p>Here goes a description of the book limited to some short string length. The user will have to click more to view more...</p>
+			        <p><a href="#" class="btn btn-primary" role="button">Buy Now</a> 
+			        	<a href="/bookstore/{{book.isbn}}" class="btn btn-default" role="button">More Info</a></p>
+			    </div>
 		    </div>
 		  </div>
 		{% endfor %}

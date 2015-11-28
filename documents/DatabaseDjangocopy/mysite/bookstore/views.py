@@ -23,3 +23,8 @@ def book(request, book_id):
 		'book' : book,
 		})
 	return HttpResponse(template.render(context))
+
+def login(request):
+	template = loader.get_template('bookstore/login.html')
+	context = None
+	return HttpResponse(template.render(context))
