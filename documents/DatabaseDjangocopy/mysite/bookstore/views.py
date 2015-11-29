@@ -8,6 +8,7 @@ from .models import Book
 from .models import Customer
 from .models import Opinion
 
+user = None
 def index(request):
 	return HttpResponse("Hello, world. You're at the bookstore index.")
 # Create your views here.
@@ -39,17 +40,19 @@ def book(request, book_id):
 
 	context = RequestContext(request, {
 		'book' : book, 
-		'comments':comment
+		'comments':comment,
+		'user': user
 		})
 	return HttpResponse(template.render(context))
 
 def add_comment(request, book_id):
 	if request.method == "POST":
-		text = request.POST["comment"]
-		book = Book.objects.get(isbn = book_id)
-		cus = Customer.objects.all()[11]
-		Opinion(book=book, txt=text, score=0, customer=cus).save()
-		print text
+		if request.user.is_authenticated():
+			text = request.POST["comment"]
+			book = Book.objects.get(isbn = book_id)
+			cus = request.user
+			Opinion(book=book, txt=text, score=0, customer=cus).save()
+			print text
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def rate_comment(request, book_id, commenter):

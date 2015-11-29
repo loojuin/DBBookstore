@@ -24,9 +24,15 @@
 				  </div>
 				</form>
 				<div class="navbar-right">
+					<!-- to be replaced by template -->
+				{% if user.is_authenticated %}
+					Logged in as {{ user.username }} .
+					<a type="button" class="btn btn-default navbar-btn" href="/bookstore/login">Log Out</a>
+				{% else %}
 					<a type="button" class="btn btn-success navbar-btn" href="/bookstore/register">Sign Up</a>
 					<a type="button" class="btn btn-default navbar-btn" href="/bookstore/login">Log In</a>
-				</div>
+				{% endif %}
+				<!-- end of template --></div>
 			</div>
 		</nav>
 		<br>

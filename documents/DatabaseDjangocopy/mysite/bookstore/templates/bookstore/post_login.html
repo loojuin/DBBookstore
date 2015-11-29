@@ -32,11 +32,11 @@
 		<br>
 		<br>
 		<br>
-<!--Main content of the body comes here-->
+		<!--Main content of the body comes here-->
 		{% if user %}
 			{% if validuser %}
 				<h2 class="text-primary">Welcome <strong>{{ query }}</strong>!</h2>
-			    <p >Found {{ validuser|length }} Usermatch{{ Usermatches|pluralize }}.</p>
+			    <!--<p >Found {{ validuser|length }} Usermatch{{ Usermatches|pluralize }}.</p>-->
 			{% else %}
 				<h2 class="text-danger">Password Incorrect. Try again! </h2>
 			{% endif %}
