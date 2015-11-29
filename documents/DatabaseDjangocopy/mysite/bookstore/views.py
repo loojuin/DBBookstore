@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 from .models import Book
 from .models import Customer
@@ -34,7 +34,7 @@ def all_books(request):
 def book(request, book_id):
 	book = Book.objects.get(isbn = book_id)
 	comment = Opinion.objects.filter(book=book).order_by("-score")[:3]
-
+	user_comment = None
 	template = loader.get_template('bookstore/book.html')
 	if request.user.is_authenticated():
 		cus = Customer.objects.get(login_name=request.user.username)
@@ -99,11 +99,14 @@ def view_login(request):
 		return HttpResponse(template.render(context))
 
 
-def logout(request):
+def view_logout(request):
 	"""
 	TODO: someone finish this please
 	logout button are already inside the templates
 	"""
+	if request.user.is_authenticated():
+		logout(request)
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def register(request):
 	"""
