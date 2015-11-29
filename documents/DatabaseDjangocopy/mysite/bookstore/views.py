@@ -5,6 +5,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Book
 from .models import Customer
+from .models import Opinion
 
 def index(request):
     return HttpResponse("Hello, world. You're at the bookstore index.")
@@ -30,42 +31,47 @@ def all_books(request):
 	return HttpResponse(template.render(context))
 
 def book(request, book_id):
-
 	book = Book.objects.get(isbn = book_id)
+	comment = Opinion.objects.filter(book=book).order_by("-score")[:3]
+
 	template = loader.get_template('bookstore/book.html')
+	print comment[0].customer.login_name
 	context = RequestContext(request, {
-		'book' : book 
+		'book' : book, 
+		'comments':comment
 		})
 	return HttpResponse(template.render(context))
 
 def add_comment(request, book_id):
 	if request.method == "POST":
 		text = request.POST["comment"]
-
+		book = Book.objects.get(isbn = book_id)
+		cus = Customer.objects.all()[11]
+		Opinion(book=book, txt=text, score=0, customer=cus).save()
 		print text
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def login(request):
-	    errors = []
-	    if 'pw' and 'userid' in request.GET:
-	        userid=request.GET['userid']
-	        pw = request.GET['pw']
+    errors = []
+    if 'pw' and 'userid' in request.GET:
+        userid=request.GET['userid']
+        pw = request.GET['pw']
 
-	        if not userid:
-	            errors.append('Enter a username.')
+        if not userid:
+            errors.append('Enter a username.')
 
-	        elif not pw: 
-	            errors.append('Enter password.')
+        elif not pw: 
+            errors.append('Enter password.')
 
-	        elif len(pw) > 20:
-	            errors.append('Please enter at most 20 characters.')
+        elif len(pw) > 20:
+            errors.append('Please enter at most 20 characters.')
 
-	        else:
-	            validuser = Customer.objects.filter(login_name=userid ,pwd=pw)
-	            user=Customer.objects.filter(login_name=userid)
-	            return render(request, 'bookstore/post_login.html', {'user':user,'validuser': validuser, 'query': userid})
+        else:
+            validuser = Customer.objects.filter(login_name=userid ,pwd=pw)
+            user=Customer.objects.filter(login_name=userid)
+            return render(request, 'bookstore/post_login.html', {'user':user,'validuser': validuser, 'query': userid})
 
-	    return render(request, 'bookstore/login.html', {'errors': errors})
+    return render(request, 'bookstore/login.html', {'errors': errors})
 
 def register(request):
 	template = loader.get_template('bookstore/register.html')

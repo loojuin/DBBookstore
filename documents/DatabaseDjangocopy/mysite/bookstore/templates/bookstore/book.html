@@ -81,7 +81,7 @@
 						</select>
 					</div>
 				</div>
-
+				{% for comment in comments %}
 				<!-- one user comment -->
 				<hr>
 				<div class="row">
@@ -91,53 +91,18 @@
 						<span class="glyphicon glyphicon-star"></span>
 						<span class="glyphicon glyphicon-star"></span>
 						<span class="glyphicon glyphicon-star-empty"></span>
-						{{comment.username}}
-						<span class="pull-right">{{comment.rating}}
+						{{comment.customer.login_name}}
+						<span class="pull-right">{{comment.score}}
 							<button type="button" class="btn btn-default btn-circle btn-sm">+0</button>
 							<button type="button" class="btn btn-warning btn-circle btn-sm">+1</button>
 							<button type="button" class="btn btn-danger btn-circle btn-sm">+2</button>
 						</span>
 
-						<p>{{comment.text}}</p>
+						<p>{{comment.txt}}</p>
 					</div>
 				</div> <!--row-->
 				<!-- end of one user comment -->
-
-				<hr>
-				<div class="row">
-					<div class="col-md-12">
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star-empty"></span>
-						anonymous
-						<span class="pull-right">50 
-							<button type="button" class="btn btn-default btn-circle btn-sm">+0</button>
-							<button type="button" class="btn btn-warning btn-circle btn-sm">+1</button>
-							<button type="button" class="btn btn-danger btn-circle btn-sm">+2</button>
-						</span>
-						<p>i've alredy ordered another one!</p>
-					</div>
-				</div>
-				<hr>
-				<div class="row">
-					<div class="col-md-12">
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star"></span>
-						<span class="glyphicon glyphicon-star-empty"></span>
-						anonymous
-						<span class="pull-right">50 
-							<button type="button" class="btn btn-default btn-circle btn-sm">+0</button>
-							<button type="button" class="btn btn-warning btn-circle btn-sm">+1</button>
-							<button type="button" class="btn btn-danger btn-circle btn-sm">+2</button>
-						</span>
-						<p>i've seen some better than this, but not at this price. i definitely recommend this item.</p>
-					</div>
-				</div>
-				</br>
+				{% endfor %}
 
 				<div class="row">
 					<div class="col-md-12">
