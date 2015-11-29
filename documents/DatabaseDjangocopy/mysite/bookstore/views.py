@@ -11,7 +11,6 @@ from .models import Opinion
 user = None
 def index(request):
 	return HttpResponse("Hello, world. You're at the bookstore index.")
-# Create your views here.
 
 def all_books(request):
 	books = Book.objects.all()
@@ -61,9 +60,24 @@ def add_comment(request, book_id):
 			if len(c)==0:
 				Opinion(book=book, txt=text, score=0, customer=cus).save()
 				print "comment saved"
+		else: 
+			"""
+			TODO: 
+			if user is not authenticated, there should be a page saying: 
+			please login to comment on the book
+			"""
+			pass
+
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def rate_comment(request, book_id, commenter):
+	"""
+	TODO
+	1. check if authenticated
+	2. check if it's user's own comment
+	3. check if user has rated this comment already
+	4. save rating in 
+	"""
 	if request.method == "POST":
 		pass
 
@@ -71,11 +85,8 @@ def view_login(request):
 	errors = []
 	userid = request.POST.get("userid", False)
 	pw = request.POST.get("pw", False)
-	print userid
-	print pw
 	user = authenticate(username=userid, password=pw)
 	if user is not None:
-		print user
 		if user.is_active:
 			print "login"
 			login(request, user)
@@ -87,38 +98,19 @@ def view_login(request):
 		context = RequestContext(request, {'errors': errors})
 		return HttpResponse(template.render(context))
 
+
+def logout(request):
 	"""
-
-		if 'pw' and 'userid' in request.GET:
-				userid=request.GET['userid']
-				pw = request.GET['pw']
-				print userid 
-				print pw
-
-				if not userid:
-						errors.append('Enter a username.')
-
-				elif not pw: 
-						errors.append('Enter password.')
-
-				elif len(pw) > 20:
-						errors.append('Please enter at most 20 characters.')
-
-				else:
-					user = authenticate(username=userid, password=pw)
-				if user is not None:
-					print "login"
-						if user.is_active:
-
-					login(request, user)
-					print "lanalana"
-						#validuser = Customer.objects.filter(login_name=userid ,pwd=pw)
-						#user=Customer.objects.filter(login_name=userid)
-					return render(request, 'bookstore/post_login.html', {'query': userid})
+	TODO: someone finish this please
+	logout button are already inside the templates
 	"""
-
 
 def register(request):
+	"""
+	TODO: 
+	1. create new User element(username password)
+	2. create new Customer 
+	"""
 	template = loader.get_template('bookstore/register.html')
 	context = None
 	return HttpResponse(template.render(context))
