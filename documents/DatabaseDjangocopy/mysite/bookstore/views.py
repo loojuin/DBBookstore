@@ -2,11 +2,59 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 
 from .models import Book
 from .models import Customer
 from .models import Opinion
+
+def view_search(request):
+	"""
+	TODO:
+	Users may search for books, by asking conjunctive
+	queries on the authors, and/or publisher, and/or title, and/or subject. 
+	Your system should allow the user to specify that the results are to be 
+	sorted a) by year, or b) by the average score of the feedbacks.
+	"""
+	pass
+
+def useful_feedbacks(request, number_of_comments):
+	"""
+	TODO: 
+	For a given book, a user could ask for the top n most useful feedbacks. 
+	The value of n is user-specified (say, 5, or 10). The usefulness of a 
+	feedback is its average usefulness score.
+	"""
+	pass
+
+def order_book(request):
+	"""
+	TODO:
+	shopping cart without a checkout
+	"""
+	pass
+
+def recommendation(request):
+	"""
+	TODO:
+	Book recommendation: Like most e-commerce websites, when a user orders a 
+	copy of book A, your system should give a list of other suggested books. 
+	Book  B is suggested, if there exist a user  X that bought both  A and  B. 
+	The suggested books should be sorted on decreasing sales count (i.e., most 
+		popular first); count only sales to users like  X (i.e. the users who bought both  A and  B).
+	"""
+	pass
+
+def show_statistics(request):
+	"""
+	TODO:
+	the list of the m most popular books (in terms of copies sold in this month)
+	the list of m most popular authors
+	the list of m most popular publishers
+	"""
+	pass
 
 user = None
 def index(request):
@@ -108,13 +156,32 @@ def view_logout(request):
 		logout(request)
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
+
 def register(request):
-	"""
-	TODO: 
-	1. create new User element(username password)
-	2. create new Customer 
-	"""
+	if request.method == "POST":
+		
+		username = request.POST["username"]
+		password = request.POST["password"]
+		first = request.POST["firstname"]
+		last = request.POST["lastname"]
+		addr = request.POST["address"]
+		phone = request.POST["phone"]
+		credit = request.POST["credit"] 
+
+		User.objects.create_user(username=username, password=password).save()
+		Customer(login_name=username, 
+		given_name=first,
+		surname=last,
+		pwd=password, phoneno=phone, credit_card=credit,
+		address=addr).save()
+		#saved successfully, redirect to log in page
+		
+		template = loader.get_template('bookstore/login.html')
+		context = RequestContext(request, {'errors': []})
+		return HttpResponse(template.render(context))
+
 	template = loader.get_template('bookstore/register.html')
 	context = None
-	return HttpResponse(template.render(context))
+	return render(request, 'bookstore/register.html')
+	#return HttpResponse(template.render(context))
 
