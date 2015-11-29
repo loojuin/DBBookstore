@@ -75,6 +75,30 @@
 			</div>
 		</div>
 		<br>
+		{% if user_comment %}
+		<div class="well">
+		<p>My comment</p>
+		<hr>
+				<div class="row">
+					<div class="col-md-12">
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star"></span>
+						<span class="glyphicon glyphicon-star-empty"></span>
+						{{user_comment.customer.login_name}}
+						<span class="pull-right">{{user_comment.score}}
+							<button type="button" class="btn btn-default btn-circle btn-sm">+0</button>
+							<button type="button" class="btn btn-warning btn-circle btn-sm">+1</button>
+							<button type="button" class="btn btn-danger btn-circle btn-sm">+2</button>
+						</span>
+
+						<p>{{user_comment.txt}}</p>
+					</div>
+				</div> <!--row-->
+				<!-- end of one user comment -->
+		</div>
+		{% endif %}
 		<div class="well">
 
 				<div class="row">

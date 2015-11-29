@@ -37,11 +37,17 @@ def book(request, book_id):
 	comment = Opinion.objects.filter(book=book).order_by("-score")[:3]
 
 	template = loader.get_template('bookstore/book.html')
+	if request.user.is_authenticated():
+		cus = Customer.objects.get(login_name=request.user.username)
+		c = Opinion.objects.filter(book=book, customer=cus)
+		user_comment = c[0] if len(c)!=0 else None
+		print user_comment
 
 	context = RequestContext(request, {
 		'book' : book, 
 		'comments':comment,
-		'user': user
+		'user': user,
+		'user_comment': user_comment
 		})
 	return HttpResponse(template.render(context))
 
@@ -50,9 +56,11 @@ def add_comment(request, book_id):
 		if request.user.is_authenticated():
 			text = request.POST["comment"]
 			book = Book.objects.get(isbn = book_id)
-			cus = request.user
-			Opinion(book=book, txt=text, score=0, customer=cus).save()
-			print text
+			cus = Customer.objects.get(login_name=request.user.username)
+			c = Opinion.objects.filter(book=book, customer=cus)
+			if len(c)==0:
+				Opinion(book=book, txt=text, score=0, customer=cus).save()
+				print "comment saved"
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def rate_comment(request, book_id, commenter):
