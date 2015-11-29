@@ -36,7 +36,7 @@ def book(request, book_id):
 	comment = Opinion.objects.filter(book=book).order_by("-score")[:3]
 
 	template = loader.get_template('bookstore/book.html')
-	print comment[0].customer.login_name
+
 	context = RequestContext(request, {
 		'book' : book, 
 		'comments':comment
@@ -69,7 +69,7 @@ def view_login(request):
 			print "login"
 			login(request, user)
 			template = loader.get_template('bookstore/post_login.html')
-			context = RequestContext(request, {'query': userid})
+			context = RequestContext(request, {'query': userid, 'validuser': user})
 			return HttpResponse(template.render(context))
 	else: 
 		template = loader.get_template('bookstore/login.html')
