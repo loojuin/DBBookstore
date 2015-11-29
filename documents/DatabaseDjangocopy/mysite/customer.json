@@ -1,6 +1,126 @@
 [
 {
   "model": "bookstore.customer",
+  "pk": "Amy",
+  "fields": {
+    "pwd": "passwordAmy",
+    "surname": "Amyski",
+    "given_name": "Amy",
+    "credit_card": "1234123423452355",
+    "address": "Changi South Ave 1",
+    "phoneno": 123466
+  }
+},
+{
+  "model": "bookstore.customer",
+  "pk": "Bojack",
+  "fields": {
+    "pwd": "passwordBojack",
+    "surname": "Bojackski",
+    "given_name": "Bojack",
+    "credit_card": "1234123423452349",
+    "address": "Changi South Ave 1",
+    "phoneno": 123460
+  }
+},
+{
+  "model": "bookstore.customer",
+  "pk": "Carolyn",
+  "fields": {
+    "pwd": "passwordCarolyn",
+    "surname": "Carolynski",
+    "given_name": "Carolyn",
+    "credit_card": "1234123423452350",
+    "address": "Changi South Ave 1",
+    "phoneno": 123461
+  }
+},
+{
+  "model": "bookstore.customer",
+  "pk": "Diana",
+  "fields": {
+    "pwd": "passwordDiana",
+    "surname": "Dianaski",
+    "given_name": "Diana",
+    "credit_card": "1234123423452348",
+    "address": "Changi South Ave 1",
+    "phoneno": 123459
+  }
+},
+{
+  "model": "bookstore.customer",
+  "pk": "Nalia",
+  "fields": {
+    "pwd": "passwordNalia",
+    "surname": "Naliaski",
+    "given_name": "Nalia",
+    "credit_card": "1234123423452347",
+    "address": "Changi South Ave 1",
+    "phoneno": 123458
+  }
+},
+{
+  "model": "bookstore.customer",
+  "pk": "Owl",
+  "fields": {
+    "pwd": "passwordOwl",
+    "surname": "Owlski",
+    "given_name": "Owl",
+    "credit_card": "1234123423452354",
+    "address": "Changi South Ave 1",
+    "phoneno": 123465
+  }
+},
+{
+  "model": "bookstore.customer",
+  "pk": "Peanutbutter",
+  "fields": {
+    "pwd": "passwordPeanutbutter",
+    "surname": "Peanutbutterski",
+    "given_name": "Peanutbutter",
+    "credit_card": "1234123423452352",
+    "address": "Changi South Ave 1",
+    "phoneno": 123463
+  }
+},
+{
+  "model": "bookstore.customer",
+  "pk": "Taub",
+  "fields": {
+    "pwd": "passwordTaub",
+    "surname": "Taubski",
+    "given_name": "Taub",
+    "credit_card": "1234123423452351",
+    "address": "Changi South Ave 1",
+    "phoneno": 123462
+  }
+},
+{
+  "model": "bookstore.customer",
+  "pk": "Vincent",
+  "fields": {
+    "pwd": "passwordVincent",
+    "surname": "Vincentski",
+    "given_name": "Vincent",
+    "credit_card": "1234123423452353",
+    "address": "Changi South Ave 1",
+    "phoneno": 123464
+  }
+},
+{
+  "model": "bookstore.customer",
+  "pk": "Yuna",
+  "fields": {
+    "pwd": "passwordYuna",
+    "surname": "Yunaski",
+    "given_name": "Yuna",
+    "credit_card": "1234123423452346",
+    "address": "Changi South Ave 1",
+    "phoneno": 123457
+  }
+},
+{
+  "model": "bookstore.customer",
   "pk": "betty",
   "fields": {
     "pwd": "betty123",
@@ -21,6 +141,30 @@
     "credit_card": "9999999aa",
     "address": "8 sompah road",
     "phoneno": 999999
+  }
+},
+{
+  "model": "bookstore.customer",
+  "pk": "lana",
+  "fields": {
+    "pwd": "p",
+    "surname": "lanaski",
+    "given_name": "lana",
+    "credit_card": "1234123412341234",
+    "address": "somapah road",
+    "phoneno": 123456
+  }
+},
+{
+  "model": "bookstore.customer",
+  "pk": "rama",
+  "fields": {
+    "pwd": "p",
+    "surname": "lanaski",
+    "given_name": "rama",
+    "credit_card": "1234123412341234",
+    "address": "somapah road",
+    "phoneno": 123456
   }
 }
 ]

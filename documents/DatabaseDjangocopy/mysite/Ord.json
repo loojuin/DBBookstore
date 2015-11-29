@@ -1,0 +1,65 @@
+[
+{
+  "model": "bookstore.ord",
+  "pk": 1,
+  "fields": {
+    "customer": "Amy",
+    "timestmp": "2015-09-04T06:00:00Z",
+    "stat": "Progress"
+  }
+},
+{
+  "model": "bookstore.ord",
+  "pk": 2,
+  "fields": {
+    "customer": "Bojack",
+    "timestmp": "2015-10-15T15:00:00Z",
+    "stat": "Open"
+  }
+},
+{
+  "model": "bookstore.ord",
+  "pk": 3,
+  "fields": {
+    "customer": "Carolyn",
+    "timestmp": "2015-11-15T09:00:00Z",
+    "stat": "Closed"
+  }
+},
+{
+  "model": "bookstore.ord",
+  "pk": 4,
+  "fields": {
+    "customer": "Diana",
+    "timestmp": "2015-10-23T04:00:00Z",
+    "stat": "Open"
+  }
+},
+{
+  "model": "bookstore.ord",
+  "pk": 5,
+  "fields": {
+    "customer": "Nalia",
+    "timestmp": "2015-11-29T20:15:00Z",
+    "stat": "Closed"
+  }
+},
+{
+  "model": "bookstore.ord",
+  "pk": 6,
+  "fields": {
+    "customer": "Owl",
+    "timestmp": "2015-10-29T16:12:00Z",
+    "stat": "Progress"
+  }
+},
+{
+  "model": "bookstore.ord",
+  "pk": 7,
+  "fields": {
+    "customer": "Peanutbutter",
+    "timestmp": "2015-11-20T19:06:00Z",
+    "stat": "Open"
+  }
+}
+]

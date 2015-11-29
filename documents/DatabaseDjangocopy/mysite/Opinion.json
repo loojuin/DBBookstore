@@ -1,0 +1,142 @@
+[
+{
+  "model": "bookstore.opinion",
+  "pk": 1,
+  "fields": {
+    "customer": "john",
+    "book": "1245-2252-4442",
+    "score": 19,
+    "txt": "This is a mediocre book"
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 2,
+  "fields": {
+    "customer": "betty",
+    "book": "1245-2252-4442",
+    "score": 10,
+    "txt": "This is a fantastic book! recommending to anyone without a job!"
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 3,
+  "fields": {
+    "customer": "Yuna",
+    "book": "1245-2252-4442",
+    "score": 23,
+    "txt": "an invaluable resource, takes the reader step by stepamong the best \u2026 refreshing in its specificity"
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 4,
+  "fields": {
+    "customer": "Nalia",
+    "book": "1245-2252-4442",
+    "score": 9,
+    "txt": "relentlessly logical \u2026 fresh and forceful"
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 5,
+  "fields": {
+    "customer": "Diana",
+    "book": "1245-2252-4442",
+    "score": 12,
+    "txt": "a wealth of great advice\u2026 clear, succinct, robust \u2026 compact and accessible"
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 6,
+  "fields": {
+    "customer": "Bojack",
+    "book": "1245-2252-4442",
+    "score": 2,
+    "txt": "I recommend to anyone with an ambition to succeed"
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 7,
+  "fields": {
+    "customer": "Taub",
+    "book": "1245-2252-4442",
+    "score": 19,
+    "txt": "Painstakingly average. My son throw up all over it"
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 8,
+  "fields": {
+    "customer": "Carolyn",
+    "book": "1245-2252-4442",
+    "score": 3,
+    "txt": "Pretty mediocre, I could have written it myself"
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 9,
+  "fields": {
+    "customer": "Peanutbutter",
+    "book": "1245-2252-4442",
+    "score": 30,
+    "txt": "Kinda hard to read"
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 10,
+  "fields": {
+    "customer": "Vincent",
+    "book": "1245-2252-4442",
+    "score": 0,
+    "txt": "inspiring, engaging and very useful\u2026 different and refreshing\u2026 excellent and I thoroughly recommend it to anyone"
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 11,
+  "fields": {
+    "customer": "Owl",
+    "book": "1245-2252-4442",
+    "score": 12,
+    "txt": "This is the best book I've ever read"
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 12,
+  "fields": {
+    "customer": "lana",
+    "book": "1245-2252-4442",
+    "score": 0,
+    "txt": "Hello"
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 13,
+  "fields": {
+    "customer": "lana",
+    "book": "978-0451524935",
+    "score": 0,
+    "txt": "Mind-blowing book. Changed my life."
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 14,
+  "fields": {
+    "customer": "rama",
+    "book": "1245-2252-4442",
+    "score": 0,
+    "txt": "This is a book I made up\r\n"
+  }
+}
+]

@@ -1,0 +1,56 @@
+[
+{
+  "model": "bookstore.ordbook",
+  "pk": 1,
+  "fields": {
+    "oid": 1,
+    "book": "978-0307743657",
+    "qty": 1
+  }
+},
+{
+  "model": "bookstore.ordbook",
+  "pk": 2,
+  "fields": {
+    "oid": 2,
+    "book": "978-0312367558",
+    "qty": 1
+  }
+},
+{
+  "model": "bookstore.ordbook",
+  "pk": 3,
+  "fields": {
+    "oid": 5,
+    "book": "978-0312421274",
+    "qty": 1
+  }
+},
+{
+  "model": "bookstore.ordbook",
+  "pk": 4,
+  "fields": {
+    "oid": 3,
+    "book": "978-0345418012",
+    "qty": 1
+  }
+},
+{
+  "model": "bookstore.ordbook",
+  "pk": 5,
+  "fields": {
+    "oid": 7,
+    "book": "978-0375714542",
+    "qty": 1
+  }
+},
+{
+  "model": "bookstore.ordbook",
+  "pk": 6,
+  "fields": {
+    "oid": 5,
+    "book": "978-0375714573",
+    "qty": 1
+  }
+}
+]
