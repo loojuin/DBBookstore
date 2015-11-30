@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 from .models import Book
 from .models import Customer
 from .models import Opinion
+from .models import Rate
 from .models import Ord
 from .models import OrdBook
 
@@ -177,16 +178,32 @@ def add_comment(request, book_id):
 
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-def rate_comment(request, book_id, commenter):
-	"""
-	TODO
-	1. check if authenticated
-	2. check if it's user's own comment
-	3. check if user has rated this comment already
-	4. save rating in 
-	"""
+def rate_comment(request, book_id, username):
+	comment_author = username
 	if request.method == "POST":
-		pass
+		if request.user.is_authenticated():
+			rating = request.POST["rating"]			
+			if comment_author != request.user.username:
+				cus = Customer.objects.filter(login_name=comment_author)[0]
+				rater = Customer.objects.filter(login_name=request.user.username)[0]
+				b = Book.objects.filter(isbn=book_id)
+				op = Opinion.objects.filter(book = b, customer=cus)[0]
+				old_rating = Rate.objects.filter(rater=rater, opinion=op)
+				if len(old_rating) == 0:
+					newrating = Rate(rater=rater, opinion=op, rating=rating)
+					newrating.save()
+					print "new rating saved! "+ rating   
+					"""
+					TODO:
+					notify the user the rating is successful/unsuccessful
+					Don't think this is graded though
+					"""
+			else:
+				print "don't rate your own comments!"
+		else:
+			print "user is not logged in!"
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+	
 
 def view_login(request):
 	errors = []
@@ -207,10 +224,6 @@ def view_login(request):
 
 
 def view_logout(request):
-	"""
-	TODO: someone finish this please
-	logout button are already inside the templates
-	"""
 	if request.user.is_authenticated():
 		logout(request)
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
