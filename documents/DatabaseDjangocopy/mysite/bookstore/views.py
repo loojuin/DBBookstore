@@ -109,7 +109,9 @@ def book(request, book_id):
 def user_record(request,user_name):
 	profile=Customer.objects.get(login_name=user_name)
 	orders=list(Ord.objects.filter(customer=user_name).values())
-	feedbacks=list(Opinion.objects.filter(customer=user_name).values())
+	feedbacks=list(Opinion.objects.filter(customer=user_name))
+	feedback_books = []
+	
 
 	template = loader.get_template('bookstore/profile.html')
 	context = RequestContext(request, {
