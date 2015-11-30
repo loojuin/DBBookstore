@@ -40,6 +40,19 @@
 		<br>
 		<br>
 <!--Main content of the body comes here-->
+		<h1>PROFILE PAGE</h1>
+		<h2>{{profile.login_name}}</h2>
+		<h3>{{profile.address}}</h3>
+		<ul>
+			{% for order in orders %}
+			<li>{{order.oid}}</li>
+			{% endfor %}
+		</ul>
+		<ul>
+			{% for comment in feedbacks %}
+			<li>{{comment.txt}}</li>
+			{% endfor %}
+		</ul>
 
 </body>
 </html>

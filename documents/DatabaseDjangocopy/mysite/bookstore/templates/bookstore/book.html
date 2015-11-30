@@ -86,7 +86,7 @@
 						<span class="glyphicon glyphicon-star"></span>
 						<span class="glyphicon glyphicon-star"></span>
 						<span class="glyphicon glyphicon-star-empty"></span>
-						{{user_comment.customer.login_name}}
+						<a href="/bookstore/user/{{user_comment.customer.login_name}}/">{{user_comment.customer.login_name}}</a>
 						<span class="pull-right">{{user_comment.score}}
 							<button type="button" class="btn btn-default btn-circle btn-sm">+0</button>
 							<button type="button" class="btn btn-warning btn-circle btn-sm">+1</button>
@@ -122,7 +122,7 @@
 						<span class="glyphicon glyphicon-star"></span>
 						<span class="glyphicon glyphicon-star"></span>
 						<span class="glyphicon glyphicon-star-empty"></span>
-						{{comment.customer.login_name}}
+						<a href="/bookstore/user/{{comment.customer.login_name}}/">{{comment.customer.login_name}}</a>
 						<span class="pull-right">{{comment.score}}
 							<button type="button" class="btn btn-default btn-circle btn-sm">+0</button>
 							<button type="button" class="btn btn-warning btn-circle btn-sm">+1</button>
