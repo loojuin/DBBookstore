@@ -31,7 +31,8 @@ class Book(models.Model):
     keywords = models.CharField(max_length = 128, null = True)
     price = models.FloatField(null = True)
     copies = models.IntegerField(null = False, default = 0)
-
+   
+    
 
 class Ord(models.Model):
     oid = models.AutoField(primary_key = True)

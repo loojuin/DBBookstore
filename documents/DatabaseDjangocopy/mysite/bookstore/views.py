@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.db.models import Avg
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
@@ -13,7 +13,7 @@ from .models import Rate
 from .models import Ord
 from .models import OrdBook
 
-def view_search(request):
+def view_search(request, authors_input,publisher_input,title_input,subject_input,isbn_input,sorted_year,sorted_score):
 	"""
 	TODO:
 	Users may search for books, by asking conjunctive
@@ -21,7 +21,50 @@ def view_search(request):
 	Your system should allow the user to specify that the results are to be 
 	sorted a) by year, or b) by the average score of the feedbacks.
 	"""
-	pass
+	"""
+	average score of feedback
+	conjunctive function
+	multiple authors
+	isbn & book
+	"""
+
+	"""
+	if title given --> isbn
+	"""
+	isbn_title=list(Book.objects.filter(title=title_input).values('isbn'))
+
+
+
+	search_publisher=list(Book.objects.filter(publisher=publisher_input).values())
+	search_author=list(Book.objects.filter(author=authors_input).values())
+	search_title=list(Book.objects.filter(title=title_input).values())
+	search_isbn=list(Book.objects.filter(isbn=isbn_input).values())
+	search_subject=list(Book.objects.filter(sbj=subject_input).values())
+	average_score=Opinion.objects.filter(book=isbn_input).aggregate(Avg('score'))
+
+	"""
+	this lines below should suffice
+	dynamic input Eg, if type 'Ste' , authors such as Stephen Hawking & Stephen King will appear
+	"""
+	results=Book.objects.filter(author__contains=authors_input,publisher__contains=publisher_input , title__contains=title_input,subject__contains=subject_input,isbn__contains=isbn_input).values()
+	output_results=list(results)
+	if sorted_year==True:
+		sorted_year_results=list(results.order_by('-yr'))
+	elif sorted_score==True:
+		feedback_isbn=results.values('isbn')
+		for i in feedback_isbn:
+			sorted_score=Opinion.objects.filter(book=i['isbn']).aggregate(Avg('score'))
+	else:
+		return results
+
+	# template = loader.get_template('bookstore/profile.html')
+	# context = RequestContext(request, {
+	# 	'profile' : profile, 
+	# 	'orders': orders,
+	# 	'feedbacks': feedbacks,
+	# 	})
+
+	# return HttpResponse(template.render(context))
 
 def useful_feedbacks(request, number_of_comments):
 	"""
