@@ -10,5 +10,7 @@ urlpatterns = [
     url(r'login', views.view_login, name='login'),
     url(r'logout', views.view_logout, name='logout'),
     url(r'register', views.register, name='register'),
-    url(r'^user/(?P<user_name>([A-Z]|[a-z])\w+)/$', views.user_record, name='profile')
+    url(r'^user/(?P<user_name>([A-Z]|[a-z])\w+)/$', views.user_record, name='profile'),
+    url(r'mycart', views.view_cart, name='shopping_cart'),
+    url(r'myorders', views.view_orders, name='order_history'),
 ]

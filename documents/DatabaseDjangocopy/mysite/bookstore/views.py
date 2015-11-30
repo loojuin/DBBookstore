@@ -34,9 +34,14 @@ def useful_feedbacks(request, number_of_comments):
 def order_book(request):
 	"""
 	TODO:
-	shopping cart without a checkout
+	add a book order to shopping cart without a checkout
 	"""
 	pass
+
+def view_cart(request):
+	template = loader.get_template('bookstore/cart.html')
+	context = RequestContext(request, {})
+	return HttpResponse(template.render(context))
 
 def recommendation(request):
 	"""
@@ -147,7 +152,10 @@ def user_record_2(request,user_name):
 		context = RequestContext(request, {'errors': errors})
 		return HttpResponse(template.render(context))
 
-
+def view_orders(request):
+	template = loader.get_template('bookstore/orders.html')
+	context = RequestContext(request, {})
+	return HttpResponse(template.render(context))
 
 def add_comment(request, book_id):
 	if request.method == "POST":
