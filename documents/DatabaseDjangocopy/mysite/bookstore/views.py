@@ -98,6 +98,30 @@ def book(request, book_id):
 		})
 	return HttpResponse(template.render(context))
 
+def user_record(request,user_name):
+	surname=Customer.objects.filter(login_name=user_name).values().first()['surname']
+	given_name=Customer.objects.filter(login_name=user_name).values().first()['given_name']
+	address=Customer.objects.filter(login_name=user_name).values().first()['address']
+	credit_card=Customer.objects.filter(login_name=user_name).values().first()['credit_card']
+	phoneno=Customer.objects.filter(login_name=user_name).values().first()['phoneno']
+	number_of_ords=len(list(Ord.objects.filter(customer=user_name).values()))
+	for i in range(number_of_ords):
+		oid_value=list(Ord.objects.filter(customer=user_name).values())[i]['oid']
+		status=list(Ord.objects.filter(customer=user_name).values())[i]['stat']
+		time_stamp=list(Ord.objects.filter(customer=user_name).values())[i]['timestmp']
+		isbn_value=OrdBook.objects.filter(oid=oid_value).values().first()['book_id']
+		qty=OrdBook.objects.filter(oid=oid_value).values().first()['qty']
+		book_name=Book.objects.filter(isbn=isbn_value).values().first()['title']
+		book_author=Book.objects.filter(isbn=isbn_value).values().first()['author']
+		book_publisher=book_name=Book.objects.filter(isbn=isbn_value).values().first()['publisher']
+		book_desc=book_name=Book.objects.filter(isbn=isbn_value).values().first()['desc']
+	number_of_feedbacks=len(Opinion.objects.filter(customer=user_name).values())
+	for i in range(number_of_feedbacks):
+		book_name_feedback_isbn=list(Opinion.objects.filter(customer=user_name).values())[i]['book_id']
+		book_name_feedback=Book.objects.filter(isbn=book_name_feedback_isbn).values().first()['title']
+		score=list(Opinion.objects.filter(customer=user_name).values())[i]['score']
+		txt=list(Opinion.objects.filter(customer=user_name).values())[i]['txt']
+
 def add_comment(request, book_id):
 	if request.method == "POST":
 		if request.user.is_authenticated():
