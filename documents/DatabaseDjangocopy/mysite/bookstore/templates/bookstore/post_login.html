@@ -1,60 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Database Bookstore</title>
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-</head>
-<body>
-	<div class="container">
-		<!--The Navigation Bar-->
-		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="container">
-			    <div class="navbar-header">
-			    	<a class="navbar-brand" href="/bookstore/">
-		      		  Le Bookstore
-		     		</a>
-			    </div>
-			    <form class="navbar-form navbar-left">
-				  <div class="input-group">
-			  		<input type="text" class="form-control" placeholder="J.K Rowling, The Da Vinci Code...">
-				    <span class="input-group-btn">
-				        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-				    </span>
-				  </div>
-				</form>
-				<div class="navbar-right">
-					<!-- to be replaced by template -->
-				{% if user.is_authenticated %}
-					Logged in as {{ user.username }} 
-					<a type="button" class="btn btn-default navbar-btn" href="/bookstore/logout">Log Out</a>
-				{% else %}
-					<a type="button" class="btn btn-success navbar-btn" href="/bookstore/register">Sign Up</a>
-					<a type="button" class="btn btn-default navbar-btn" href="/bookstore/login">Log In</a>
-				{% endif %}
-				<!-- end of template -->
-				</div>
-			</div>
-		</nav>
-		<br>
-		<br>
-		<br>
-		<!--Main content of the body comes here-->
-		{% if user %}
-			{% if validuser %}
-				<h2 class="text-primary">Welcome <strong>{{ query }}</strong>!</h2>
-			    <!--<p >Found {{ validuser|length }} Usermatch{{ Usermatches|pluralize }}.</p>-->
-			{% else %}
-				<h2 class="text-danger">Password Incorrect. Try again! </h2>
-			{% endif %}
-		{% else %}
-		    <p>No user matched your username input. Please register an account! </p>
-		{% endif %}
+{% extends 'bookstore/base.html' %}
 
-		<div class="row">
-			<a type="button" class="btn btn-primary navbar-btn" href="/bookstore/user/{{query}}/">View your Profile</a>
-			<a type="button" class="btn btn-default navbar-btn" href="/bookstore/">Continue Shopping</a>
-		</div>
-		
-</body>
-</html>
+{% block title %}<!-- Title goes Here -->{% endblock %}
+
+{% block body_block %}
+    <!-- Your Main Body Content Goes Here -->
+	{% if user %}
+		{% if validuser %}
+			<h2 class="text-primary">Welcome <strong>{{ query }}</strong>!</h2>
+		    <!--<p >Found {{ validuser|length }} Usermatch{{ Usermatches|pluralize }}.</p>-->
+		{% else %}
+			<h2 class="text-danger">Password Incorrect. Try again! </h2>
+		{% endif %}
+	{% else %}
+	    <p>No user matched your username input. Please register an account! </p>
+	{% endif %}
+
+	<div class="row">
+		<a type="button" class="btn btn-primary navbar-btn" href="/bookstore/user/{{query}}/">View your Profile</a>
+		<a type="button" class="btn btn-default navbar-btn" href="/bookstore/">Continue Shopping</a>
+	</div>
+{% endblock %}

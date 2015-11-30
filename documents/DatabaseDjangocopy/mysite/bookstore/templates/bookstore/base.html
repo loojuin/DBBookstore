@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Le Bookstore - {% block title %}The Best Online Bookstore in SUTD{% endblock %} </title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+			    <div class="navbar-header">
+			    	<a class="navbar-brand" href="/bookstore/">
+		      		  Le Bookstore
+		     		</a>
+			    </div>
+			    <form class="navbar-form navbar-left">
+				  <div class="input-group">
+			  		<input type="text" class="form-control" placeholder="J.K Rowling, The Da Vinci Code...">
+				    <span class="input-group-btn">
+				        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+				    </span>
+				  </div>
+				</form>
+				<div class="navbar-right">
+				<!-- to be replaced by template -->
+				{% if request.user.is_authenticated %}										
+					<a type="button" class="btn btn-info navbar-btn" href="/bookstore/mycart">Shopping Cart <span class="badge">4</a>	
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user.username}} <span class="caret"></span></a>
+				          <ul class="dropdown-menu">
+				            <li><a href="/bookstore/user/{{user.username}}">View Profile</a></li>
+				            <li><a href="/bookstore/myorders">Order History</a></li>
+				            <li role="separator" class="divider"></li>
+				            <li><a href="/bookstore/logout">Logout</a></li>
+				          </ul>
+				        </li>
+					</ul>
+				{% else %}
+					<a type="button" class="btn btn-success navbar-btn" href="/bookstore/register">Sign Up</a>
+					<a type="button" class="btn btn-default navbar-btn" href="/bookstore/login">Log In</a>
+				{% endif %}
+				<!-- end of template -->
+				</div>
+			</div>
+		</nav>
+		<br>
+		<br>
+		<br>
+		<!--Main content of the body comes HERE-->
+		{% block body_block %}{% endblock %}
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+	</div><!-- Container -->
+</body>
+</html>
