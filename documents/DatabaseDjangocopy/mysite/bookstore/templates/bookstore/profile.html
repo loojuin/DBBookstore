@@ -67,8 +67,8 @@
 						{% for order in orders %}
 						<tr>
 							<td>{{order.oid}}</td>
-							<td>book title</td>
-							<td>book quantity</td>
+							<td>{{order.book.title}}</td>
+							<td>{{order.qty}}</td>
 							<td>{{order.timestmp}}</td>
 						</tr>
 						{% endfor %}

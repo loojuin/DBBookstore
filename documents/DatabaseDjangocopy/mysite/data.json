@@ -508,52 +508,107 @@
   }
 },
 {
-  "model": "bookstore.opinion",
+  "model": "bookstore.ord",
   "fields": {
     "customer": "Amy",
-    "score": 8,
-    "txt": "Not bad!"
-    "txt": "Unconventional!"
+    "timestmp": "2015-09-04T06:00:00Z",
+    "stat": "Progress",
+    "book":"978-0307389732",
+    "qty":2
   }
 },
 {
-  "model": "bookstore.opinion",
+  "model": "bookstore.ord",
+  "fields": {
+    "customer": "Bojack",
+    "timestmp": "2015-10-15T15:00:00Z",
+    "stat": "Open",
+    "book":"978-0307743657",
+    "qty":1
+  }
+},
+{
+  "model": "bookstore.ord",
   "fields": {
     "customer": "Carolyn",
-    "book": "978-0553380163",
-    "score": 13,
-    "txt": "Excellent!"
+    "timestmp": "2015-11-15T09:00:00Z",
+    "stat": "Closed",
+    "book":"978-0312367558",
+    "qty":1
+
+  }
+},
+{
+  "model": "bookstore.ord",
+  "fields": {
+    "customer": "Diana",
+    "timestmp": "2015-10-23T04:00:00Z",
+    "stat": "Open",
+    "book":"978-0312421274",
+    "qty":1
+  }
+},
+{
+  "model": "bookstore.ord",
+  "fields": {
+    "customer": "Nalia",
+    "timestmp": "2015-11-29T20:15:00Z",
+    "stat": "Closed",
+    "book":"978-0316776967",
+    "qty":1
+  }
+},
+{
+  "model": "bookstore.ord",
+  "fields": {
+    "customer": "Owl",
+    "timestmp": "2015-10-29T16:12:00Z",
+    "stat": "Progress",
+    "book":"978-0345418012",
+    "qty":1
+  }
+},
+{
+  "model": "bookstore.ord",
+  "fields": {
+    "customer": "Peanutbutter",
+    "timestmp": "2015-11-20T19:06:00Z",
+    "stat": "Open",
+    "book":"978-0375714542",
+    "qty":1
+  }
+},
+{
+  "model": "bookstore.ord",
+  "fields": {
+    "customer": "Amy",
+    "timestmp": "2015-11-05T19:06:00Z",
+    "stat": "Open",
+    "book":"978-0375714573",
+    "qty":1
+
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -3,72 +3,88 @@
   "model": "bookstore.ord",
   "pk": 1,
   "fields": {
+    "book": "978-0307389732",
     "customer": "Amy",
     "timestmp": "2015-09-04T06:00:00Z",
-    "stat": "Progress"
+    "stat": "Progress",
+    "qty": 2
   }
 },
 {
   "model": "bookstore.ord",
   "pk": 2,
   "fields": {
+    "book": "978-0307743657",
     "customer": "Bojack",
     "timestmp": "2015-10-15T15:00:00Z",
-    "stat": "Open"
+    "stat": "Open",
+    "qty": 1
   }
 },
 {
   "model": "bookstore.ord",
   "pk": 3,
   "fields": {
+    "book": "978-0312367558",
     "customer": "Carolyn",
     "timestmp": "2015-11-15T09:00:00Z",
-    "stat": "Closed"
+    "stat": "Closed",
+    "qty": 1
   }
 },
 {
   "model": "bookstore.ord",
   "pk": 4,
   "fields": {
+    "book": "978-0312421274",
     "customer": "Diana",
     "timestmp": "2015-10-23T04:00:00Z",
-    "stat": "Open"
+    "stat": "Open",
+    "qty": 1
   }
 },
 {
   "model": "bookstore.ord",
   "pk": 5,
   "fields": {
+    "book": "978-0316776967",
     "customer": "Nalia",
     "timestmp": "2015-11-29T20:15:00Z",
-    "stat": "Closed"
+    "stat": "Closed",
+    "qty": 1
   }
 },
 {
   "model": "bookstore.ord",
   "pk": 6,
   "fields": {
+    "book": "978-0345418012",
     "customer": "Owl",
     "timestmp": "2015-10-29T16:12:00Z",
-    "stat": "Progress"
+    "stat": "Progress",
+    "qty": 1
   }
 },
 {
   "model": "bookstore.ord",
   "pk": 7,
   "fields": {
+    "book": "978-0375714542",
     "customer": "Peanutbutter",
     "timestmp": "2015-11-20T19:06:00Z",
-    "stat": "Open"
+    "stat": "Open",
+    "qty": 1
   }
 },
 {
   "model": "bookstore.ord",
   "pk": 8,
   "fields": {
+    "book": "978-0375714573",
     "customer": "Amy",
     "timestmp": "2015-11-05T19:06:00Z",
-    "stat": "Open"
+    "stat": "Open",
+    "qty": 1
   }
 }
 ]

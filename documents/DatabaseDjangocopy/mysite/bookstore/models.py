@@ -32,24 +32,18 @@ class Book(models.Model):
     price = models.FloatField(null = True)
     copies = models.IntegerField(null = False, default = 0)
    
-    
+
 
 class Ord(models.Model):
     oid = models.AutoField(primary_key = True)
+    book = models.ForeignKey(Book)
     customer = models.ForeignKey(Customer)
     timestmp = models.DateTimeField(null = True)
     stat = models.CharField(max_length = 16, null = True)
-
-
-class OrdBook(models.Model):
-    oid = models.ForeignKey(Ord)
-    book = models.ForeignKey(Book)
     qty = models.IntegerField(null = False,
                               default = 0,
                               validators = [validators.MinValueValidator(0, "Order quantity cannot be negative.")])
 
-    class Meta:
-        unique_together = ("oid", "book")
 
 
 class Opinion(models.Model):
