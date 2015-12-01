@@ -53,9 +53,23 @@
 					<span class="glyphicon glyphicon-star-empty"></span>
 					<a href="/bookstore/user/{{user_comment.customer.login_name}}/">{{user_comment.customer.login_name}}</a>
 					<span class="pull-right">{{user_comment.score}}
-						<button type="button" class="btn btn-default btn-circle btn-sm">+0</button>
-						<button type="button" class="btn btn-warning btn-circle btn-sm">+1</button>
-						<button type="button" class="btn btn-danger btn-circle btn-sm">+2</button>
+						<form action="/bookstore/{{book.isbn}}/{{comment.customer.login_name}}/rating" method="post">
+								{% csrf_token %}
+								<input type="submit" class="btn btn-default btn-circle btn-sm" value="+0" name="rating">
+						</form>
+						<form action="/bookstore/{{book.isbn}}/{{comment.customer.login_name}}/rating" method="post">
+								{% csrf_token %}
+								<input type="submit" class="btn btn-warning btn-circle btn-sm" value="+1" name="rating">
+						</form>
+						<form action="/bookstore/{{book.isbn}}/{{comment.customer.login_name}}/rating" method="post">
+								{% csrf_token %}
+								<input type="submit" class="btn btn-danger btn-circle btn-sm" value="+2" name="rating">
+								<!--
+							<button type="button" class="btn btn-default btn-circle btn-sm">+0</button>
+							<button type="button" class="btn btn-warning btn-circle btn-sm">+1</button>
+							<button type="button" class="btn btn-danger btn-circle btn-sm">+2</button>
+							-->
+						</form>
 					</span>
 
 					<p>{{user_comment.txt}}</p>
@@ -78,6 +92,7 @@
 				</div>
 			</div>
 			{% for comment in comments %}
+
 			<!-- one user comment -->
 			<hr>
 			<div class="row">
@@ -89,9 +104,23 @@
 					<span class="glyphicon glyphicon-star-empty"></span>
 					<a href="/bookstore/user/{{comment.customer.login_name}}/">{{comment.customer.login_name}}</a>
 					<span class="pull-right">{{comment.score}}
-						<button type="button" class="btn btn-default btn-circle btn-sm">+0</button>
-						<button type="button" class="btn btn-warning btn-circle btn-sm">+1</button>
-						<button type="button" class="btn btn-danger btn-circle btn-sm">+2</button>
+						<form action="/bookstore/{{book.isbn}}/{{comment.customer.login_name}}/rating" method="post">
+								{% csrf_token %}
+								<input type="submit" class="btn btn-default btn-circle btn-sm" value="+0" name="rating">
+						</form>
+						<form action="/bookstore/{{book.isbn}}/{{comment.customer.login_name}}/rating" method="post">
+								{% csrf_token %}
+								<input type="submit" class="btn btn-warning btn-circle btn-sm" value="+1" name="rating">
+						</form>
+						<form action="/bookstore/{{book.isbn}}/{{comment.customer.login_name}}/rating" method="post">
+								{% csrf_token %}
+								<input type="submit" class="btn btn-danger btn-circle btn-sm" value="+2" name="rating">
+								<!--
+							<button type="button" class="btn btn-default btn-circle btn-sm">+0</button>
+							<button type="button" class="btn btn-warning btn-circle btn-sm">+1</button>
+							<button type="button" class="btn btn-danger btn-circle btn-sm">+2</button>
+							-->
+						</form>
 					</span>
 
 					<p>{{comment.txt}}</p>

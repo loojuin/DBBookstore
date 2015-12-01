@@ -2,17 +2,22 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.db.models import Avg
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
 from .models import Book
 from .models import Customer
 from .models import Opinion
+from .models import Rate
 from .models import Ord
 from .models import OrdBook
 
-def view_search(request):
+from django.db.models import Sum
+
+import datetime
+
+def view_search(request, authors_input,publisher_input,title_input,subject_input,isbn_input,sorted_year,sorted_score):
 	"""
 	TODO:
 	Users may search for books, by asking conjunctive
@@ -20,7 +25,50 @@ def view_search(request):
 	Your system should allow the user to specify that the results are to be 
 	sorted a) by year, or b) by the average score of the feedbacks.
 	"""
-	pass
+	"""
+	average score of feedback
+	conjunctive function
+	multiple authors
+	isbn & book
+	"""
+
+	"""
+	if title given --> isbn
+	"""
+	isbn_title=list(Book.objects.filter(title=title_input).values('isbn'))
+
+
+
+	search_publisher=list(Book.objects.filter(publisher=publisher_input).values())
+	search_author=list(Book.objects.filter(author=authors_input).values())
+	search_title=list(Book.objects.filter(title=title_input).values())
+	search_isbn=list(Book.objects.filter(isbn=isbn_input).values())
+	search_subject=list(Book.objects.filter(sbj=subject_input).values())
+	average_score=Opinion.objects.filter(book=isbn_input).aggregate(Avg('score'))
+
+	"""
+	this lines below should suffice
+	dynamic input Eg, if type 'Ste' , authors such as Stephen Hawking & Stephen King will appear
+	"""
+	results=Book.objects.filter(author__contains=authors_input,publisher__contains=publisher_input , title__contains=title_input,subject__contains=subject_input,isbn__contains=isbn_input).values()
+	output_results=list(results)
+	if sorted_year==True:
+		sorted_year_results=list(results.order_by('-yr'))
+	elif sorted_score==True:
+		feedback_isbn=results.values('isbn')
+		for i in feedback_isbn:
+			sorted_score=Opinion.objects.filter(book=i['isbn']).aggregate(Avg('score'))
+	else:
+		return results
+
+	# template = loader.get_template('bookstore/profile.html')
+	# context = RequestContext(request, {
+	# 	'profile' : profile, 
+	# 	'orders': orders,
+	# 	'feedbacks': feedbacks,
+	# 	})
+
+	# return HttpResponse(template.render(context))
 
 def useful_feedbacks(request, number_of_comments):
 	"""
@@ -38,11 +86,14 @@ def order_book(request):
 	"""
 	pass
 
+
 def view_cart(request):
 	template = loader.get_template('bookstore/cart.html')
 	context = RequestContext(request, {})
 	return HttpResponse(template.render(context))
 
+
+# Working on it: Loo Juin
 def recommendation(request):
 	"""
 	TODO:
@@ -54,14 +105,73 @@ def recommendation(request):
 	"""
 	pass
 
+
+# Working on it: Loo Juin
+#
+# Shows a page displaying the:
+# - m most popular books (in terms of copies sold in this month)
+# - m most popular authors
+# - m most popular publishers
 def show_statistics(request):
-	"""
-	TODO:
-	the list of the m most popular books (in terms of copies sold in this month)
-	the list of m most popular authors
-	the list of m most popular publishers
-	"""
-	pass
+	m = 10
+
+	def pop_books(ordbooks):
+		counts = {}
+		for ordbook in ordbooks:
+			try:
+				counts[ordbook.book.isbn] += ordbook.qty
+			except KeyError:
+				counts[ordbook.book.isbn] = ordbook.qty
+		ranks = [(c, counts[c]) for c in counts.keys()]
+		ranks = sorted(ranks, key = lambda entry: entry[1], reverse = True)
+		if len(ranks) <= m:
+			return ranks
+		else:
+			return ranks[0:m]
+
+	def pop_authors(ordbooks):
+		counts = {}
+		for ordbook in ordbooks:
+			try:
+				counts[ordbook.book.author] += ordbook.qty
+			except KeyError:
+				counts[ordbook.book.author] = ordbook.qty
+		ranks = [(c, counts[c]) for c in counts.keys()]
+		ranks = sorted(ranks, key = lambda entry: entry[1], reverse = True)
+		if len(ranks) <= m:
+			return ranks
+		else:
+			return ranks[0:m]
+
+	def pop_publishers(ordbooks):
+		counts = {}
+		for ordbook in ordbooks:
+			try:
+				counts[ordbook.book.publisher] += ordbook.qty
+			except KeyError:
+				counts[ordbook.book.publisher] = ordbook.qty
+		ranks = [(c, counts[c]) for c in counts.keys()]
+		ranks = sorted(ranks, key = lambda entry: entry[1], reverse = True)
+		if len(ranks) <= m:
+			return ranks
+		else:
+			return ranks[0:m]
+
+	now = datetime.datetime.now()
+	books = OrdBook.objects.filter(oid__timestmp__year = now.year) #.filter(oid__timestmp__month = now.month)
+
+	pop_books = pop_books(books)
+	pop_authors = pop_authors(books)
+	pop_publishers = pop_publishers(books)
+
+	template = loader.get_template('bookstore/stats.html')
+	context = RequestContext(request, {
+		"pop_books": pop_books,
+		"pop_authors": pop_authors,
+		"pop_publishers": pop_publishers
+	})
+	return HttpResponse(template.render(context))
+
 
 user = None
 def index(request):
@@ -179,16 +289,32 @@ def add_comment(request, book_id):
 
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-def rate_comment(request, book_id, commenter):
-	"""
-	TODO
-	1. check if authenticated
-	2. check if it's user's own comment
-	3. check if user has rated this comment already
-	4. save rating in 
-	"""
+def rate_comment(request, book_id, username):
+	comment_author = username
 	if request.method == "POST":
-		pass
+		if request.user.is_authenticated():
+			rating = request.POST["rating"]			
+			if comment_author != request.user.username:
+				cus = Customer.objects.filter(login_name=comment_author)[0]
+				rater = Customer.objects.filter(login_name=request.user.username)[0]
+				b = Book.objects.filter(isbn=book_id)
+				op = Opinion.objects.filter(book = b, customer=cus)[0]
+				old_rating = Rate.objects.filter(rater=rater, opinion=op)
+				if len(old_rating) == 0:
+					newrating = Rate(rater=rater, opinion=op, rating=rating)
+					newrating.save()
+					print "new rating saved! "+ rating   
+					"""
+					TODO:
+					notify the user the rating is successful/unsuccessful
+					Don't think this is graded though
+					"""
+			else:
+				print "don't rate your own comments!"
+		else:
+			print "user is not logged in!"
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+	
 
 def view_login(request):
 	errors = []
@@ -209,10 +335,6 @@ def view_login(request):
 
 
 def view_logout(request):
-	"""
-	TODO: someone finish this please
-	logout button are already inside the templates
-	"""
 	if request.user.is_authenticated():
 		logout(request)
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

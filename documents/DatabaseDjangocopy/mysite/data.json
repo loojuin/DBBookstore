@@ -494,21 +494,35 @@
   }
 },
 {
-  "model": "bookstore.opinion",
+  "model": "bookstore.book",
+  "pk": "978-0717802418",
   "fields": {
-    "customer": "Amy",
-    "book": "978-0307743657",
-    "score": 8,
-    "txt": "Not bad!"
+    "publisher": "International Publishers Co",
+    "title": "The Communist Manifesto",
+    "yr": 2014,
+    "author": "Karl Marx,Friedrich Engels",
+    "price":14.99 ,
+    "frmt": "H",
+    "desc":"The Communist Manifesto, originally titled Manifesto of the Communist Party (German: Manifest der Kommunistischen Partei) is a short 1848 book written by the German Marxist political theorists Karl Marx and Friedrich Engels. It has since been recognized as one of the world's most influential political manuscripts. Commissioned by the Communist League, it laid out the League's purposes and program. It presents an analytical approach to the class struggle (historical and present) and the problems of capitalism, rather than a prediction of communism's potential future forms.",
+    "copies": 2
   }
 },
 {
   "model": "bookstore.opinion",
   "fields": {
     "customer": "Amy",
-    "book": "978-0375725609",
-    "score": 12,
-    "txt": "Love it!"
+    "score": 8,
+    "txt": "Not bad!"
+    "txt": "Unconventional!"
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "fields": {
+    "customer": "Carolyn",
+    "book": "978-0553380163",
+    "score": 13,
+    "txt": "Excellent!"
   }
 }
 
