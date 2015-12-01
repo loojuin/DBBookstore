@@ -63,3 +63,12 @@ class Rate(models.Model):
 
     class Meta:
         unique_together = ("rater", "opinion")
+
+class Cart(models.Model):
+    customer = models.ForeignKey(Customer)
+    book = models.ForeignKey(Book)
+    qty = models.IntegerField(null=False,
+                                default = 1,
+                                validators = [validators.MinValueValidator(0, "Order quantity cannot be negative.")])
+    class Meta:
+        unique_together = ("customer", "book")
