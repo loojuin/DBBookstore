@@ -1,58 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Database Bookstore</title>
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-</head>
-<body>
-	<div class="container">
+{% extends 'bookstore/base.html' %}
 
-		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="container">
-			    <div class="navbar-header">
-			    	<a class="navbar-brand" href="/bookstore/">
-		      		  Le Bookstore
-		     		</a>
-			    </div>
-			    <form class="navbar-form navbar-left">
-				  <div class="input-group">
-			  		<input type="text" class="form-control" placeholder="J.K Rowling, The Da Vinci Code...">
-				    <span class="input-group-btn">
-				        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-				    </span>
-				  </div>
-				</form>
-				<div class="navbar-right">
-				<!-- to be replaced by template -->
-				{% if user.is_authenticated %}
-					Logged in as {{ user.username }} 
-					<a type="button" class="btn btn-default navbar-btn" href="/bookstore/logout">Log Out</a>
-				{% else %}
-					<a type="button" class="btn btn-success navbar-btn" href="/bookstore/register">Sign Up</a>
-					<a type="button" class="btn btn-default navbar-btn" href="/bookstore/login">Log In</a>
-				{% endif %}
-				<!-- end of template -->
+{% block title %}Your Profile{% endblock %}
+
+{% block body_block %}
+    <!-- Your Main Body Content Goes Here -->
+	<div class="row">
+		<div class="col-md-2">
+			<img src="http://funnne.com/w-img/user.jpg" class="img-circle img-responsive">
+		</div>
+		
+		<div class="col-md-10">
+			<div class="row">
+				<div class="col-md-8">
+					<h3 class="text-primary">General Details</h3>
+					<hr>
+					<h4><strong>Username: </strong>{{profile.login_name}}</h4>
+					<h4><strong>First Name: </strong>{{profile.given_name}}</h4>
+					<h4><strong>Last Name: </strong>{{profile.surname}}</h4>
+					<h4><strong>Address: </strong>{{profile.address}}</h4>
+					<h4><strong>Phone Number: </strong>{{profile.phoneno}}</h4>
 				</div>
+				{% ifequal user.username profile.login_name %}
+				<div class="col-md-4">
+					<h3 class="text-primary">Personal Details</h3>
+					<hr>
+					<h4><strong>Password: </strong>{{profile.pwd}}</h4>
+					<h4><strong>Credit Card No.: </strong>{{profile.credit_card}}</h4>					
+				</div>		
+				{% endifequal %}
 			</div>
-		</nav>
-		<br>
-		<br>
-		<br>
-<!--Main content of the body comes here-->
-		<h1>PROFILE PAGE</h1>
-		<h2>{{profile.login_name}}</h2>
-		<h3>{{profile.address}}</h3>
-		<ul>
-			{% for order in orders %}
-			<li>{{order.oid}}</li>
-			{% endfor %}
-		</ul>
-		<ul>
-			{% for comment in feedbacks %}
-			<li>{{comment.txt}}</li>
-			{% endfor %}
-		</ul>
+			<div class="row">
+				<h3 class="text-primary">Comments and Scores</h3>
+				<hr>
+				<table class="table table-hover">
+					<thead>
+						<tr class="active">
+							<th>Book</th>
+							<th>Comment</th>
+							<th>Score</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for comment in feedbacks %}
+						<tr>
+							<td>{{comment.book.title}}</td>
+							<td>{{comment.txt}}</td>
+							<td>{{comment.score}}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+			<div class="row">
+				<h3 class="text-primary">Order History</h3>
+				<hr>
+				<table class="table table-hover">
+					<thead>
+						<tr class="active">
+							<th>Order ID</th>
+							<th>Book</th>
+							<th>Quantity</th>
+							<th>Timestamp</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for order in orders %}
+						<tr>
+							<td>{{order.oid}}</td>
+							<td>book title</td>
+							<td>book quantity</td>
+							<td>{{order.timestmp}}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}
 
-</body>
-</html>

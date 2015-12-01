@@ -1,97 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Database Bookstore</title>
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-</head>
-<body>
-	<div class="container">
-		
-		<nav class="navbar navbar-default navbar-fixed-top">
-			<div class="container">
-			    <div class="navbar-header">
-			    	<a class="navbar-brand" href="/bookstore/">
-		      		  Le Bookstore
-		     		</a>
-			    </div>
-			    <form class="navbar-form navbar-left">
-				  <div class="input-group">
-			  		<input type="text" class="form-control" placeholder="J.K Rowling, The Da Vinci Code...">
-				    <span class="input-group-btn">
-				        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-				    </span>
-				  </div>
-				</form>
-				<div class="navbar-right">
-					<!-- to be replaced by template -->
-				{% if user.is_authenticated %}
-					Logged in as {{ user.username }} .
-					<a type="button" class="btn btn-default navbar-btn" href="/bookstore/logout">Log Out</a>
-				{% else %}
-					<a type="button" class="btn btn-success navbar-btn" href="/bookstore/register">Sign Up</a>
-					<a type="button" class="btn btn-default navbar-btn" href="/bookstore/login">Log In</a>
-				{% endif %}
-				<!-- end of template --></div>
-			</div>
-		</nav>
-		<br>
-		<br>
-		<br>
-		<div class="row">
-		{% for book in booklist %}
-		  <div class="col-sm-6 col-md-3">
-		    <div class="thumbnail">
-		    	<br>
-			    <img src="http://placehold.it/150x250" alt="...">
-			    <div class="caption">
-			        <a href="/bookstore/{{book.isbn}}"><h4>{{book.title|truncatechars:25}}</h4></a>
-			        <p>{{book.desc|truncatechars:190}}</p>
-			        <p><a href="#" class="btn btn-primary" role="button">Buy Now</a> 
-			        	<a href="/bookstore/{{book.isbn}}" class="btn btn-default" role="button">More Info</a></p>
-			    </div>
-		    </div>
-		  </div>
-		{% endfor %}
-		</div>
+{% extends 'bookstore/base.html' %}
 
-		<nav class="text-center">
-		  <ul class="pagination">
-			{% if booklist.has_previous %}
-		    <li>
-		      <a href="?page={{ booklist.previous_page_number }}" aria-label="Previous">
-		        <span aria-hidden="true">&laquo;</span>
-		      </a>
-		    </li>
-		    {% else %}
-		    <li class="disabled">
-		      <a href="#" aria-label="Previous">
-		        <span aria-hidden="true">&laquo;</span>
-		      </a>
-		    </li>
-		    {% endif %}
-		    {% for pagenum in pagerange %}
-		 		{% if pagenum == booklist.number %}
-					<li class="active"><a href="?page={{ pagenum }}">{{pagenum}}</a></li>
-				{% else %}
-		 			<li><a href="?page={{ pagenum }}">{{pagenum}}</a></li>
-		 		{% endif %}
-		    {% endfor %}
-		    {% if booklist.has_next %}
-		    <li>
-		      <a href="?page={{ booklist.next_page_number }}" aria-label="Next">
-		        <span aria-hidden="true">&raquo;</span>
-		      </a>
-		    </li>
-		    {% else %}
-		    <li class="disabled">
-		      <a href="#" aria-label="Next">
-		        <span aria-hidden="true">&raquo;</span>
-		      </a>
-		    </li>
-		    {% endif %}
-		  </ul>
-		</nav>
+{% block body_block %}
+    <!-- Your Main Body Content Goes Here -->
+	<div class="row">
+	{% for book in booklist %}
+	  <div class="col-sm-6 col-md-3">
+	    <div class="thumbnail">
+	    	<br>
+		    <img src="http://placehold.it/150x250" alt="...">
+		    <div class="caption">
+		        <a href="/bookstore/{{book.isbn}}"><h4>{{book.title|truncatechars:25}}</h4></a>
+		        <p>{{book.desc|truncatechars:190}}</p>
+		        <p><a href="#" class="btn btn-primary" role="button">Buy Now</a> 
+		        	<a href="/bookstore/{{book.isbn}}" class="btn btn-default" role="button">More Info</a></p>
+		    </div>
+	    </div>
+	  </div>
+	{% endfor %}
 	</div>
-</body>
-</html>
+
+	<nav class="text-center">
+	  <ul class="pagination">
+		{% if booklist.has_previous %}
+	    <li>
+	      <a href="?page={{ booklist.previous_page_number }}" aria-label="Previous">
+	        <span aria-hidden="true">&laquo;</span>
+	      </a>
+	    </li>
+	    {% else %}
+	    <li class="disabled">
+	      <a href="#" aria-label="Previous">
+	        <span aria-hidden="true">&laquo;</span>
+	      </a>
+	    </li>
+	    {% endif %}
+	    {% for pagenum in pagerange %}
+	 		{% if pagenum == booklist.number %}
+				<li class="active"><a href="?page={{ pagenum }}">{{pagenum}}</a></li>
+			{% else %}
+	 			<li><a href="?page={{ pagenum }}">{{pagenum}}</a></li>
+	 		{% endif %}
+	    {% endfor %}
+	    {% if booklist.has_next %}
+	    <li>
+	      <a href="?page={{ booklist.next_page_number }}" aria-label="Next">
+	        <span aria-hidden="true">&raquo;</span>
+	      </a>
+	    </li>
+	    {% else %}
+	    <li class="disabled">
+	      <a href="#" aria-label="Next">
+	        <span aria-hidden="true">&raquo;</span>
+	      </a>
+	    </li>
+	    {% endif %}
+	  </ul>
+	</nav>
+{% endblock %}

@@ -158,5 +158,75 @@
     "score": 12,
     "txt": "Love it!"
   }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 17,
+  "fields": {
+    "customer": "undramatized",
+    "book": "978-0553380163",
+    "score": 0,
+    "txt": "Cool I think this commenting is awesome"
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 18,
+  "fields": {
+    "customer": "undramatized",
+    "book": "1245-2252-4442",
+    "score": 0,
+    "txt": "Such an amazing plot, really intriguing"
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 19,
+  "fields": {
+    "customer": "undramatized",
+    "book": "978-0385739863",
+    "score": 0,
+    "txt": "My son really loved it! "
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 20,
+  "fields": {
+    "customer": "Amy",
+    "book": "978-0717802418",
+    "score": 12,
+    "txt": "Interesting!"
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 21,
+  "fields": {
+    "customer": "Carolyn",
+    "book": "978-0717802418",
+    "score": 10,
+    "txt": "Good!"
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 22,
+  "fields": {
+    "customer": "Amy",
+    "book": "978-0553380163",
+    "score": 8,
+    "txt": "Unconventional!"
+  }
+},
+{
+  "model": "bookstore.opinion",
+  "pk": 23,
+  "fields": {
+    "customer": "Carolyn",
+    "book": "978-0553380163",
+    "score": 13,
+    "txt": "Excellent!"
+  }
 }
 ]

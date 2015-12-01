@@ -1,0 +1,11 @@
+{% extends 'bookstore/base.html' %}
+
+{% block title %}My Orders{% endblock %}
+
+{% block body_block %}
+    <h2>My Order History</h2>
+    <hr>
+    {% if user.is_authenticated %}
+       <h2>{{user.username}}</h2>
+    {% endif %}
+{% endblock %}

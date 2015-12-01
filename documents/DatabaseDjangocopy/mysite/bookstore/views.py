@@ -2,13 +2,14 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from django.db.models import Avg
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 
 from .models import Book
 from .models import Customer
 from .models import Opinion
+from .models import Rate
 from .models import Ord
 from .models import OrdBook
 
@@ -16,7 +17,7 @@ from django.db.models import Sum
 
 import datetime
 
-def view_search(request):
+def view_search(request, authors_input,publisher_input,title_input,subject_input,isbn_input,sorted_year,sorted_score):
 	"""
 	TODO:
 	Users may search for books, by asking conjunctive
@@ -24,7 +25,50 @@ def view_search(request):
 	Your system should allow the user to specify that the results are to be 
 	sorted a) by year, or b) by the average score of the feedbacks.
 	"""
-	pass
+	"""
+	average score of feedback
+	conjunctive function
+	multiple authors
+	isbn & book
+	"""
+
+	"""
+	if title given --> isbn
+	"""
+	isbn_title=list(Book.objects.filter(title=title_input).values('isbn'))
+
+
+
+	search_publisher=list(Book.objects.filter(publisher=publisher_input).values())
+	search_author=list(Book.objects.filter(author=authors_input).values())
+	search_title=list(Book.objects.filter(title=title_input).values())
+	search_isbn=list(Book.objects.filter(isbn=isbn_input).values())
+	search_subject=list(Book.objects.filter(sbj=subject_input).values())
+	average_score=Opinion.objects.filter(book=isbn_input).aggregate(Avg('score'))
+
+	"""
+	this lines below should suffice
+	dynamic input Eg, if type 'Ste' , authors such as Stephen Hawking & Stephen King will appear
+	"""
+	results=Book.objects.filter(author__contains=authors_input,publisher__contains=publisher_input , title__contains=title_input,subject__contains=subject_input,isbn__contains=isbn_input).values()
+	output_results=list(results)
+	if sorted_year==True:
+		sorted_year_results=list(results.order_by('-yr'))
+	elif sorted_score==True:
+		feedback_isbn=results.values('isbn')
+		for i in feedback_isbn:
+			sorted_score=Opinion.objects.filter(book=i['isbn']).aggregate(Avg('score'))
+	else:
+		return results
+
+	# template = loader.get_template('bookstore/profile.html')
+	# context = RequestContext(request, {
+	# 	'profile' : profile, 
+	# 	'orders': orders,
+	# 	'feedbacks': feedbacks,
+	# 	})
+
+	# return HttpResponse(template.render(context))
 
 def useful_feedbacks(request, number_of_comments):
 	"""
@@ -38,9 +82,15 @@ def useful_feedbacks(request, number_of_comments):
 def order_book(request):
 	"""
 	TODO:
-	shopping cart without a checkout
+	add a book order to shopping cart without a checkout
 	"""
 	pass
+
+
+def view_cart(request):
+	template = loader.get_template('bookstore/cart.html')
+	context = RequestContext(request, {})
+	return HttpResponse(template.render(context))
 
 
 # Working on it: Loo Juin
@@ -168,7 +218,9 @@ def book(request, book_id):
 def user_record(request,user_name):
 	profile=Customer.objects.get(login_name=user_name)
 	orders=list(Ord.objects.filter(customer=user_name).values())
-	feedbacks=list(Opinion.objects.filter(customer=user_name).values())
+	feedbacks=list(Opinion.objects.filter(customer=user_name))
+	feedback_books = []
+	
 
 	template = loader.get_template('bookstore/profile.html')
 	context = RequestContext(request, {
@@ -212,7 +264,10 @@ def user_record_2(request,user_name):
 		context = RequestContext(request, {'errors': errors})
 		return HttpResponse(template.render(context))
 
-
+def view_orders(request):
+	template = loader.get_template('bookstore/orders.html')
+	context = RequestContext(request, {})
+	return HttpResponse(template.render(context))
 
 def add_comment(request, book_id):
 	if request.method == "POST":
@@ -234,16 +289,32 @@ def add_comment(request, book_id):
 
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-def rate_comment(request, book_id, commenter):
-	"""
-	TODO
-	1. check if authenticated
-	2. check if it's user's own comment
-	3. check if user has rated this comment already
-	4. save rating in 
-	"""
+def rate_comment(request, book_id, username):
+	comment_author = username
 	if request.method == "POST":
-		pass
+		if request.user.is_authenticated():
+			rating = request.POST["rating"]			
+			if comment_author != request.user.username:
+				cus = Customer.objects.filter(login_name=comment_author)[0]
+				rater = Customer.objects.filter(login_name=request.user.username)[0]
+				b = Book.objects.filter(isbn=book_id)
+				op = Opinion.objects.filter(book = b, customer=cus)[0]
+				old_rating = Rate.objects.filter(rater=rater, opinion=op)
+				if len(old_rating) == 0:
+					newrating = Rate(rater=rater, opinion=op, rating=rating)
+					newrating.save()
+					print "new rating saved! "+ rating   
+					"""
+					TODO:
+					notify the user the rating is successful/unsuccessful
+					Don't think this is graded though
+					"""
+			else:
+				print "don't rate your own comments!"
+		else:
+			print "user is not logged in!"
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+	
 
 def view_login(request):
 	errors = []
@@ -264,10 +335,6 @@ def view_login(request):
 
 
 def view_logout(request):
-	"""
-	TODO: someone finish this please
-	logout button are already inside the templates
-	"""
 	if request.user.is_authenticated():
 		logout(request)
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
