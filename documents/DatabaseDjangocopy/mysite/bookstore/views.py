@@ -12,6 +12,10 @@ from .models import Opinion
 from .models import Ord
 from .models import OrdBook
 
+from django.db.models import Sum
+
+import datetime
+
 def view_search(request):
 	"""
 	TODO:
@@ -38,6 +42,8 @@ def order_book(request):
 	"""
 	pass
 
+
+# Working on it: Loo Juin
 def recommendation(request):
 	"""
 	TODO:
@@ -49,14 +55,73 @@ def recommendation(request):
 	"""
 	pass
 
+
+# Working on it: Loo Juin
+#
+# Shows a page displaying the:
+# - m most popular books (in terms of copies sold in this month)
+# - m most popular authors
+# - m most popular publishers
 def show_statistics(request):
-	"""
-	TODO:
-	the list of the m most popular books (in terms of copies sold in this month)
-	the list of m most popular authors
-	the list of m most popular publishers
-	"""
-	pass
+	m = 10
+
+	def pop_books(ordbooks):
+		counts = {}
+		for ordbook in ordbooks:
+			try:
+				counts[ordbook.book.isbn] += ordbook.qty
+			except KeyError:
+				counts[ordbook.book.isbn] = ordbook.qty
+		ranks = [(c, counts[c]) for c in counts.keys()]
+		ranks = sorted(ranks, key = lambda entry: entry[1], reverse = True)
+		if len(ranks) <= m:
+			return ranks
+		else:
+			return ranks[0:m]
+
+	def pop_authors(ordbooks):
+		counts = {}
+		for ordbook in ordbooks:
+			try:
+				counts[ordbook.book.author] += ordbook.qty
+			except KeyError:
+				counts[ordbook.book.author] = ordbook.qty
+		ranks = [(c, counts[c]) for c in counts.keys()]
+		ranks = sorted(ranks, key = lambda entry: entry[1], reverse = True)
+		if len(ranks) <= m:
+			return ranks
+		else:
+			return ranks[0:m]
+
+	def pop_publishers(ordbooks):
+		counts = {}
+		for ordbook in ordbooks:
+			try:
+				counts[ordbook.book.publisher] += ordbook.qty
+			except KeyError:
+				counts[ordbook.book.publisher] = ordbook.qty
+		ranks = [(c, counts[c]) for c in counts.keys()]
+		ranks = sorted(ranks, key = lambda entry: entry[1], reverse = True)
+		if len(ranks) <= m:
+			return ranks
+		else:
+			return ranks[0:m]
+
+	now = datetime.datetime.now()
+	books = OrdBook.objects.filter(oid__timestmp__year = now.year) #.filter(oid__timestmp__month = now.month)
+
+	pop_books = pop_books(books)
+	pop_authors = pop_authors(books)
+	pop_publishers = pop_publishers(books)
+
+	template = loader.get_template('bookstore/stats.html')
+	context = RequestContext(request, {
+		"pop_books": pop_books,
+		"pop_authors": pop_authors,
+		"pop_publishers": pop_publishers
+	})
+	return HttpResponse(template.render(context))
+
 
 user = None
 def index(request):
