@@ -16,6 +16,22 @@ from .models import OrdBook
 from django.db.models import Sum
 
 import datetime
+def search_bar(request,type,query_input):
+	if type=='Book_title':
+		Book.objects.filter(title__contains=query_input).values()
+	elif type=='Author':
+		Book.objects.filter(author__contains=query_input).values()
+	elif type=='Publisher':
+		Book.objects.filter(pubisher__contains=query_input).values()
+	elif type=='Subject':
+		Book.objects.filter(subject__contains=query_input).values()
+	elif type=='Isbn':
+		Book.objects.filter(isbn__contains=query_input).values()
+	else:
+		pass
+
+
+
 
 def view_search(request, authors_input,publisher_input,title_input,subject_input,isbn_input,sorted_year,sorted_score):
 	"""
