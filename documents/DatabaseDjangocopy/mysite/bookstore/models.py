@@ -70,5 +70,7 @@ class Cart(models.Model):
     qty = models.IntegerField(null=False,
                                 default = 1,
                                 validators = [validators.MinValueValidator(0, "Order quantity cannot be negative.")])
+    price = models.FloatField(null = True)
+    
     class Meta:
         unique_together = ("customer", "book")

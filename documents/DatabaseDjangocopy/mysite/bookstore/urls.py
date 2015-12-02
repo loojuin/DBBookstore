@@ -15,4 +15,6 @@ urlpatterns = [
     url(r'^user/(?P<user_name>([A-Z]|[a-z])\w+)/$', views.user_record, name='profile'),
     url(r'mycart', views.view_cart, name='shopping_cart'),
     url(r'myorders', views.view_orders, name='order_history'),
+    url(r'^(?P<book_id>(?:-?\d)+)/add_to_cart$', views.add_book, name='add_book_to_cart'),
+    url(r'^(?P<book_id>(?:-?\d)+)/remove_from_cart$', views.remove_book, name='remove_book_from_cart'),
 ]

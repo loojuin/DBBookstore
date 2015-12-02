@@ -11,6 +11,7 @@ from .models import Customer
 from .models import Opinion
 from .models import Rate
 from .models import Ord
+from .models import Cart
 
 
 from django.db.models import Sum
@@ -95,17 +96,31 @@ def useful_feedbacks(request, number_of_comments):
 	"""
 	pass
 
-def order_book(request):
-	"""
-	TODO:
-	add a book order to shopping cart without a checkout
-	"""
-	pass
+def add_book(request, book_id):
+	customer = Customer.objects.get(login_name=request.user.username)
+	book = Book.objects.get(isbn = book_id)
+	qty = request.POST["qty"]
+	price = book.price * float(qty)
+	Cart(customer=customer, book=book, qty=qty, price=price).save()
 
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+def remove_book(request, book_id):
+	item = Cart.objects.get(book = book_id)
+	item.delete()
+
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def view_cart(request):
+	cart_items = Cart.objects.filter(customer=request.user.username)
+	total_price = cart_items.aggregate(Sum('price'))
+
+
 	template = loader.get_template('bookstore/cart.html')
-	context = RequestContext(request, {})
+	context = RequestContext(request, {
+		'cart_items' : cart_items,
+		'total_price': total_price
+	})
 	return HttpResponse(template.render(context))
 
 
@@ -216,6 +231,8 @@ def book(request, book_id):
 	book = Book.objects.get(isbn = book_id)
 	comment = Opinion.objects.filter(book=book).order_by("-score")[:3]
 	user_comment = None
+	book_in_cart = Cart.objects.filter(book = book_id).exists()
+
 	template = loader.get_template('bookstore/book.html')
 	if request.user.is_authenticated():
 		cus = Customer.objects.get(login_name=request.user.username)
@@ -227,7 +244,8 @@ def book(request, book_id):
 		'book' : book, 
 		'comments':comment,
 		'user': user,
-		'user_comment': user_comment
+		'user_comment': user_comment,
+		'in_cart': book_in_cart,
 		})
 	return HttpResponse(template.render(context))
 
@@ -246,39 +264,6 @@ def user_record(request,user_name):
 		})
 
 	return HttpResponse(template.render(context))
-
-# def user_record_2(request,user_name):
-# 	if request.user.is_authenticated():
-# 		surname=Customer.objects.filter(login_name=user_name).values().first()['surname']
-# 		given_name=Customer.objects.filter(login_name=user_name).values().first()['given_name']
-# 		address=Customer.objects.filter(login_name=user_name).values().first()['address']
-# 		credit_card=Customer.objects.filter(login_name=user_name).values().first()['credit_card']
-# 		phoneno=Customer.objects.filter(login_name=user_name).values().first()['phoneno']
-# 		number_of_ords=len(list(Ord.objects.filter(customer=user_name).values()))
-# 		for i in range(number_of_ords):
-# 			oid_value=list(Ord.objects.filter(customer=user_name).values())[i]['oid']
-# 			status=list(Ord.objects.filter(customer=user_name).values())[i]['stat']
-# 			time_stamp=list(Ord.objects.filter(customer=user_name).values())[i]['timestmp']
-# 			isbn_value=OrdBook.objects.filter(oid=oid_value).values().first()['book_id']
-# 			qty=OrdBook.objects.filter(oid=oid_value).values().first()['qty']
-# 			book_name=Book.objects.filter(isbn=isbn_value).values().first()['title']
-# 			book_author=Book.objects.filter(isbn=isbn_value).values().first()['author']
-# 			book_publisher=book_name=Book.objects.filter(isbn=isbn_value).values().first()['publisher']
-# 			book_desc=book_name=Book.objects.filter(isbn=isbn_value).values().first()['desc']
-# 		number_of_feedbacks=len(Opinion.objects.filter(customer=user_name).values())
-# 		for i in range(number_of_feedbacks):
-# 			book_name_feedback_isbn=list(Opinion.objects.filter(customer=user_name).values())[i]['book_id']
-# 			book_name_feedback=Book.objects.filter(isbn=book_name_feedback_isbn).values().first()['title']
-# 			score=list(Opinion.objects.filter(customer=user_name).values())[i]['score']
-# 			txt=list(Opinion.objects.filter(customer=user_name).values())[i]['txt']	
-			
-# 			template = loader.get_template('bookstore/post_login.html')
-# 			context = RequestContext(request, {'query': userid, 'validuser': user})
-# 			return HttpResponse(template.render(context))
-# 	else: 
-# 		template = loader.get_template('bookstore/login.html')
-# 		context = RequestContext(request, {'errors': errors})
-# 		return HttpResponse(template.render(context))
 
 def view_orders(request):
 	template = loader.get_template('bookstore/orders.html')
