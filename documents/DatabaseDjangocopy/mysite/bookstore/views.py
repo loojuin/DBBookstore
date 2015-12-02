@@ -274,11 +274,12 @@ def add_comment(request, book_id):
 	if request.method == "POST":
 		if request.user.is_authenticated():
 			text = request.POST["comment"]
+			rating = request.POST["rating"]
 			book = Book.objects.get(isbn = book_id)
 			cus = Customer.objects.get(login_name=request.user.username)
 			c = Opinion.objects.filter(book=book, customer=cus)
 			if len(c)==0:
-				Opinion(book=book, txt=text, score=0, customer=cus).save()
+				Opinion(book=book, txt=text, score=rating, customer=cus).save()
 				print "comment saved"
 		else: 
 			"""

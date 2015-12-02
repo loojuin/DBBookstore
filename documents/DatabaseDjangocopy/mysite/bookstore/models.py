@@ -51,6 +51,7 @@ class Opinion(models.Model):
     book = models.ForeignKey(Book)
     score = models.IntegerField(validators = [validators.MinValueValidator(0, "Score must be >= 0."), validators.MaxValueValidator(10, "Score must be <= 10.")], default = 0)
     txt = models.TextField(default = "A")
+    usefulness = models.IntegerField(default = 0)
 
     class Meta:
         unique_together = ("customer", "book")
