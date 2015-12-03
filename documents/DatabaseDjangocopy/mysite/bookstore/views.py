@@ -13,10 +13,16 @@ from .models import Rate
 from .models import Ord
 from .models import Cart
 
-
 from django.db.models import Sum
 
 import datetime
+
+from django import forms
+
+class selectForm(forms.Form):
+	CHOICES = (('1', 'First',), ('2', 'Second',))
+	choice_field = forms.ChoiceField(widget=forms.Select, choices=CHOICES)
+
 def search_bar(request,type,query_input):
 	if type=='Book_title':
 		Book.objects.filter(title__contains=query_input).values()
@@ -86,16 +92,6 @@ def view_search(request, authors_input,publisher_input,title_input,subject_input
 	# 	})
 
 	# return HttpResponse(template.render(context))
-
-def useful_feedbacks(request):
-	"""
-	TODO: 
-	For a given book, a user could ask for the top n most useful feedbacks.
- 	The value of n is user-specified (say, 5, or 10). The usefulness of a 
-	feedback is its average usefulness score.
-	"""
-	pass
-	
 
 def add_book(request, book_id):
 	customer = Customer.objects.get(login_name=request.user.username)
@@ -229,13 +225,13 @@ def all_books(request):
 	return HttpResponse(template.render(context))
 
 def book(request, book_id):
-
-	if "dropdown" in request.GET:
-		count = request.GET["dropdown"]
-		print count
+	count  = 3
+	if request.method=="POST":
+		count = request.POST["select"]
 
 	book = Book.objects.get(isbn = book_id)
-	comment = Opinion.objects.filter(book=book).order_by("-usefulness")[:3]
+	ops = Opinion.objects.filter(book=book).order_by("-usefulness")
+	comment = ops[:count]
 	user_comment = None
 	book_in_cart = Cart.objects.filter(book = book_id).exists()
 
@@ -248,6 +244,7 @@ def book(request, book_id):
 
 	context = RequestContext(request, {
 		'book' : book, 
+		'count': len(ops),
 		'comments':comment,
 		'user': user,
 		'user_comment': user_comment,
