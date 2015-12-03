@@ -87,7 +87,7 @@ def view_search(request, authors_input,publisher_input,title_input,subject_input
 
 	# return HttpResponse(template.render(context))
 
-def useful_feedbacks(request, number_of_comments):
+def useful_feedbacks(request):
 	"""
 	TODO: 
 	For a given book, a user could ask for the top n most useful feedbacks.
@@ -95,6 +95,7 @@ def useful_feedbacks(request, number_of_comments):
 	feedback is its average usefulness score.
 	"""
 	pass
+	
 
 def add_book(request, book_id):
 	customer = Customer.objects.get(login_name=request.user.username)
@@ -228,8 +229,13 @@ def all_books(request):
 	return HttpResponse(template.render(context))
 
 def book(request, book_id):
+
+	if "dropdown" in request.GET:
+		count = request.GET["dropdown"]
+		print count
+
 	book = Book.objects.get(isbn = book_id)
-	comment = Opinion.objects.filter(book=book).order_by("-score")[:3]
+	comment = Opinion.objects.filter(book=book).order_by("-usefulness")[:3]
 	user_comment = None
 	book_in_cart = Cart.objects.filter(book = book_id).exists()
 
@@ -274,7 +280,7 @@ def add_comment(request, book_id):
 	if request.method == "POST":
 		if request.user.is_authenticated():
 			text = request.POST["comment"]
-			rating = request.POST["rating"]
+			rating = request.POST["score"]
 			book = Book.objects.get(isbn = book_id)
 			cus = Customer.objects.get(login_name=request.user.username)
 			c = Opinion.objects.filter(book=book, customer=cus)
@@ -296,13 +302,20 @@ def rate_comment(request, book_id, username):
 	if request.method == "POST":
 		if request.user.is_authenticated():
 			rating = request.POST["rating"]			
+			print comment_author
+			print request.user.username
 			if comment_author != request.user.username:
+				# commenter and rating not the same person
 				cus = Customer.objects.filter(login_name=comment_author)[0]
 				rater = Customer.objects.filter(login_name=request.user.username)[0]
 				b = Book.objects.filter(isbn=book_id)
-				op = Opinion.objects.filter(book = b, customer=cus)[0]
+				op = Opinion.objects.filter(book=b, customer=cus)[0]
 				old_rating = Rate.objects.filter(rater=rater, opinion=op)
 				if len(old_rating) == 0:
+					#check if user has rated this comment
+					op.usefulness += int(rating) 
+					op.save()
+					#Save rating 
 					newrating = Rate(rater=rater, opinion=op, rating=rating)
 					newrating.save()
 					print "new rating saved! "+ rating   

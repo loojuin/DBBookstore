@@ -59,22 +59,18 @@
 	<hr>
 			<div class="row">
 				<div class="col-md-12">
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="glyphicon glyphicon-star-empty"></span>
+					<span>{{user_comment.score}}</span>
 					<a href="/bookstore/user/{{user_comment.customer.login_name}}/">{{user_comment.customer.login_name}}</a>
-					<span class="pull-right">{{user_comment.score}}
-						<form action="/bookstore/{{book.isbn}}/{{comment.customer.login_name}}/rating" method="post">
+					<span class="pull-right">{{user_comment.usefulness}}
+						<form action="/bookstore/{{book.isbn}}/{{user_comment.customer.login_name}}/rating" method="post">
 								{% csrf_token %}
 								<input type="submit" class="btn btn-default btn-circle btn-sm" value="+0" name="rating">
 						</form>
-						<form action="/bookstore/{{book.isbn}}/{{comment.customer.login_name}}/rating" method="post">
+						<form action="/bookstore/{{book.isbn}}/{{user_comment.customer.login_name}}/rating" method="post">
 								{% csrf_token %}
 								<input type="submit" class="btn btn-warning btn-circle btn-sm" value="+1" name="rating">
 						</form>
-						<form action="/bookstore/{{book.isbn}}/{{comment.customer.login_name}}/rating" method="post">
+						<form action="/bookstore/{{book.isbn}}/{{user_comment.customer.login_name}}/rating" method="post">
 								{% csrf_token %}
 								<input type="submit" class="btn btn-danger btn-circle btn-sm" value="+2" name="rating">
 								<!--
@@ -95,11 +91,12 @@
 
 			<div class="row">
 				<div class="col-lg-1">
-					<select class="form-control">
-						<option>5</option>
-						<option>10</option>
-						<option>15</option>
-						<option>20</option>
+				
+					<select class="form-control" name="dropdown">
+						<option value="5">5</option>
+						<option value="10">10</option>
+						<option value="15">15</option>
+						<option value="20">20</option>
 						<option>All</option>
 					</select>
 				</div>
@@ -110,13 +107,9 @@
 			<hr>
 			<div class="row">
 				<div class="col-md-12">
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="glyphicon glyphicon-star"></span>
-					<span class="glyphicon glyphicon-star-empty"></span>
+					<span>{{comment.score}}</span>
 					<a href="/bookstore/user/{{comment.customer.login_name}}/">{{comment.customer.login_name}}</a>
-					<span class="pull-right">{{comment.score}}
+					<span class="pull-right">{{comment.usefulness}}
 						<form action="/bookstore/{{book.isbn}}/{{comment.customer.login_name}}/rating" method="post">
 								{% csrf_token %}
 								<input type="submit" class="btn btn-default btn-circle btn-sm" value="+0" name="rating">
@@ -161,7 +154,7 @@
 							      <!--<label for="comment">Comment:</label>-->								
 							      <textarea class="form-control" rows="5" name="comment" id="comment"></textarea>
 							      <label for="Rating">Rating:(0-10)</label>
-  								  <input type="text" class="form-control" id="rating" pattern="[0-9]|10">
+  								  <input type="text" class="form-control" name="score" pattern="[0-9]|10">
 
 								  <div class="modal-footer">
 							      <input type="submit" class="btn btn-primary" value="Post Comment">
