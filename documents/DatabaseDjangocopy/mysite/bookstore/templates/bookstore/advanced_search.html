@@ -1,0 +1,56 @@
+{% extends 'bookstore/base.html' %}
+
+{% block title %}Advanced Search{% endblock %}
+
+{% block body_block %}
+    <form class="form-horizontal" action="/bookstore/advanced_search" method="post">
+	{% csrf_token %}
+		<h2>Advanced Search</h2>
+		<hr>
+		<div class="form-group">
+		    <label for="book_title" class="col-sm-2 control-label">Book Title</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" id="book_title" placeholder="A Brief History of Time" name="book_title">
+		    </div>
+	  	</div>
+	  	<div class="form-group">
+		    <label for="author" class="col-sm-2 control-label">Author</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" id="author" placeholder="Stephen Hawking" name="author">
+		    </div>
+	  	</div>
+		<div class="form-group">
+		    <label for="publisher" class="col-sm-2 control-label">Publisher</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" id="publisher" placeholder="Penguin Books" name="publisher">
+		    </div>
+		</div>
+		<div class="form-group">
+		    <label for="subject" class="col-sm-2 control-label">Subject</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" id="subject" placeholder="Non-fiction" name="subject">
+		    </div>
+		</div>
+		<div class="form-group">
+		    <label for="isbn" class="col-sm-2 control-label">ISBN</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" id="isbn" placeholder="1234-4567-8897" name="isbn">
+		    </div>
+	  	</div>
+	  	<div class="form-group">
+		    <label for="sort_by" class="col-sm-2 control-label">Sort By</label>
+		    <div class="col-sm-10">
+		      	<select class="form-control" name="sort_by" id="sort_by">
+				  <option>Year</option>
+				  <option>Relevance</option>
+				</select>
+		    </div>
+	  	</div>
+		<br>
+	  <div class="form-group">
+	    <div class="pull-right">
+	      <button type="submit" class="btn btn-success btn-lg">Search Now!</button>
+	    </div>
+	  </div>
+	</form>
+{% endblock %}

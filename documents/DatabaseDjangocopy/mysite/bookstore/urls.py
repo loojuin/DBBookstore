@@ -19,5 +19,6 @@ urlpatterns = [
     url(r'myorders', views.view_orders, name='order_history'),
     url(r'^(?P<book_id>(?:-?\d)+)/add_to_cart$', views.add_book, name='add_book_to_cart'),
     url(r'^(?P<book_id>(?:-?\d)+)/remove_from_cart$', views.remove_book, name='remove_book_from_cart'),
-    url(r'search_results', views.search_bar, name='order_history'),
+    url(r'search_results', views.search_bar, name='searchbar_results'),
+    url(r'advanced_search', views.view_search, name='advanced_search'),
 ]

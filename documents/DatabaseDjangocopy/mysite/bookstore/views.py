@@ -32,7 +32,7 @@ def search_bar(request):
 	elif query_type=='Author':
 		results=Book.objects.filter(author__contains=query_input).values()
 	elif query_type=='Publisher':
-		results=Book.objects.filter(pubisher__contains=query_input).values()
+		results=Book.objects.filter(publisher__contains=query_input).values()
 	elif query_type=='Subject':
 		results=Book.objects.filter(subject__contains=query_input).values()
 	elif query_type=='ISBN':
@@ -52,7 +52,7 @@ def search_bar(request):
 
 
 
-def view_search(request, authors_input,publisher_input,title_input,subject_input,isbn_input,sorted_year,sorted_score):
+def view_search(request):
 	"""
 	TODO:
 	Users may search for books, by asking conjunctive
@@ -70,40 +70,50 @@ def view_search(request, authors_input,publisher_input,title_input,subject_input
 	"""
 	if title given --> isbn
 	"""
-	isbn_title=list(Book.objects.filter(title=title_input).values('isbn'))
+	if request.method == "POST":
+
+		authors_input= request.POST["author"]
+		publisher_input= request.POST["publisher"]
+		title_input= request.POST["book_title"]
+		subject_input= request.POST["subject"]
+		isbn_input= request.POST["isbn"]
+		sorted_by= request.POST["sort_by"]
+		
+		isbn_title=list(Book.objects.filter(title=title_input).values('isbn'))
 
 
 
-	search_publisher=list(Book.objects.filter(publisher=publisher_input).values())
-	search_author=list(Book.objects.filter(author=authors_input).values())
-	search_title=list(Book.objects.filter(title=title_input).values())
-	search_isbn=list(Book.objects.filter(isbn=isbn_input).values())
-	search_subject=list(Book.objects.filter(sbj=subject_input).values())
-	average_score=Opinion.objects.filter(book=isbn_input).aggregate(Avg('score'))
+		search_publisher=list(Book.objects.filter(publisher=publisher_input).values())
+		search_author=list(Book.objects.filter(author=authors_input).values())
+		search_title=list(Book.objects.filter(title=title_input).values())
+		search_isbn=list(Book.objects.filter(isbn=isbn_input).values())
+		search_subject=list(Book.objects.filter(sbj=subject_input).values())
+		average_score=Opinion.objects.filter(book=isbn_input).aggregate(Avg('score'))
 
-	"""
-	this lines below should suffice
-	dynamic input Eg, if type 'Ste' , authors such as Stephen Hawking & Stephen King will appear
-	"""
-	results=Book.objects.filter(author__contains=authors_input,publisher__contains=publisher_input , title__contains=title_input,subject__contains=subject_input,isbn__contains=isbn_input).values()
-	output_results=list(results)
-	if sorted_year==True:
-		sorted_year_results=list(results.order_by('-yr'))
-	elif sorted_score==True:
-		feedback_isbn=results.values('isbn')
-		for i in feedback_isbn:
-			sorted_score=Opinion.objects.filter(book=i['isbn']).aggregate(Avg('score'))
+		"""
+		this lines below should suffice
+		dynamic input Eg, if type 'Ste' , authors such as Stephen Hawking & Stephen King will appear
+		"""
+		results=Book.objects.filter(author__contains=authors_input,publisher__contains=publisher_input , title__contains=title_input,sbj__contains=subject_input,isbn__contains=isbn_input).values()
+		output_results=list(results)
+		if sorted_by=="Year":
+			sorted_year_results=list(results.order_by('-yr'))
+		elif sorted_by=="Relevance":
+			feedback_isbn=results.values('isbn')
+			for i in feedback_isbn:
+				sorted_score=Opinion.objects.filter(book=i['isbn']).aggregate(Avg('score'))
+
+		template = loader.get_template('bookstore/search_results.html')
+		context = RequestContext(request, {
+			'results' : results,
+		})
+		return HttpResponse(template.render(context))
 	else:
-		return results
+		
+		template = loader.get_template('bookstore/advanced_search.html')
+		context = RequestContext(request, {})
 
-	# template = loader.get_template('bookstore/profile.html')
-	# context = RequestContext(request, {
-	# 	'profile' : profile, 
-	# 	'orders': orders,
-	# 	'feedbacks': feedbacks,
-	# 	})
-
-	# return HttpResponse(template.render(context))
+		return HttpResponse(template.render(context))
 
 def add_book(request, book_id):
 	customer = Customer.objects.get(login_name=request.user.username)

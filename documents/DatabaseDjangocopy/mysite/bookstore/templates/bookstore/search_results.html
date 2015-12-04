@@ -5,6 +5,7 @@
 {% block body_block %}
 <h2>Query: {{query}}</h2>
 <h3>Type: {{type}}</h3>
+<a href="/bookstore/advanced_search/" class="btn btn-warning" role="button">Advanced Search</a>
 {% if results %}
 	<ul>	
     {% for result in results %}
