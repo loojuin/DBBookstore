@@ -1,0 +1,17 @@
+{% extends 'bookstore/base.html' %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block body_block %}
+<h2>Query: {{query}}</h2>
+<h3>Type: {{type}}</h3>
+{% if results %}
+	<ul>	
+    {% for result in results %}
+	<li>{{result.title}}</li>
+    {% endfor %}
+	</ul>
+{% else %}
+	<h3>No Results for your Query</h3>
+{% endif %}
+{% endblock %}

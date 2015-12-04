@@ -23,19 +23,31 @@ class selectForm(forms.Form):
 	CHOICES = (('1', 'First',), ('2', 'Second',))
 	choice_field = forms.ChoiceField(widget=forms.Select, choices=CHOICES)
 
-def search_bar(request,type,query_input):
-	if type=='Book_title':
-		Book.objects.filter(title__contains=query_input).values()
-	elif type=='Author':
-		Book.objects.filter(author__contains=query_input).values()
-	elif type=='Publisher':
-		Book.objects.filter(pubisher__contains=query_input).values()
-	elif type=='Subject':
-		Book.objects.filter(subject__contains=query_input).values()
-	elif type=='Isbn':
-		Book.objects.filter(isbn__contains=query_input).values()
+def search_bar(request):
+	query_type = request.POST["query_type"]
+	query_input = request.POST["query"]
+
+	if query_type=='Book':
+		results=Book.objects.filter(title__contains=query_input).values()
+	elif query_type=='Author':
+		results=Book.objects.filter(author__contains=query_input).values()
+	elif query_type=='Publisher':
+		results=Book.objects.filter(pubisher__contains=query_input).values()
+	elif query_type=='Subject':
+		results=Book.objects.filter(subject__contains=query_input).values()
+	elif query_type=='ISBN':
+		results=Book.objects.filter(isbn__contains=query_input).values()
 	else:
-		pass
+		results=None
+
+	template = loader.get_template('bookstore/search_results.html')
+	context = RequestContext(request, {
+		'results' : results,
+		'query' : query_input,
+		'type' : query_type,
+	})
+	return HttpResponse(template.render(context))
+
 
 
 

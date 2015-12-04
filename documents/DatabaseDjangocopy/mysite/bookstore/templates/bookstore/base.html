@@ -14,13 +14,23 @@
 		      		  Le Bookstore
 		     		</a>
 			    </div>
-			    <form class="navbar-form navbar-left">
-				  <div class="input-group">
-			  		<input type="text" class="form-control" placeholder="J.K Rowling, The Da Vinci Code...">
-				    <span class="input-group-btn">
-				        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-				    </span>
-				  </div>
+			    <form class="navbar-form navbar-left" role="form" action="/bookstore/search_results" method="post">
+			    {% csrf_token %}
+					<div class="input-group">
+					  	<div class="input-group-btn">
+					        <select class="form-control" name="query_type">
+							  <option>Book</option>
+							  <option>Author</option>
+							  <option>Publisher</option>
+							  <option>ISBN</option>
+							  <option>Subject</option>
+							</select>
+					    </div><!-- /btn-group -->
+				  		<input type="text" class="form-control" placeholder="J.K Rowling, The Da Vinci Code..." name="query">
+					    <span class="input-group-btn">
+					        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+					    </span>
+					</div>
 				</form>
 				<div class="navbar-right">
 				<!-- to be replaced by template -->
