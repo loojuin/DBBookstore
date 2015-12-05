@@ -27,7 +27,7 @@
     "frmt": "S",
     "publisher": "Penguin Books",
     "yr": 2012,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 11.63,
     "copies": 2
@@ -44,7 +44,7 @@
     "frmt": "S",
     "publisher": "Vintage",
     "yr": 2007,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 9.41,
     "copies": 2
@@ -61,7 +61,7 @@
     "frmt": "S",
     "publisher": "Anchor",
     "yr": 2012,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 4.82,
     "copies": 2
@@ -78,7 +78,7 @@
     "frmt": "S",
     "publisher": "Square Fish",
     "yr": 2007,
-    "sbj": null,
+    "sbj": "Children's Books",
     "keywords": null,
     "price": 6.63,
     "copies": 2
@@ -95,7 +95,7 @@
     "frmt": "S",
     "publisher": "Picador",
     "yr": 2002,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 9.32,
     "copies": 2
@@ -129,7 +129,7 @@
     "frmt": "S",
     "publisher": "Ballantine Books",
     "yr": 1997,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 11.52,
     "copies": 2
@@ -146,7 +146,7 @@
     "frmt": "H",
     "publisher": "Pantheon",
     "yr": 2003,
-    "sbj": null,
+    "sbj": "Comics & Graphic Novels",
     "keywords": null,
     "price": 26.96,
     "copies": 2
@@ -163,7 +163,7 @@
     "frmt": "S",
     "publisher": "Pantheon",
     "yr": 2004,
-    "sbj": null,
+    "sbj": "Biographies & Memoirs",
     "keywords": null,
     "price": 10.53,
     "copies": 2
@@ -180,7 +180,7 @@
     "frmt": "S",
     "publisher": "Vintage",
     "yr": 2004,
-    "sbj": null,
+    "sbj": "Politics & Social Sciences",
     "keywords": null,
     "price": 9.04,
     "copies": 2
@@ -197,7 +197,7 @@
     "frmt": "S",
     "publisher": "Vintage",
     "yr": 2001,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 10.36,
     "copies": 2
@@ -214,7 +214,7 @@
     "frmt": "S",
     "publisher": "Dial Press Trade Paperback",
     "yr": 1999,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 8.75,
     "copies": 2
@@ -231,7 +231,7 @@
     "frmt": "S",
     "publisher": "Anchor",
     "yr": 1998,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 8.65,
     "copies": 2
@@ -248,7 +248,7 @@
     "frmt": "H",
     "publisher": "Delacorte Books for Young Readers",
     "yr": 2010,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 13.73,
     "copies": 2
@@ -265,7 +265,7 @@
     "frmt": "H",
     "publisher": "W. W. Norton & Company",
     "yr": 2005,
-    "sbj": null,
+    "sbj": "Politics & Social Sciences",
     "keywords": null,
     "price": 18.28,
     "copies": 2
@@ -282,7 +282,7 @@
     "frmt": "H",
     "publisher": "Vintage",
     "yr": 1975,
-    "sbj": null,
+    "sbj": "Politics & Social Sciences",
     "keywords": null,
     "price": 65.0,
     "copies": 2
@@ -299,7 +299,7 @@
     "frmt": "S",
     "publisher": "Vintage Crime/Black Lizard",
     "yr": 1988,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 11.32,
     "copies": 2
@@ -316,7 +316,7 @@
     "frmt": "S",
     "publisher": "Mariner Books",
     "yr": 1999,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 8.6,
     "copies": 2
@@ -333,7 +333,7 @@
     "frmt": "S",
     "publisher": "Ace",
     "yr": 2005,
-    "sbj": null,
+    "sbj": "Science Fiction",
     "keywords": null,
     "price": 11.34,
     "copies": 2
@@ -350,7 +350,7 @@
     "frmt": "S",
     "publisher": "Grand Central Publishing",
     "yr": 1988,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 5.15,
     "copies": 2
@@ -367,7 +367,7 @@
     "frmt": "S",
     "publisher": "Signet Classic",
     "yr": 1961,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 8.25,
     "copies": 2
@@ -384,7 +384,7 @@
     "frmt": "H",
     "publisher": "Bantam Classics",
     "yr": 1984,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 12.59,
     "copies": 2
@@ -401,7 +401,7 @@
     "frmt": "S",
     "publisher": "Bantam",
     "yr": 1998,
-    "sbj": null,
+    "sbj": "Science & Math",
     "keywords": null,
     "price": 10.17,
     "copies": 2
@@ -418,7 +418,7 @@
     "frmt": "H",
     "publisher": "Everyman's Library",
     "yr": 1993,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 18.7,
     "copies": 2
@@ -435,7 +435,7 @@
     "frmt": "H",
     "publisher": "Vintage International",
     "yr": 1995,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 9.13,
     "copies": 2
@@ -452,7 +452,7 @@
     "frmt": "S",
     "publisher": "Vintage",
     "yr": 1997,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 11.22,
     "copies": 2
@@ -469,7 +469,7 @@
     "frmt": "H",
     "publisher": "International Publishers Co",
     "yr": 2014,
-    "sbj": null,
+    "sbj": "Politics & Social Sciences",
     "keywords": null,
     "price": 14.99,
     "copies": 2
@@ -486,7 +486,7 @@
     "frmt": "S",
     "publisher": "Simon & Schuster",
     "yr": 2006,
-    "sbj": null,
+    "sbj": "Biographies & Memoirs",
     "keywords": null,
     "price": 12.85,
     "copies": 2
@@ -503,7 +503,7 @@
     "frmt": "S",
     "publisher": "Scribner",
     "yr": 2004,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 8.49,
     "copies": 2
@@ -520,7 +520,7 @@
     "frmt": "S",
     "publisher": "Scribner",
     "yr": 2006,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 11.32,
     "copies": 2
@@ -537,9 +537,26 @@
     "frmt": "H",
     "publisher": "Disney-Hyperion",
     "yr": 2006,
-    "sbj": null,
+    "sbj": "Children's Books",
     "keywords": null,
     "price": 14.66,
+    "copies": 2
+  }
+},
+{
+  "model": "bookstore.book",
+  "pk": "978-0802719720",
+  "fields": {
+    "title": "Thinking of Answers: Questions in the Philosophy of Everyday Life",
+    "desc": "As in his previous books on philosophy for the general public, including Meditations for the Humanist and Life, Sex and Ideas, rather than presenting a set of categorical answers, Grayling offers suggestions for how to think about every aspect of the question at hand and arrive at one's own conclusion. Nobody can read Thinking of Answers without being fully engaged, for Grayling challenges with his intellect and inspires with his humanity.",
+    "img": null,
+    "author": "A. C. Grayling",
+    "frmt": "S",
+    "publisher": "Walker Books",
+    "yr": 2010,
+    "sbj": "Politics & Social Sciences",
+    "keywords": null,
+    "price": 13.68,
     "copies": 2
   }
 },
@@ -554,7 +571,7 @@
     "frmt": "H",
     "publisher": "Amulet Books",
     "yr": 2007,
-    "sbj": null,
+    "sbj": "Children's Books",
     "keywords": null,
     "price": 8.37,
     "copies": 2
@@ -571,7 +588,7 @@
     "frmt": "S",
     "publisher": "Random House Trade Paperbacks",
     "yr": 2006,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 9.04,
     "copies": 2
@@ -588,7 +605,7 @@
     "frmt": "S",
     "publisher": "Vintage",
     "yr": 2004,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 9.21,
     "copies": 2
@@ -605,7 +622,7 @@
     "frmt": "S",
     "publisher": "Simon & Schuster",
     "yr": 2012,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 7.68,
     "copies": 2
@@ -622,7 +639,7 @@
     "frmt": "S",
     "publisher": "Riverhead Books",
     "yr": 2008,
-    "sbj": null,
+    "sbj": "Literature & Fiction",
     "keywords": null,
     "price": 9.07,
     "copies": 2

@@ -11,7 +11,8 @@
     "publisher":"Signet Classic",
     "yr":1961,
     "price": 8.25,
-    "copies" : 2
+    "copies" : 2,
+    "sbj":"Literature & Fiction"
 
   }
 },
@@ -26,7 +27,8 @@
     "publisher":"Bantam",
     "yr":1998,
     "price": 10.17,
-    "copies" : 2
+    "copies" : 2,
+    "sbj":"Science & Math"
 
   }
 },
@@ -41,7 +43,8 @@
     "publisher":"Vintage",
     "yr":2001,
     "price": 10.36,
-    "copies" : 2
+    "copies" : 2,
+    "sbj":"Literature & Fiction"
 
   }
 },
@@ -56,7 +59,8 @@
     "publisher":"Square Fish",
     "yr":2007,
     "price": 6.63,
-    "copies" : 2
+    "copies" : 2,
+    "sbj":"Children's Books"
   }
 },
 {
@@ -70,7 +74,8 @@
     "publisher":"Vintage",
     "yr":1997,
     "price": 11.22,
-    "copies" : 2
+    "copies" : 2,
+    "sbj":"Literature & Fiction"
   }
 },
 {
@@ -84,7 +89,8 @@
     "publisher":"Bantam Classics",
     "yr":1984,
     "price": 12.59,
-    "copies" : 2
+    "copies" : 2,
+    "sbj":"Literature & Fiction"
   }
 },
 {
@@ -98,7 +104,9 @@
     "publisher":"Delacorte Books for Young Readers",
     "yr":2010,
     "price": 13.73,
-    "copies" : 2
+    "copies" : 2,
+    "sbj":"Literature & Fiction"
+
   }
 },
 {
@@ -112,7 +120,9 @@
     "publisher": "Vintage",
     "yr": 2004,
     "price": 9.21,
-    "copies": 2
+    "copies": 2,
+    "sbj":"Literature & Fiction"
+
   }
 },
 {
@@ -126,7 +136,9 @@
     "publisher": "Amulet Books",
     "yr": 2007,
     "price": 8.37,
-    "copies": 2
+    "copies": 2,
+    "sbj":"Children's Books"
+
   }
 },
 {
@@ -140,7 +152,8 @@
     "publisher": "Ace",
     "yr": 2005,
     "price": 11.34,
-    "copies": 2
+    "copies": 2,
+    "sbj":"Science Fiction"
   }
 },
 {
@@ -154,7 +167,8 @@
     "publisher": "Simon & Schuster",
     "yr": 2012,
     "price": 7.68,
-    "copies": 2
+    "copies": 2,
+    "sbj":"Literature & Fiction"
   }
 },
 {
@@ -168,7 +182,8 @@
     "publisher": "W. W. Norton & Company",
     "yr": 2005,
     "price": 18.28,
-    "copies": 2
+    "copies": 2,
+    "sbj":"Politics & Social Sciences"
   }
 },
 {
@@ -182,7 +197,8 @@
     "publisher": "Mariner Books",
     "yr": 1999,
     "price": 8.60,
-    "copies": 2
+    "copies": 2,
+    "sbj":"Literature & Fiction"
   }
 },
 {
@@ -196,7 +212,8 @@
     "publisher": "Vintage International",
     "yr": 1995,
     "price": 9.13,
-    "copies": 2
+    "copies": 2,
+    "sbj":"Literature & Fiction"    
   }
 },
 {
@@ -210,7 +227,8 @@
     "price": 26.96,
     "frmt": "H",
     "desc":"This first book from Chicago author Chris Ware is a pleasantly-decorated view at a lonely and emotionally-impaired 'everyman' (Jimmy Corrigan: The Smartest Kid on Earth), who is provided, at age 36, the opportunity to meet his father for the first time. An improvisatory romance which gingerly deports itself between 1890's Chicago and 1980's small town Michigan, the reader is helped along by thousands of colored illustrations and diagrams, which, when read rapidly in sequence, provide a convincing illusion of life and movement. The bulk of the work is supported by fold-out instructions, an index, paper cut-outs, and a brief apology, all of which concrete to form a rich portrait of a man stunted by a paralyzing fear of being disliked.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Comics & Graphic Novels"
   }
 },
 {
@@ -224,7 +242,8 @@
     "price": 18.70,
     "frmt": "H",
     "desc":"When it was published in 1955, Lolita immediately became a cause célèbre because of the freedom and sophistication with which it handled the unusual erotic predilections of its protagonist. But Vladimir Nabokov's wise, ironic, elegant masterpiece owes its stature as one of the twentieth century's novels of record not to the controversy its material aroused but to its author's use of that material to tell a love story almost shocking in its beauty and tenderness.Awe and exhilaration–along with heartbreak and mordant wit–abound in this account of the aging Humbert Humbert's obsessive, devouring, and doomed passion for the nymphet Dolores Haze. Lolita is also the story of a hypercivilized European colliding with the cheerful barbarism of postwar America, but most of all, it is a meditation on love–love as outrage and hallucination, madness and transformation. With an introduction by Martin Amis.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Literature & Fiction"    
   }
 },
 {
@@ -238,21 +257,23 @@
     "price": 9.41,
     "frmt": "S",
     "desc":"In their youth, Florentino Ariza and Fermina Daza fall passionately in love. When Fermina eventually chooses to marry a wealthy, well-born doctor, Florentino is devastated, but he is a romantic. As he rises in his business career he whiles away the years in 622 affairs--yet he reserves his heart for Fermina. Her husband dies at last, and Florentino purposefully attends the funeral. Fifty years, nine months, and four days after he first declared his love for Fermina, he will do so again.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Literature & Fiction"
   }
 },
 {
   "model": "bookstore.book",
-  "pk": "978-0316776967",
+  "pk": "978-0802719720",
   "fields": {
-    "publisher": "Back Bay Books",
-    "title": "Me Talk Pretty One Day",
-    "yr": 2001,
-    "author": "David Sedaris",
-    "price": 10.40,
+    "publisher": "Walker Books",
+    "title": "Thinking of Answers: Questions in the Philosophy of Everyday Life",
+    "yr": 2010,
+    "author": "A. C. Grayling",
+    "price": 13.68,
     "frmt": "S",
-    "desc":"A recent transplant to Paris, humorist David Sedaris, bestselling author of 'Naked', presents a collection of his strongest work yet, including the title story about his hilarious attempt to learn French.",
-    "copies": 2
+    "desc":"As in his previous books on philosophy for the general public, including Meditations for the Humanist and Life, Sex and Ideas, rather than presenting a set of categorical answers, Grayling offers suggestions for how to think about every aspect of the question at hand and arrive at one's own conclusion. Nobody can read Thinking of Answers without being fully engaged, for Grayling challenges with his intellect and inspires with his humanity.",
+    "copies": 2,
+    "sbj":"Politics & Social Sciences"
   }
 },
 {
@@ -266,7 +287,8 @@
     "price": 9.04,
     "frmt": "S",
     "desc":"This novel is at once a fascinating family saga and an astonishing evocation of a vast land and its people–a brilliant incarnation of the universal human comedy. Twenty-five years after its publication, Midnight’ s Children stands apart as both an epochal work of fiction and a brilliant performance by one of the great literary voices of our time.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Literature & Fiction"
   }
 },
 {
@@ -280,7 +302,8 @@
     "price": 11.63,
     "frmt": "S",
     "desc":"Jack Kerouac's groundbreaking novel—soon to be a major motion picture with a star-studded cast.In what is sure to be one of the major cinematic events of 2012, Jack Kerouac's legendary Beat classic, On the Road, will finally hit the big screen. Directed by Walter Salles (The Motorcycle Diaries; Paris, Je T'Aime) and with a cast of some of Hollywood's biggest stars, including Kristen Stewart (The Twilight Saga), Sam Riley, Garrett Hedlund, Kirsten Dunst, Amy Adams (Julie & Julia, The Fighter), Tom Sturridge, and Viggo Mortensen (the Lord of the Rings trilogy, The Road), the film will attract new fans who will be inspired by Kerouac's revolutionary masterwork.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Literature & Fiction"
   }
 },
 {
@@ -294,7 +317,8 @@
     "price": 10.53,
     "frmt": "S",
     "desc":"Wise, funny, and heartbreaking, Persepolis is Marjane Satrapi’s memoir of growing up in Iran during the Islamic Revolution. In powerful black-and-white comic strip images, Satrapi tells the story of her life in Tehran from ages six to fourteen, years that saw the overthrow of the Shah’s regime, the triumph of the Islamic Revolution, and the devastating effects of war with Iraq. The intelligent and outspoken only child of committed Marxists and the great-granddaughter of one of Iran’s last emperors, Marjane bears witness to a childhood uniquely entwined with the history of her country.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Biographies & Memoirs"
   }
 },
 {
@@ -308,7 +332,9 @@
     "price": 8.75,
     "frmt": "S",
     "desc":"Slaughterhouse-Five, an American classic, is one of the world’s great antiwar books. Centering on the infamous firebombing of Dresden, Billy Pilgrim’s odyssey through time reflects the mythic journey of our own fractured lives as we search for meaning in what we fear most.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Literature & Fiction"
+
   }
 },
 {
@@ -322,7 +348,9 @@
     "price": 12.85,
     "frmt": "S",
     "desc":"This brilliant multiple biography is centered on Lincoln's mastery of men and how it shaped the most significant presidency in the nation's history.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Biographies & Memoirs"
+
   }
 },
 {
@@ -336,7 +364,9 @@
     "price": 9.07,
     "frmt": "S",
     "desc":"Oscar is a sweet but disastrously overweight ghetto nerd who—from the New Jersey home he shares with his old world mother and rebellious sister—dreams of becoming the Dominican J.R.R. Tolkien and, most of all, finding love. But Oscar may never get what he wants. Blame the fukú—a curse that has haunted Oscar’s family for generations, following them on their epic journey from Santo Domingo to the USA. Encapsulating Dominican-American history, The Brief Wondrous Life of Oscar Wao opens our eyes to an astonishing vision of the contemporary American experience and explores the endless human capacity to persevere—and risk it all—in the name of love.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Literature & Fiction"
+
   }
 },
 {
@@ -350,7 +380,9 @@
     "price": 9.32,
     "frmt": "S",
     "desc":"After almost fifty years as a wife and mother, Enid Lambert is ready to have some fun. Unfortunately, her husband, Alfred, is losing his sanity to Parkinson's disease, and their children have long since flown the family nest to the catastrophes of their own lives. The oldest, Gary, a once-stable portfolio manager and family man, is trying to convince his wife and himself, despite clear signs to the contrary, that he is not clinically depressed. The middle child, Chip, has lost his seemingly secure academic job and is failing spectacularly at his new line of work. And Denise, the youngest, has escaped a disastrous marriage only to pour her youth and beauty down the drain of an affair with a married man-or so her mother fears. Desperate for some pleasure to look forward to, Enid has set her heart on an elusive goal: bringing her family together for one last Christmas at home.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Literature & Fiction"
+
   }
 },
 {
@@ -364,7 +396,9 @@
     "price": 9.04,
     "frmt": "S",
     "desc":"Erik Larson—author of #1 bestseller In the Garden of Beasts—intertwines the true tale of the 1893 World's Fair and the cunning serial killer who used the fair to lure his victims to their death. Combining meticulous research with nail-biting storytelling, Erik Larson has crafted a narrative with all the wonder of newly discovered history and the thrills of the best fiction.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Politics & Social Sciences"
+
   }
 },
 {
@@ -378,7 +412,9 @@
     "price": 8.49,
     "frmt": "S",
     "desc":"The story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan, of lavish parties on Long Island at a time when The New York Times noted “gin was the national drink and sex the national obsession,” it is an exquisitely crafted tale of America in the 1920s.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Literature & Fiction"
+
   }
 },
 {
@@ -392,7 +428,9 @@
     "price": 8.65,
     "frmt": "S",
     "desc":"In the world of the near future, who will control women's bodies? Offred is a Handmaid in the Republic of Gilead. She may leave the home of the Commander and his wife once a day to walk to food markets whose signs are now pictures instead of words because women are no longer allowed to read. She must lie on her back once a month and pray that the Commander makes her pregnant, because in an age of declining births, Offred and the other Handmaids are only valued if their ovaries are viable. Offred can remember the days before, when she lived and made love with her husband Luke; when she played with and protected her daughter; when she had a job, money of her own, and access to knowledge. But all of that is gone now....",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Literature & Fiction"
+
   }
 },
 {
@@ -406,7 +444,9 @@
     "price": 14.66,
     "frmt": "H",
     "desc":"In this stunning collectors' edition of The Lightning Thief, Percy Jackson's world is brought to life with eight full-color plates by the series jacket artist John Rocco. The edition comes in an elegant slipcase with a ribbon bookmark, rough edges, and cloth cover--a perfect keepsake for fans of this truly epic series. After getting expelled from yet another school for yet another clash with mythological monsters only he can see, twelve-year-old Percy Jackson is taken to Camp Half-Blood, where he finally learns the truth about his unique abilities: He is a demigod, half human, half immortal. Even more stunning: His father is the Greek god Poseidon, ruler of the sea, making Percy one of the most powerful demigods alive. There's little time to process this news. All too soon, a cryptic prophecy from the Oracle sends Percy on his first quest, a mission to the Underworld to prevent a war among the gods of Olympus.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Children's Books"
+
   }
 },
 {
@@ -420,7 +460,8 @@
     "price": 11.32,
     "frmt": "S",
     "desc":"Marlowe befriends a down on his luck war veteran with the scars to prove it. Then he finds out that Terry Lennox has a very wealthy nymphomaniac wife, who he's divorced and re-married and who ends up dead. and now Lennox is on the lam and the cops and a crazy gangster are after Marlowe.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Literature & Fiction"
   }
 },
 {
@@ -434,7 +475,8 @@
     "price": 65.00,
     "frmt": "H",
     "desc":"One of the most acclaimed books of our time, winner of both the Pulitzer and the Francis Parkman prizes, The Power Broker tells the hidden story behind the shaping (and mis-shaping) of twentieth-century New York (city and state) and makes public what few have known: that Robert Moses was, for almost half a century, the single most powerful man of our time in New York, the shaper not only of the city's politics but of its physical structure and the problems of urban decline that plague us today.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Politics & Social Sciences"
   }
 },
 {
@@ -448,7 +490,9 @@
     "price":4.82 ,
     "frmt": "S",
     "desc":"Jack Torrance’s new job at the Overlook Hotel is the perfect chance for a fresh start. As the off-season caretaker at the atmospheric old hotel, he’ll have plenty of time to spend reconnecting with his family and working on his writing. But as the harsh winter weather sets in, the idyllic location feels ever more remote . . . and more sinister. And the only one to notice the strange and terrible forces gathering around the Overlook is Danny Torrance, a uniquely gifted five-year-old.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Literature & Fiction"
+
   }
 },
 {
@@ -462,7 +506,9 @@
     "price":11.32 ,
     "frmt": "S",
     "desc":"The quintessential novel of the Lost Generation, The Sun Also Rises is one of Ernest Hemingway's masterpieces and a classic example of his spare but powerful writing style. A poignant look at the disillusionment and angst of the post-World War I generation, the novel introduces two of Hemingway's most unforgettable characters: Jake Barnes and Lady Brett Ashley. The story follows the flamboyant Brett and the hapless Jake as they journey from the wild nightlife of 1920s Paris to the brutal bullfighting rings of Spain with a motley group of expatriates. It is an age of moral bankruptcy, spiritual dissolution, unrealized love, and vanishing illusions. First published in 1926, The Sun Also Rises helped to establish Hemingway as one of the greatest writers of the twentieth century.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Literature & Fiction"
+
   }
 },
 {
@@ -476,7 +522,9 @@
     "price":11.52 ,
     "frmt": "S",
     "desc":"This is the life and times of T. S. Garp, the bastard son of Jenny Fields, a feminist leader ahead of her time. This is the life and death of a famous mother and her almost-famous son; theirs is a world of sexual extremes, even of sexual assassinations. It is a novel rich with lunacy and sorrow, yet the dark, violent events of the story do not undermine a comedy both ribald and robust. In more than thirty languages, in more than forty countries–with more than ten million copies in print–this novel provides almost cheerful, even hilarious evidence of its famous last line: 'In the world according to Garp, we are all terminal cases.'",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Literature & Fiction"
+
   }
 },
 {
@@ -490,7 +538,9 @@
     "price":5.15 ,
     "frmt": "S",
     "desc":"Compassionate, dramatic, and deeply moving, To Kill A Mockingbird takes readers to the roots of human behavior - to innocence and experience, kindness and cruelty, love and hatred, humor and pathos. Now with over 18 million copies in print and translated into forty languages, this regional story by a young Alabama woman claims universal appeal. Harper Lee always considered her book to be a simple love story. Today it is regarded as a masterpiece of American literature.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Literature & Fiction"
+
   }
 },
 {
@@ -504,7 +554,8 @@
     "price":14.99 ,
     "frmt": "H",
     "desc":"The Communist Manifesto, originally titled Manifesto of the Communist Party (German: Manifest der Kommunistischen Partei) is a short 1848 book written by the German Marxist political theorists Karl Marx and Friedrich Engels. It has since been recognized as one of the world's most influential political manuscripts. Commissioned by the Communist League, it laid out the League's purposes and program. It presents an analytical approach to the class struggle (historical and present) and the problems of capitalism, rather than a prediction of communism's potential future forms.",
-    "copies": 2
+    "copies": 2,
+    "sbj":"Politics & Social Sciences"
   }
 },
 {
@@ -512,9 +563,23 @@
   "fields": {
     "customer": "Amy",
     "timestmp": "2015-09-04T06:00:00Z",
-    "stat": "Progress",
+    "stat": "Progress"
+  }
+},
+{
+  "model": "bookstore.OrdBook",
+  "fields": {
+    "oid": 1,
     "book":"978-0307389732",
     "qty":2
+  }
+},
+{
+  "model": "bookstore.OrdBook",
+  "fields": {
+    "oid": 1,
+    "book":"978-0312367558",
+    "qty":3
   }
 },
 {
@@ -522,9 +587,23 @@
   "fields": {
     "customer": "Bojack",
     "timestmp": "2015-10-15T15:00:00Z",
-    "stat": "Open",
-    "book":"978-0307743657",
-    "qty":1
+    "stat": "Progress"
+  }
+},
+{
+  "model": "bookstore.OrdBook",
+  "fields": {
+    "oid": 2,
+    "book":"978-0312421274",
+    "qty":2
+  }
+},
+{
+  "model": "bookstore.OrdBook",
+  "fields": {
+    "oid": 2,
+    "book":"978-0316776967",
+    "qty":3
   }
 },
 {
@@ -532,19 +611,22 @@
   "fields": {
     "customer": "Carolyn",
     "timestmp": "2015-11-15T09:00:00Z",
-    "stat": "Closed",
-    "book":"978-0312367558",
-    "qty":1
-
+    "stat": "Closed"
   }
 },
 {
-  "model": "bookstore.ord",
+  "model": "bookstore.OrdBook",
   "fields": {
-    "customer": "Diana",
-    "timestmp": "2015-10-23T04:00:00Z",
-    "stat": "Open",
+    "oid": 3,
     "book":"978-0312421274",
+    "qty":1
+  }
+},
+{
+  "model": "bookstore.OrdBook",
+  "fields": {
+    "oid": 3,
+    "book":"978-0345418012",
     "qty":1
   }
 },
@@ -553,8 +635,14 @@
   "fields": {
     "customer": "Nalia",
     "timestmp": "2015-11-29T20:15:00Z",
-    "stat": "Closed",
-    "book":"978-0316776967",
+    "stat": "Closed"
+  }
+},
+{
+  "model": "bookstore.OrdBook",
+  "fields": {
+    "oid": 4,
+    "book":"978-0375714573",
     "qty":1
   }
 },
@@ -563,32 +651,44 @@
   "fields": {
     "customer": "Owl",
     "timestmp": "2015-10-29T16:12:00Z",
-    "stat": "Progress",
-    "book":"978-0345418012",
-    "qty":1
+    "stat": "Progress"
   }
 },
 {
-  "model": "bookstore.ord",
+  "model": "bookstore.OrdBook",
   "fields": {
-    "customer": "Peanutbutter",
-    "timestmp": "2015-11-20T19:06:00Z",
-    "stat": "Open",
-    "book":"978-0375714542",
-    "qty":1
-  }
-},
-{
-  "model": "bookstore.ord",
-  "fields": {
-    "customer": "Amy",
-    "timestmp": "2015-11-05T19:06:00Z",
-    "stat": "Open",
+    "oid": 5,
     "book":"978-0375714573",
     "qty":1
-
+  }
+},
+{
+  "model": "bookstore.ord",
+  "fields": {
+    "customer": "Owl",
+    "timestmp": "2015-09-20T16:12:00Z",
+    "stat": "Progress"
+  }
+},
+{
+  "model": "bookstore.OrdBook",
+  "fields": {
+    "oid": 6,
+    "book":"978-0312421274",
+    "qty":2
+  }
+},
+{
+  "model": "bookstore.OrdBook",
+  "fields": {
+    "oid": 6,
+    "book":"978-0312367558",
+    "qty":5
   }
 }
+
+
+
 ]
 
 

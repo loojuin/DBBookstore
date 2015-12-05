@@ -10,7 +10,7 @@ from .models import Book
 from .models import Customer
 from .models import Opinion
 from .models import Rate
-from .models import Ord
+# from .models import Ord
 from .models import Cart
 
 from django.db.models import Sum
@@ -143,7 +143,7 @@ def view_cart(request):
 	return HttpResponse(template.render(context))
 
 
-# Working on it: Loo Juin
+
 def recommendation(request):
 	"""
 	TODO:
@@ -154,7 +154,19 @@ def recommendation(request):
 		popular first); count only sales to users like  X (i.e. the users who bought both  A and  B).
 	"""
 	pass
+	# values=Ord.objects.filter(book='978-0312421274')
+	# list(values.values('oid'))
+	# for i in results:
+ #    	print i['oid']
+ #    further=Ord.objects.filter(oid='2').values('book')
+ #    further=Ord.objects.filter(oid='2').values('qty')[0]['qty']
+ #    eval(further)
 
+
+ #    further=Ord.objects.filter(oid='2').values('book')
+ #    further=further.values_list('book', flat=True)
+ #    results=list(further)
+ #    results.index('978-0312421274')
 
 # Working on it: Loo Juin
 #
