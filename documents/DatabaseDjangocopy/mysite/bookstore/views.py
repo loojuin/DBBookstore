@@ -144,7 +144,7 @@ def view_cart(request):
 
 
 
-def recommendation(request):
+def recommendation(request,input):
 	"""
 	TODO:
 	Book recommendation: Like most e-commerce websites, when a user orders a 
@@ -154,19 +154,19 @@ def recommendation(request):
 		popular first); count only sales to users like  X (i.e. the users who bought both  A and  B).
 	"""
 	pass
-	# values=Ord.objects.filter(book='978-0312421274')
-	# list(values.values('oid'))
-	# for i in results:
- #    	print i['oid']
- #    further=Ord.objects.filter(oid='2').values('book')
- #    further=Ord.objects.filter(oid='2').values('qty')[0]['qty']
- #    eval(further)
+	"""
+	if input is book_title instead of isbn
+	"""
+	if book_title==True:
+		input=list(Book.objects.filter(title=input).values('isbn'))
+	
+	"list of oid with input(book A) as the only one or one of the books purchased"
+	OrdB=list(OrdBook.objects.filter(book=input).values_list('oid', flat=True))
+	Suggested_books=OrdBook.objects.filter(oid__in=OrdB).exclude(book=input).values('book','qty').order_by('-qty')
 
 
- #    further=Ord.objects.filter(oid='2').values('book')
- #    further=further.values_list('book', flat=True)
- #    results=list(further)
- #    results.index('978-0312421274')
+
+
 
 # Working on it: Loo Juin
 #
