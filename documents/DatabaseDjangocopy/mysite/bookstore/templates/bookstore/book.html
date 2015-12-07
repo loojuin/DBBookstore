@@ -29,7 +29,7 @@
 			</div>
 			<hr>
 			{% if in_cart %}
-			<button class="btn btn-success">Added to Cart</button>
+			<a href="/bookstore/mycart" class="btn btn-success">Added to Cart</a>
 			{% else %}
 			<form class="form-horizontal" role="form" action="/bookstore/{{book.isbn}}/add_to_cart"method="post">
 				{% csrf_token %}
@@ -52,6 +52,19 @@
 			{% endif %}
 		</div>
 	</div>
+	{% if in_cart %}
+	<hr>
+	<h3>You may also like:</h3>
+	<div class="list-group">
+	{% for book in recommended %}
+	  <a href="/bookstore/{{book.isbn}}" class="list-group-item">
+	    <h4 class="list-group-item-heading">{{book.title}}</h4>
+	    <p class="list-group-item-text">{{book.author}}</p>
+	  </a>
+	{% endfor %}
+	</div>	
+	<hr>
+	{% endif %}
 	<br>
 	{% if user_comment %}
 	<div class="well">
@@ -80,7 +93,6 @@
 							-->
 						</form>
 					</span>
-
 					<p>{{user_comment.txt}}</p>
 				</div>
 			</div> <!--row-->
@@ -106,8 +118,16 @@
 			<hr>
 			<div class="row">
 				<div class="col-md-12">
-					<span>{{comment.score}}</span>
-					<a href="/bookstore/user/{{comment.customer.login_name}}/">{{comment.customer.login_name}}</a>
+					<a href="/bookstore/user/{{comment.customer.login_name}}/"><h4>{{comment.customer.login_name}}</h4></a>
+					<div>
+						{% for i in range %}
+						{% if i < comment.score %}
+						<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+						{% else %}
+						<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+						{% endif %}
+						{% endfor %}
+					</div>
 					<span class="pull-right">{{comment.usefulness}}
 						<form action="/bookstore/{{book.isbn}}/{{comment.customer.login_name}}/rating" method="post">
 								{% csrf_token %}
