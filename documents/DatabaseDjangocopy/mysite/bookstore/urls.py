@@ -1,5 +1,7 @@
 from django.conf.urls import url
 from django.views.generic import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 from . import views
 
@@ -21,4 +23,4 @@ urlpatterns = [
     url(r'^(?P<book_id>(?:-?\d)+)/remove_from_cart$', views.remove_book, name='remove_book_from_cart'),
     url(r'search_results', views.search_bar, name='searchbar_results'),
     url(r'advanced_search', views.view_search, name='advanced_search'),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

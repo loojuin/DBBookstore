@@ -6,7 +6,7 @@
     <!-- Your Main Body Content Goes Here -->
 	<div class="row">
 		<div class = "col-md-4">
-			<img src="http://placehold.it/250x400" alt={{book.title}} class="img-thumbnail">
+			<img src="/bookstore{{MEDIA_URL}}{{book.isbn}}.jpg/" alt={{book.title}} class="img-thumbnail">
 		</div>
 		<div class = "col-md-6">
 			<h1 class="text-primary">{{book.title}}</h1>
