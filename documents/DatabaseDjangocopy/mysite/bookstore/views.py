@@ -289,8 +289,7 @@ def book(request, book_id):
 
 def user_record(request,user_name):
 	profile=Customer.objects.get(login_name=user_name)
-	orders=list(Ord.objects.filter(customer=user_name))
-	suborders=list(OrdBook.objects.filter(oid__customer=user_name))
+	orders=list(OrdBook.objects.filter(oid__customer=user_name))
 	feedbacks=list(Opinion.objects.filter(customer=user_name))
 	feedback_books = []
 	
@@ -299,7 +298,6 @@ def user_record(request,user_name):
 	context = RequestContext(request, {
 		'profile' : profile, 
 		'orders': orders,
-		'suborders': suborders,
 		'feedbacks': feedbacks,
 		})
 
