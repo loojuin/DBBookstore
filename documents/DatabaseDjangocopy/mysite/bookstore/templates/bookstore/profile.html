@@ -64,12 +64,12 @@
 						</tr>
 					</thead>
 					<tbody>
-						{% for order in orders %}
+						{% for order in suborders %}
 						<tr>
-							<td>{{order.oid}}</td>
+							<td>{{order.oid.pk}}</td>
 							<td>{{order.book.title}}</td>
 							<td>{{order.qty}}</td>
-							<td>{{order.timestmp}}</td>
+							<td>{{order.oid.timestmp}}</td>
 						</tr>
 						{% endfor %}
 					</tbody>
