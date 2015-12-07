@@ -11,8 +11,8 @@ from .models import Customer
 from .models import Opinion
 from .models import Rate
 from .models import Ord
-from .models import OrdBook
 from .models import Cart
+from .models import OrdBook
 
 from django.db.models import Sum
 
@@ -145,7 +145,7 @@ def view_cart(request):
 
 
 
-def recommendation(input):
+def recommendation(request,input):
 	"""
 	TODO:
 	Book recommendation: Like most e-commerce websites, when a user orders a 
@@ -154,14 +154,17 @@ def recommendation(input):
 	The suggested books should be sorted on decreasing sales count (i.e., most 
 		popular first); count only sales to users like  X (i.e. the users who bought both  A and  B).
 	"""
-
+	pass
+	"""
+	if input is book_title instead of isbn
+	"""
+	if book_title==True:
+		input=list(Book.objects.filter(title=input).values('isbn'))
 	
 	"list of oid with input(book A) as the only one or one of the books purchased"
-	ordB=list(OrdBook.objects.filter(book=input).values_list('oid', flat=True))
-	# suggested_books=OrdBook.objects.filter(oid__in=ordB).exclude(book=input).values('book','qty').order_by('-qty')
-	suggested_books = Book.objects.filter(title__contains="ar")
+	OrdB=list(OrdBook.objects.filter(book=input).values_list('oid', flat=True))
+	Suggested_books=OrdBook.objects.filter(oid__in=OrdB).exclude(book=input).values('book','qty').order_by('-qty')
 
-	return suggested_books
 
 
 
@@ -267,8 +270,6 @@ def book(request, book_id):
 	user_comment = None
 	book_in_cart = Cart.objects.filter(book = book_id).exists()
 
-	recommended = recommendation(book.isbn)
-
 	template = loader.get_template('bookstore/book.html')
 	if request.user.is_authenticated():
 		cus = Customer.objects.get(login_name=request.user.username)
@@ -283,14 +284,16 @@ def book(request, book_id):
 		'user': user,
 		'user_comment': user_comment,
 		'in_cart': book_in_cart,
-		'range': range(10),
-		'recommended': recommended
 		})
 	return HttpResponse(template.render(context))
 
 def user_record(request,user_name):
 	profile=Customer.objects.get(login_name=user_name)
 	orders=list(Ord.objects.filter(customer=user_name))
+	order_id=Ord.objects.filter(customer=user_name).values('oid')
+	id_value=order_id.values_list('oid',flat=True)
+	for order_no in id_value:
+		suborders=list(OrdBook.objects.filter(oid=order_no).values())  
 	feedbacks=list(Opinion.objects.filter(customer=user_name))
 	feedback_books = []
 	
@@ -299,6 +302,7 @@ def user_record(request,user_name):
 	context = RequestContext(request, {
 		'profile' : profile, 
 		'orders': orders,
+		'suborders': suborders,
 		'feedbacks': feedbacks,
 		})
 
@@ -415,4 +419,5 @@ def register(request):
 	context = None
 	return render(request, 'bookstore/register.html')
 	#return HttpResponse(template.render(context))
+
 
