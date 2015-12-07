@@ -10,7 +10,7 @@ from .models import Book
 from .models import Customer
 from .models import Opinion
 from .models import Rate
-# from .models import Ord
+from .models import Ord
 from .models import Cart
 
 from django.db.models import Sum
