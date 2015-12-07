@@ -3,15 +3,28 @@
 {% block title %}Search Results{% endblock %}
 
 {% block body_block %}
-<h2>Query: {{query}}</h2>
-<h3>Type: {{type}}</h3>
-<a href="/bookstore/advanced_search/" class="btn btn-warning" role="button">Advanced Search</a>
+{% if query %}
+<h2>Results for "{{query}}"</h2>
+<p>Type: {{type}}</p>
+{% else %}
+<h2>Results for Advanced Search</h2>
+{% endif %}
+<br>
+<hr>
 {% if results %}
-	<ul>	
     {% for result in results %}
-	<li>{{result.title}}</li>
+	<div class="row">
+		<div class="col-md-2">
+			<img src="http://placehold.it/100x150" alt="...">	
+		</div>
+		<div class="col-md-10">
+			<a href="/bookstore/{{result.isbn}}"><h4>{{result.title}}</h4></a>
+			<p><strong>{{result.author}}</strong></p>
+			<p>{{result.desc|truncatechars:250}}</p>
+		</div>
+	</div>
+	<hr>
     {% endfor %}
-	</ul>
 {% else %}
 	<h3>No Results for your Query</h3>
 {% endif %}
