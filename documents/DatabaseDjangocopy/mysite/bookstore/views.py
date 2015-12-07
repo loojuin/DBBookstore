@@ -290,10 +290,7 @@ def book(request, book_id):
 def user_record(request,user_name):
 	profile=Customer.objects.get(login_name=user_name)
 	orders=list(Ord.objects.filter(customer=user_name))
-	order_id=Ord.objects.filter(customer=user_name).values('oid')
-	id_value=order_id.values_list('oid',flat=True)
-	for order_no in id_value:
-		suborders=list(OrdBook.objects.filter(oid=order_no).values())  
+	suborders=list(OrdBook.objects.filter(oid__customer=user_name))
 	feedbacks=list(Opinion.objects.filter(customer=user_name))
 	feedback_books = []
 	
