@@ -166,7 +166,17 @@ def recommendation(request,input):
 	Suggested_books=OrdBook.objects.filter(oid__in=OrdB).exclude(book=input).values('book','qty').order_by('-qty')
 
 
+# Splash screen for stats page
+def statistics_splash(request):
+	orders = Ord.objects.all()
+	timestamps = set([(o.timestmp.year, o.timestmp.month) for o in orders])
+	timestamps_sort = sorted(list(timestamps), key = lambda t: t)
 
+	template = loader.get_template('bookstore/statssplash.html')
+	context = RequestContext(request, {
+		"times": timestamps_sort
+	})
+	return HttpResponse(template.render(context))
 
 
 # Working on it: Loo Juin
@@ -175,16 +185,18 @@ def recommendation(request,input):
 # - m most popular books (in terms of copies sold in this month)
 # - m most popular authors
 # - m most popular publishers
-def show_statistics(request):
-	m = 10
+def show_statistics(request, year_str, month_str, m_str):
+	m = int(m_str)
+	year = int(year_str)
+	month = int(month_str)
 
 	def pop_books(ordbooks):
 		counts = {}
 		for ordbook in ordbooks:
 			try:
-				counts[ordbook.book.isbn] += ordbook.qty
+				counts[ordbook.book] += ordbook.qty
 			except KeyError:
-				counts[ordbook.book.isbn] = ordbook.qty
+				counts[ordbook.book] = ordbook.qty
 		ranks = [(c, counts[c]) for c in counts.keys()]
 		ranks = sorted(ranks, key = lambda entry: entry[1], reverse = True)
 		if len(ranks) <= m:
@@ -220,8 +232,16 @@ def show_statistics(request):
 		else:
 			return ranks[0:m]
 
-	now = datetime.datetime.now()
-	books = OrdBook.objects.filter(oid__timestmp__year = now.year) #.filter(oid__timestmp__month = now.month)
+	def int2month(month_int):
+		d = {1: "January", 2: "February", 3: "March", 4: "April",
+			 5: "May", 6: "June", 7: "July", 8: "August",
+			 9: "September", 10: "October", 11: "November", 12: "December"}
+		try:
+			return d[month_int]
+		except KeyError:
+			return None
+
+	books = OrdBook.objects.filter(oid__timestmp__year = year).filter(oid__timestmp__month = month)
 
 	pop_books = pop_books(books)
 	pop_authors = pop_authors(books)
@@ -229,6 +249,9 @@ def show_statistics(request):
 
 	template = loader.get_template('bookstore/stats.html')
 	context = RequestContext(request, {
+		"year": year,
+		"month": int2month(month),
+		"m": m,
 		"pop_books": pop_books,
 		"pop_authors": pop_authors,
 		"pop_publishers": pop_publishers

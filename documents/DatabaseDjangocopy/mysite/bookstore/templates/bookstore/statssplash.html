@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sales Statistics</title>
+</head>
+<body>
+    <h1>Statistics</h1>
+    <p>Please choose a date and time.</p>
+    {% for t in times %}
+        <p>{{ t.0 }} {{ t.1 }}</p>
+    {% endfor %}
+</body>
+</html>

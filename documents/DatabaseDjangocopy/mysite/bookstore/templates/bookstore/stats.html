@@ -5,44 +5,52 @@
     <title>Sales Statistics</title>
 </head>
 <body>
-    <h1>Top 10 Most Popular Books This Month</h1>
-    <table>
-        <tr>
-            <th>Book</th>
-            <th>Count</th>
-        </tr>
-        {% for b in pop_books %}
-        <tr>
-            <td>{{ b.0 }}</td>
-            <td>{{ b.1 }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <h1>Top 10 Most Popular Authors This Month</h1>
-    <table>
-        <tr>
-            <th>Authors</th>
-            <th>Count</th>
-        </tr>
-        {% for b in pop_authors %}
-        <tr>
-            <td>{{ b.0 }}</td>
-            <td>{{ b.1 }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <h1>Top 10 Most Popular Publishers This Month</h1>
-    <table>
-        <tr>
-            <th>Authors</th>
-            <th>Count</th>
-        </tr>
-        {% for b in pop_publishers %}
-        <tr>
-            <td>{{ b.0 }}</td>
-            <td>{{ b.1 }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    {% if not month %}
+        <p>You have inputted an invalid month.</p>
+    {% elif pop_books %}
+        <h1>Top {{ m }} Most Popular Books For {{ month }} {{ year }}</h1>
+        <table>
+            <tr>
+                <th>ISBN</th>
+                <th>Title</th>
+                <th>Count</th>
+            </tr>
+            {% for b in pop_books %}
+            <tr>
+                <td>{{ b.0.isbn }}</td>
+                <td>{{ b.0.title }}</td>
+                <td>{{ b.1 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h1>Top {{ m }} Most Popular Authors For {{ month }} {{ year }}</h1>
+        <table>
+            <tr>
+                <th>Authors</th>
+                <th>Count</th>
+            </tr>
+            {% for b in pop_authors %}
+            <tr>
+                <td>{{ b.0 }}</td>
+                <td>{{ b.1 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h1>Top {{ m }} Most Popular Publishers For {{ month }} {{ year }}</h1>
+        <table>
+            <tr>
+                <th>Authors</th>
+                <th>Count</th>
+            </tr>
+            {% for b in pop_publishers %}
+            <tr>
+                <td>{{ b.0 }}</td>
+                <td>{{ b.1 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>There were no book sales in {{ month }} {{ year }}.</p>
+    {% endif %}
 </body>
 </html>
