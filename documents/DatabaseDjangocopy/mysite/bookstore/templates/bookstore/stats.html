@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Sales Statistics</title>
+    <style>
+        table, td, th {
+            border-style: solid;
+            border-width: 1px;
+            border-collapse: collapse;
+        }
+        td, th {
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
     {% if not month %}
         <p>You have inputted an invalid month.</p>
     {% elif pop_books %}
-        <h1>Top {{ m }} Most Popular Books For {{ month }} {{ year }}</h1>
+        <h1>Statistics for {{ month }} {{ year }}</h1>
+        <h2>Top {{ m }} Popular Books</h2>
         <table>
             <tr>
                 <th>ISBN</th>
@@ -23,7 +34,7 @@
             </tr>
             {% endfor %}
         </table>
-        <h1>Top {{ m }} Most Popular Authors For {{ month }} {{ year }}</h1>
+        <h2>Top {{ m }} Popular Authors</h2>
         <table>
             <tr>
                 <th>Authors</th>
@@ -36,7 +47,7 @@
             </tr>
             {% endfor %}
         </table>
-        <h1>Top {{ m }} Most Popular Publishers For {{ month }} {{ year }}</h1>
+        <h2>Top {{ m }} Popular Publishers</h2>
         <table>
             <tr>
                 <th>Authors</th>
@@ -52,5 +63,6 @@
     {% else %}
         <p>There were no book sales in {{ month }} {{ year }}.</p>
     {% endif %}
+    <a href="/bookstore/stats"><p>Back to Statistics Index</p></a>
 </body>
 </html>
