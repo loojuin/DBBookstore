@@ -125,5 +125,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = 'C:/Users/Rama/Documents/SUTD/Databases/Project/DBBookstore/documents/DatabaseDjangocopy/mysite/bookstore/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'bookstore/media')
 
