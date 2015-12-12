@@ -561,19 +561,76 @@
 {
   "model": "bookstore.ord",
   "fields": {
-    "customer": "Owl",
-    "timestmp": "2015-06-01T03:02:00Z",
-    "stat": "Progress"
+    "customer": "Yuna",
+    "timestmp": "2015-01-01T01:00:00Z",
+    "stat": "Closed"
   }
 },
 {
   "model": "bookstore.OrdBook",
   "fields": {
-    "oid": 13,
+    "oid": 14,
+    "book":"978-0451524935",
+    "qty":1
+  }
+},
+{
+  "model": "bookstore.OrdBook",
+  "fields": {
+    "oid": 14,
     "book":"978-0553380163",
     "qty":1
   }
+},
+{
+  "model": "bookstore.OrdBook",
+  "fields": {
+    "oid": 14,
+    "book":"978-0375725784",
+    "qty":1
+  }
+},
+{
+  "model": "bookstore.OrdBook",
+  "fields": {
+    "oid": 14,
+    "book":"978-0312367558",
+    "qty":1
+  }
+},
+{
+  "model": "bookstore.OrdBook",
+  "fields": {
+    "oid": 14,
+    "book":"978-0679766742",
+    "qty":1
+  }
+},
+{
+  "model": "bookstore.OrdBook",
+  "fields": {
+    "oid": 14,
+    "book":"978-0553213454",
+    "qty":1
+  }
+},
+{
+  "model": "bookstore.OrdBook",
+  "fields": {
+    "oid": 14,
+    "book":"978-0385739863",
+    "qty":1
+  }
+},
+{
+  "model": "bookstore.OrdBook",
+  "fields": {
+    "oid": 14,
+    "book":"978-1400033416",
+    "qty":1
+  }
 }
+
 
 ]
 

@@ -115,5 +115,14 @@
     "timestmp": "2015-06-01T03:02:00Z",
     "stat": "Progress"
   }
+},
+{
+  "model": "bookstore.ord",
+  "pk": 14,
+  "fields": {
+    "customer": "Yuna",
+    "timestmp": "2015-01-01T01:00:00Z",
+    "stat": "Closed"
+  }
 }
 ]

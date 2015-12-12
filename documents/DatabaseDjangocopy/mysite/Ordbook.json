@@ -403,5 +403,77 @@
     "book": "978-0553380163",
     "qty": 1
   }
+},
+{
+  "model": "bookstore.ordbook",
+  "pk": 46,
+  "fields": {
+    "oid": 14,
+    "book": "978-0451524935",
+    "qty": 1
+  }
+},
+{
+  "model": "bookstore.ordbook",
+  "pk": 47,
+  "fields": {
+    "oid": 14,
+    "book": "978-0553380163",
+    "qty": 1
+  }
+},
+{
+  "model": "bookstore.ordbook",
+  "pk": 48,
+  "fields": {
+    "oid": 14,
+    "book": "978-0375725784",
+    "qty": 1
+  }
+},
+{
+  "model": "bookstore.ordbook",
+  "pk": 49,
+  "fields": {
+    "oid": 14,
+    "book": "978-0312367558",
+    "qty": 1
+  }
+},
+{
+  "model": "bookstore.ordbook",
+  "pk": 50,
+  "fields": {
+    "oid": 14,
+    "book": "978-0679766742",
+    "qty": 1
+  }
+},
+{
+  "model": "bookstore.ordbook",
+  "pk": 51,
+  "fields": {
+    "oid": 14,
+    "book": "978-0553213454",
+    "qty": 1
+  }
+},
+{
+  "model": "bookstore.ordbook",
+  "pk": 52,
+  "fields": {
+    "oid": 14,
+    "book": "978-0385739863",
+    "qty": 1
+  }
+},
+{
+  "model": "bookstore.ordbook",
+  "pk": 53,
+  "fields": {
+    "oid": 14,
+    "book": "978-1400033416",
+    "qty": 1
+  }
 }
 ]
