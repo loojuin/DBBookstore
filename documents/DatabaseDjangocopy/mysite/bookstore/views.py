@@ -163,7 +163,12 @@ def recommendation(request,input):
 	
 	"list of oid with input(book A) as the only one or one of the books purchased"
 	OrdB=list(OrdBook.objects.filter(book=input).values_list('oid', flat=True))
-	Suggested_books=OrdBook.objects.filter(oid__in=OrdB).exclude(book=input).values('book','qty').order_by('-qty')
+	customers_list=list(Ord.objects.filter(oid__in=OrdB).values_list('customer',flat=True))
+	Ord_customers=list(Ord.objects.filter(customer__in=customers_list).values_list('oid', flat=True))
+	Suggested_books=OrdBook.objects.filter(oid__in=Ord_customers).exclude(book=input).values('book').annotate(total=Sum('qty'))
+	Arranged_Suggested_books=Suggested_books.order_by('-total')
+
+
 
 
 # Splash screen for stats page

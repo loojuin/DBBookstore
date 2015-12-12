@@ -561,133 +561,19 @@
 {
   "model": "bookstore.ord",
   "fields": {
-    "customer": "Amy",
-    "timestmp": "2015-09-04T06:00:00Z",
-    "stat": "Progress"
-  }
-},
-{
-  "model": "bookstore.OrdBook",
-  "fields": {
-    "oid": 1,
-    "book":"978-0307389732",
-    "qty":2
-  }
-},
-{
-  "model": "bookstore.OrdBook",
-  "fields": {
-    "oid": 1,
-    "book":"978-0312367558",
-    "qty":3
-  }
-},
-{
-  "model": "bookstore.ord",
-  "fields": {
-    "customer": "Bojack",
-    "timestmp": "2015-10-15T15:00:00Z",
-    "stat": "Progress"
-  }
-},
-{
-  "model": "bookstore.OrdBook",
-  "fields": {
-    "oid": 2,
-    "book":"978-0312421274",
-    "qty":2
-  }
-},
-{
-  "model": "bookstore.OrdBook",
-  "fields": {
-    "oid": 2,
-    "book":"978-0316776967",
-    "qty":3
-  }
-},
-{
-  "model": "bookstore.ord",
-  "fields": {
-    "customer": "Carolyn",
-    "timestmp": "2015-11-15T09:00:00Z",
-    "stat": "Closed"
-  }
-},
-{
-  "model": "bookstore.OrdBook",
-  "fields": {
-    "oid": 3,
-    "book":"978-0312421274",
-    "qty":1
-  }
-},
-{
-  "model": "bookstore.OrdBook",
-  "fields": {
-    "oid": 3,
-    "book":"978-0345418012",
-    "qty":1
-  }
-},
-{
-  "model": "bookstore.ord",
-  "fields": {
-    "customer": "Nalia",
-    "timestmp": "2015-11-29T20:15:00Z",
-    "stat": "Closed"
-  }
-},
-{
-  "model": "bookstore.OrdBook",
-  "fields": {
-    "oid": 4,
-    "book":"978-0375714573",
-    "qty":1
-  }
-},
-{
-  "model": "bookstore.ord",
-  "fields": {
     "customer": "Owl",
-    "timestmp": "2015-10-29T16:12:00Z",
+    "timestmp": "2015-06-01T03:02:00Z",
     "stat": "Progress"
   }
 },
 {
   "model": "bookstore.OrdBook",
   "fields": {
-    "oid": 5,
-    "book":"978-0375714573",
+    "oid": 13,
+    "book":"978-0553380163",
     "qty":1
-  }
-},
-{
-  "model": "bookstore.ord",
-  "fields": {
-    "customer": "Owl",
-    "timestmp": "2015-09-20T16:12:00Z",
-    "stat": "Progress"
-  }
-},
-{
-  "model": "bookstore.OrdBook",
-  "fields": {
-    "oid": 6,
-    "book":"978-0312421274",
-    "qty":2
-  }
-},
-{
-  "model": "bookstore.OrdBook",
-  "fields": {
-    "oid": 6,
-    "book":"978-0312367558",
-    "qty":5
   }
 }
-
-
 
 ]
 
