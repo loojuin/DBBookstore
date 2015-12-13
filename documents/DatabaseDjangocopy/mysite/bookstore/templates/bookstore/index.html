@@ -10,6 +10,7 @@
 		    <img src="/bookstore{{MEDIA_URL}}{{book.isbn}}.jpg/" alt="..." style="height: 300px">
 		    <div class="caption">
 		        <a href="/bookstore/{{book.isbn}}"><h4>{{book.title|truncatechars:25}}</h4></a>
+		        <p class="text-muted">{{book.author}}</p>
 		        <p>{{book.desc|truncatechars:190}}</p>
 		        <p><a href="#" class="btn btn-primary" role="button"><strong>$ {{book.price}}</strong></a> 
 		        	<a href="/bookstore/{{book.isbn}}" class="btn btn-default" role="button">More Info</a></p>
