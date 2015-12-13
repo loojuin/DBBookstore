@@ -3,8 +3,8 @@
 {% block title %}Check out{% endblock %}
 
 {% block body_block %}
-<h2>Your checkout is successful!</h2>
+<h2 class="text-center text-success">Your checkout is successful!</h2>
 {% for book in ordbooks %}
-<p>{{book.book.title}} added to orders (quantity: {{book.qty}})</p> 
+<p class="bg-warning text-center">{{book.book.title}} added to orders (quantity: {{book.qty}})</p> 
 {% endfor %}
 {% endblock %}

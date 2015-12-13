@@ -162,7 +162,7 @@ def recommendation(input):
 	ordB=list(OrdBook.objects.filter(book=input).values_list('oid', flat=True))
 	customers_list=list(Ord.objects.filter(oid__in=ordB).values_list('customer',flat=True))
 	ord_customers=list(Ord.objects.filter(customer__in=customers_list).values_list('oid', flat=True))
-	suggested_books=OrdBook.objects.filter(oid__in=ord_customers).exclude(book=input).values('book')
+	suggested_books=OrdBook.objects.filter(oid__in=ord_customers).exclude(book=input).values('book').annotate(total=Sum('qty')).order_by('-total').values_list('book', flat=True)
 	arranged_suggested_books=list(Book.objects.filter(isbn__in=suggested_books))
 
 	return arranged_suggested_books
@@ -319,7 +319,7 @@ def book(request, book_id):
 
 def user_record(request,user_name):
 	profile=Customer.objects.get(login_name=user_name)
-	orders=list(OrdBook.objects.filter(oid__customer=user_name))
+	orders=list(OrdBook.objects.filter(oid__customer=user_name).order_by('-oid'))[:5]
 	feedbacks=list(Opinion.objects.filter(customer=user_name))
 	feedback_books = []
 	
@@ -334,8 +334,11 @@ def user_record(request,user_name):
 	return HttpResponse(template.render(context))
 
 def view_orders(request):
+	orders=list(OrdBook.objects.filter(oid__customer=request.user.username).order_by('-oid'))
 	template = loader.get_template('bookstore/orders.html')
-	context = RequestContext(request, {})
+	context = RequestContext(request, {
+		'orders' : orders,
+		})
 	return HttpResponse(template.render(context))
 
 def add_comment(request, book_id):

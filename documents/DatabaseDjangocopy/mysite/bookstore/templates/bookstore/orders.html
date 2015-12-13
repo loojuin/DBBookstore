@@ -5,7 +5,24 @@
 {% block body_block %}
     <h2>My Order History</h2>
     <hr>
-    {% if user.is_authenticated %}
-       <h2>{{user.username}}</h2>
-    {% endif %}
+    <table class="table table-hover">
+		<thead>
+			<tr class="active">
+				<th>Order ID</th>
+				<th>Book</th>
+				<th>Quantity</th>
+				<th>Timestamp</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for order in orders %}
+			<tr>
+				<td>{{order.oid.pk}}</td>
+				<td>{{order.book.title}}</td>
+				<td>{{order.qty}}</td>
+				<td>{{order.oid.timestmp}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 {% endblock %}
