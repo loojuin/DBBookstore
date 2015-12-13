@@ -1,0 +1,65 @@
+CREATE TABLE "bookstore_book" (
+	"title" varchar(128) NULL,
+	"isbn" varchar(14) NOT NULL PRIMARY KEY,
+	"author" varchar(128) NULL,
+	"copies" integer NOT NULL,
+	"frmt" varchar(1) NULL,
+	"keywords" varchar(128) NULL,
+	"price" real NULL,
+	"publisher" varchar(64) NULL,
+	"sbj" varchar(64) NULL,
+	"yr" integer NULL,
+	"desc" text NULL,
+	"img" varchar(200) NULL
+)
+
+CREATE TABLE "bookstore_cart" (
+	"id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"qty" integer NOT NULL,
+	"book_id" varchar(14) NOT NULL REFERENCES "bookstore_book" ("isbn"),
+	"customer_id" varchar(16) NOT NULL REFERENCES "bookstore_customer" ("login_name"),
+	"price" real NULL,
+	UNIQUE ("customer_id", "book_id")
+)
+
+CREATE TABLE "bookstore_customer" (
+	"login_name" varchar(16) NOT NULL PRIMARY KEY,
+	"pwd" varchar(8) NOT NULL,
+	"surname" varchar(16) NOT NULL,
+	"given_name" varchar(64) NOT NULL,
+	"credit_card" varchar(16) NOT NULL,
+	"address" varchar(128) NOT NULL,
+	"phoneno" integer NOT NULL
+)
+
+CREATE TABLE "bookstore_opinion" (
+	"id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"score" integer NOT NULL,
+	"txt" text NOT NULL,
+	"book_id" varchar(14) NOT NULL REFERENCES "bookstore_book" ("isbn"),
+	"customer_id" varchar(16) NOT NULL REFERENCES "bookstore_customer" ("login_name"),
+	"usefulness" integer NOT NULL,
+	UNIQUE ("customer_id", "book_id")
+)
+
+CREATE TABLE "bookstore_ord" (
+	"oid" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"timestmp" datetime NULL,
+	"stat" varchar(16) NULL,
+	"customer_id" varchar(16) NOT NULL REFERENCES "bookstore_customer" ("login_name")
+)
+
+CREATE TABLE "bookstore_ordbook" (
+	"id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"qty" integer NOT NULL,
+	"book_id" varchar(14) NOT NULL REFERENCES "bookstore_book" ("isbn"),
+	"oid_id" integer NOT NULL REFERENCES "bookstore_ord" ("oid")
+)
+
+CREATE TABLE "bookstore_rate" (
+	"id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"rating" integer NOT NULL,
+	"opinion_id" integer NOT NULL REFERENCES "bookstore_opinion" ("id"),
+	"rater_id" varchar(16) NOT NULL REFERENCES "bookstore_customer" ("login_name"),
+	UNIQUE ("rater_id", "opinion_id")
+)
