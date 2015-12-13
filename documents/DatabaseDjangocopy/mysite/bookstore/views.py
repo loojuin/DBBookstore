@@ -147,7 +147,7 @@ def view_cart(request):
 
 
 
-def recommendation(request,input):
+def recommendation(input):
 	"""
 	TODO:
 	Book recommendation: Like most e-commerce websites, when a user orders a 
@@ -156,20 +156,16 @@ def recommendation(request,input):
 	The suggested books should be sorted on decreasing sales count (i.e., most 
 		popular first); count only sales to users like  X (i.e. the users who bought both  A and  B).
 	"""
-	pass
-	"""
-	if input is book_title instead of isbn
-	"""
-	if book_title==True:
-		input=list(Book.objects.filter(title=input).values('isbn'))
+	
 	
 	"list of oid with input(book A) as the only one or one of the books purchased"
-	OrdB=list(OrdBook.objects.filter(book=input).values_list('oid', flat=True))
-	customers_list=list(Ord.objects.filter(oid__in=OrdB).values_list('customer',flat=True))
-	Ord_customers=list(Ord.objects.filter(customer__in=customers_list).values_list('oid', flat=True))
-	Suggested_books=OrdBook.objects.filter(oid__in=Ord_customers).exclude(book=input).values('book').annotate(total=Sum('qty'))
-	Arranged_Suggested_books=Suggested_books.order_by('-total')
+	ordB=list(OrdBook.objects.filter(book=input).values_list('oid', flat=True))
+	customers_list=list(Ord.objects.filter(oid__in=ordB).values_list('customer',flat=True))
+	ord_customers=list(Ord.objects.filter(customer__in=customers_list).values_list('oid', flat=True))
+	suggested_books=OrdBook.objects.filter(oid__in=ord_customers).exclude(book=input).annotate(total=Sum('qty'))
+	arranged_suggested_books=suggested_books.order_by('-total').values('book')
 
+	return arranged_suggested_books
 
 
 
@@ -298,7 +294,8 @@ def book(request, book_id):
 	ops = Opinion.objects.filter(book=book).order_by("-usefulness")
 	comment = ops[:count]
 	user_comment = None
-	book_in_cart = Cart.objects.filter(book = book_id).exists()
+	recommend = recommendation(book.isbn)
+	book_in_cart = False
 
 	template = loader.get_template('bookstore/book.html')
 	if request.user.is_authenticated():
@@ -306,6 +303,7 @@ def book(request, book_id):
 		c = Opinion.objects.filter(book=book, customer=cus)
 		user_comment = c[0] if len(c)!=0 else None
 		print user_comment
+		book_in_cart = Cart.objects.filter(book = book_id, customer=cus).exists()
 
 	context = RequestContext(request, {
 		'book' : book, 
@@ -314,6 +312,8 @@ def book(request, book_id):
 		'user': user,
 		'user_comment': user_comment,
 		'in_cart': book_in_cart,
+		'recommend': recommend,
+		'range': range(10),
 		})
 	return HttpResponse(template.render(context))
 
