@@ -160,8 +160,8 @@ def recommendation(input):
 	ordB=list(OrdBook.objects.filter(book=input).values_list('oid', flat=True))
 	customers_list=list(Ord.objects.filter(oid__in=ordB).values_list('customer',flat=True))
 	ord_customers=list(Ord.objects.filter(customer__in=customers_list).values_list('oid', flat=True))
-	suggested_books=OrdBook.objects.filter(oid__in=ord_customers).exclude(book=input).annotate(total=Sum('qty'))
-	arranged_suggested_books=suggested_books.order_by('-total').values('book')
+	suggested_books=OrdBook.objects.filter(oid__in=ord_customers).exclude(book=input).values('book')
+	arranged_suggested_books=list(Book.objects.filter(isbn__in=suggested_books))
 
 	return arranged_suggested_books
 

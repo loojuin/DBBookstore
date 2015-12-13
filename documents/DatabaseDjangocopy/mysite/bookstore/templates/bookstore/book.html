@@ -57,9 +57,9 @@
 	<h3>You may also like:</h3>
 	<div class="list-group">
 	{% for item in recommend %}
-	  <a href="/bookstore/{{item.book.isbn}}" class="list-group-item">
-	    <h4 class="list-group-item-heading">{{item.book.title}}</h4>
-	    <p class="list-group-item-text">{{item.book.author}}</p>
+	  <a href="/bookstore/{{item.isbn}}" class="list-group-item">
+	    <h4 class="list-group-item-heading">{{item.title}}</h4>
+	    <p class="list-group-item-text">{{item.author}}</p>
 	  </a>
 	{% endfor %}
 	</div>	

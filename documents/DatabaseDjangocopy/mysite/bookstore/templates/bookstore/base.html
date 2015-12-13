@@ -1,9 +1,12 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Le Bookstore - {% block title %}The Best Online Bookstore in SUTD{% endblock %} </title>
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" >
 </head>
 <body>
 	<div class="container">
@@ -36,7 +39,7 @@
 				<div class="navbar-right">
 				<!-- to be replaced by template -->
 				{% if request.user.is_authenticated %}										
-					<a type="button" class="btn btn-info navbar-btn" href="/bookstore/mycart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> My Cart  <span class="badge">4</a>	
+					<a type="button" class="btn btn-info navbar-btn" href="/bookstore/mycart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> My Cart </a>	
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user.username}} <span class="caret"></span></a>
