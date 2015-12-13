@@ -7,7 +7,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.all_books, name='index'),
-
+    url(r'checkout', views.checkout, name='checkout'),
     url(r'^(?P<book_id>(?:-?\d)+)/$', views.book, name='book'),
     url(r'^(?P<book_id>(?:-?\d)+)/add_comment$', views.add_comment, name='add_comment'),
     url(r'^(?P<book_id>(?:-?\d)+)/(?P<username>([A-Za-z]+))/rating$', views.rate_comment, name='rate_comment'),

@@ -14,6 +14,8 @@ from .models import Ord
 from .models import Cart
 from .models import OrdBook
 
+from django.db.models import Max
+
 from django.db.models import Sum
 
 import datetime
@@ -390,6 +392,34 @@ def rate_comment(request, book_id, username):
 			print "user is not logged in!"
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 	
+def checkout(request):
+	print "checkout"
+	cart_items = Cart.objects.filter(customer=request.user.username)
+	if request.user.is_authenticated():
+		#save order
+		cus = Customer.objects.get(login_name=request.user.username)
+		date = datetime.datetime.now()
+		o = Ord(customer=cus, timestmp=date, stat="Closed")
+		o.save()
+
+		orders = Ord.objects.filter(customer=cus).aggregate(Max('oid'))
+		oid = orders['oid__max']
+
+		#save in ordBook
+		ordbook = []
+		for item in cart_items:
+			book = {'book': item.book, 'qty': item.qty}
+			ordbook.append(book)
+			Oid = Ord.objects.filter(oid=oid)[0]
+			book_order = OrdBook(oid=Oid, book=item.book, qty=item.qty)
+			book_order.save()
+
+		#clear cart
+		Cart.objects.filter(customer=cus).delete()
+
+	template = loader.get_template('bookstore/checkout.html')
+	context = RequestContext(request, {'ordbooks': ordbook})
+	return HttpResponse(template.render(context))
 
 def view_login(request):
 	errors = []

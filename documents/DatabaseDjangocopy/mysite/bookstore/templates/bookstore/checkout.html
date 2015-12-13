@@ -1,0 +1,10 @@
+{% extends 'bookstore/base.html' %}
+
+{% block title %}Check out{% endblock %}
+
+{% block body_block %}
+<h2>Your checkout is successful!</h2>
+{% for book in ordbooks %}
+<p>{{book.book.title}} added to orders (quantity: {{book.qty}})</p> 
+{% endfor %}
+{% endblock %}
